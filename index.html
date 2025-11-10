@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sarkari Exams — All Government Exams 2025</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; }
+    body { background:#0d1117; color:white; min-height:100vh; }
+    header { background:linear-gradient(90deg,#6a11cb,#2575fc); display:flex; justify-content:space-between; align-items:center; padding:15px 40px; position:sticky; top:0; z-index:1000; }
+    .logo { font-size:1.8rem; font-weight:bold; }
+    nav { display:flex; gap:25px; }
+    nav a { text-decoration:none; color:#fff; font-weight:500; transition:0.3s; }
+    nav a:hover { color:#d0d0d0; }
+    .profile { width:45px; height:45px; border-radius:50%; border:2px solid white; object-fit:cover; }
+    .menu-toggle { display:none; flex-direction:column; cursor:pointer; }
+    .bar { height:3px; width:25px; background-color:white; margin:4px 0; border-radius:2px; }
+    .hero { text-align:center; padding:50px 20px 20px; }
+    .hero h1 { font-size:2rem; margin-bottom:20px; }
+    .filters { display:flex; justify-content:center; align-items:center; gap:15px; margin-bottom:30px; flex-wrap:wrap; }
+    .filters input, .filters select { padding:10px 15px; border-radius:8px; border:none; outline:none; width:250px; }
+    .exam-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px; width:90%; margin:0 auto 50px; }
+    .exam-card { background:#161b22; padding:25px; border-radius:15px; box-shadow:0 0 10px rgba(0,0,0,0.3); transition:transform .3s; }
+    .exam-card:hover { transform:translateY(-5px); }
+    .exam-card h3 { color:#00b4d8; font-size:1.2rem; margin-bottom:10px; }
+    .exam-card p { font-size:0.9rem; color:#ccc; margin-bottom:15px; line-height:1.5; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:15px; }
+    .tag { background:#2a2f3d; color:#ddd; padding:5px 10px; border-radius:8px; font-size:0.8rem; }
+    .btns { display:flex; gap:10px; }
+    .btn { flex:1; text-align:center; padding:10px; border-radius:8px; font-weight:600; text-decoration:none; color:white; }
+    .btn-details { background:linear-gradient(90deg,#00c6ff,#0072ff); }
+    .btn-link    { background:linear-gradient(90deg,#a770ef,#cf8bf3); }
+    footer { background:#0b0e13; padding:30px; text-align:center; color:#aaa; }
+    .socials { margin-top:15px; display:flex; justify-content:center; gap:20px; }
+    .socials a { color:#aaa; text-decoration:none; font-size:1.3rem; transition:0.3s; }
+    .socials a:hover { color:#00b4d8; }
+    @media (max-width:768px) {
+      nav { display:none; flex-direction:column; background:#161b22; position:absolute; top:70px; right:0; width:200px; padding:20px; border-radius:8px; }
+      nav.active { display:flex; }
+      .menu-toggle { display:flex; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Sarkari Exams</div>
+    <nav id="navbar">
+      <a href="#">Home</a><a href="#">Exams</a><a href="#">Results</a><a href="#">Admit Card</a><a href="#">Contact</a>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+    <img src="https://i.ibb.co/qLBkHXDG/Untitled-design-1.png" alt="Admin" class="profile" />
+  </header>
+
+  <section class="hero">
+    <h1>All Government Exams 2025</h1>
+    <div class="filters">
+      <input type="text" placeholder="🔍 Search exams..." id="searchInput" />
+      <select id="filterEligibility">
+        <option value="">Filter by Eligibility</option>
+        <option value="Graduate">Graduate</option>
+        <option value="12th">12th Pass</option>
+        <option value="10th">10th Pass</option>
+        <option value="Diploma">Diploma</option>
+      </select>
+      <select id="filterMonth">
+        <option value="">Filter by Month</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="exam-container" id="examContainer"></section>
+
+  <footer>
+    <p>© 2025 Sarkari Exams | Designed by Admin</p>
+    <div class="socials"><a href="#">🌐</a><a href="#">📘</a><a href="#">🐦</a><a href="#">📸</a><a href="#">▶️</a></div>
+  </footer>
+
+  <script>
+    const exams = [
+      { name:"SSC CGL 2025", eligibility:"Graduate", month:"September", fee:"₹100", desc:"Combined Graduate Level exam for recruitment to Group B & C posts in various ministries and departments.", vacancies:"14582+", date:"September 2025", officialLink:"https://ssc.nic.in" },
+      { name:"SSC CHSL 2025", eligibility:"12th", month:"May", fee:"₹100", desc:"Combined Higher Secondary Level exam for DEO, LDC, and Postal Assistant / Sorting Assistant posts.", vacancies:"3131+", date:"May 2025", officialLink:"https://ssc.nic.in" },
+      { name:"SSC MTS 2025", eligibility:"10th", month:"February", fee:"₹100", desc:"Multi-Tasking Staff exam for various non-gazetted posts.", vacancies:"10000+", date:"February 2025", officialLink:"https://ssc.nic.in" }
+      // … add officialLink for every exam similarly …
+    ];
+
+    const container = document.getElementById("examContainer");
+    const searchInput = document.getElementById("searchInput");
+    const filterEligibility = document.getElementById("filterEligibility");
+    const filterMonth = document.getElementById("filterMonth");
+
+    function renderExams(list) {
+      container.innerHTML = list.map(exam => `
+        <div class="exam-card">
+          <h3>${exam.name}</h3>
+          <p>${exam.desc}</p>
+          <div class="tags">
+            <div class="tag">Fees: ${exam.fee}</div>
+            <div class="tag">Eligibility: ${exam.eligibility}</div>
+            <div class="tag">Vacancies: ${exam.vacancies}</div>
+            <div class="tag">Date: ${exam.date}</div>
+          </div>
+          <div class="btns">
+            <a href="exam-details.html?exam=${encodeURIComponent(exam.name)}" class="btn btn-details">View Details</a>
+            <a href="${exam.officialLink}" target="_blank" rel="noopener noreferrer" class="btn btn-link">Official Link</a>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function filterExams() {
+      const search = searchInput.value.toLowerCase();
+      const eligibility = filterEligibility.value;
+      const month = filterMonth.value;
+
+      const filtered = exams.filter(e =>
+        e.name.toLowerCase().includes(search) &&
+        (eligibility === "" || e.eligibility === eligibility) &&
+        (month === "" || e.month.includes(month))
+      );
+      renderExams(filtered);
+    }
+
+    // initial load
+    renderExams(exams);
+
+    // filters
+    searchInput.addEventListener("input", filterExams);
+    filterEligibility.addEventListener("change", filterExams);
+    filterMonth.addEventListener("change", filterExams);
+
+    // menu toggle
+    document.getElementById("menu-toggle").addEventListener("click", () => {
+      document.getElementById("navbar").classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
