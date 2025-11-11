@@ -3,16 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GovtApplyZone — SSC CGL 2025 Guide</title>
-
-  <!-- UPDATED: added descriptive meta description for SEO -->
-  <meta name="description" content="Complete SSC CGL 2025 guide — notifications, syllabus, cutoffs, and preparation tips." />
-
-  <!-- KEEP: single google-site-verification (removed duplicate) -->
-  <meta name="google-site-verification" content="USa0wV6wVy7i4KQlZifA7lX8_M8QPwvM0-B4tNDPh-Q" /> <!-- UPDATED: removed duplicate meta verification -->
-
-  <!-- Canonical to prefer the www version for search engines -->
-  <link rel="canonical" href="https://www.govtapplyzone.site/ssc-cgl-2025.html" /> <!-- UPDATED: added canonical -->
+  <title>Sarkari Exams — SSC CGL 2025 Guide (Tailwind)</title>
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -54,13 +45,12 @@
       
       <!-- LEFT: Logo Text -->
       <div class="text-white text-[1.7rem] font-extrabold">
-        <!-- UPDATED: fixed nested spans and closed tags properly -->
-        <span class="text-yellow-300">Govt</span><span class="text-rose-300">Apply</span><span class="text-lime-500">Zone</span>
+        <span class="text-yellow-300">Govt<span class="text-rose-300">Apply<span class="text-lime-500">Zone
       </div>
 
       <!-- CENTER: Nav -->
       <nav id="navbar" class="hidden md:flex gap-6">
-        <a href="index.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Home</a>
+        <a href="#" class="text-white font-medium hover:text-[#d0d0d0] transition">Home</a>
         <a href="#" class="text-white font-medium hover:text-[#d0d0d0] transition">Exams</a>
         <a href="#" class="text-white font-medium hover:text-[#d0d0d0] transition">Results</a>
         <a href="#" class="text-white font-medium hover:text-[#d0d0d0] transition">Admit Card</a>
@@ -69,8 +59,7 @@
 
       <!-- RIGHT: Menu + Profile -->
       <div class="flex items-center gap-3">
-        <!-- UPDATED: changed id from 'menu-toggle' to 'menuBtn' so JS selector matches -->
-        <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false"
+        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false"
                 class="md:hidden flex flex-col justify-center items-center">
           <span class="block w-[22px] h-[2px] bg-white rounded my-[2px]"></span>
           <span class="block w-[22px] h-[2px] bg-white rounded my-[2px]"></span>
@@ -84,8 +73,7 @@
     </div>
 
     <!-- MOBILE NAV -->
-    <!-- UPDATED: changed id to mobileNav to match JS selector and removed duplicate md:hidden -->
-    <nav id="mobileNav" class="hidden flex-col bg-[#161b22] absolute top-[70px] right-[10px] w-[180px] p-4 rounded-lg space-y-3">
+    <nav id="mobile-nav" class="hidden md:hidden flex-col bg-[#161b22] absolute top-[70px] right-[10px] w-[180px] p-4 rounded-lg space-y-3">
       <a href="#" class="text-white font-medium hover:text-[#d0d0d0]">Home</a>
       <a href="#" class="text-white font-medium hover:text-[#d0d0d0]">Exams</a>
       <a href="#" class="text-white font-medium hover:text-[#d0d0d0]">Results</a>
@@ -94,6 +82,8 @@
     </nav>
   </header>
 <!-- END: Exact-match header -->
+
+<!-- END: Header matching your screenshot -->
 
 
   <!-- HERO -->
@@ -427,17 +417,11 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Mobile nav toggle (controls #mobileNav visibility)
-    // UPDATED: selectors now match the updated IDs in markup (menuBtn, mobileNav)
-    const menuBtn = document.getElementById('menuBtn'); // UPDATED: matches button id
-    const mobileNav = document.getElementById('mobileNav'); // UPDATED: matches nav id
-    if (menuBtn) {
-      menuBtn.addEventListener('click', () => {
-        mobileNav && mobileNav.classList.toggle('hidden');
-        // UPDATED: toggle 'aria-expanded' for accessibility
-        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-        menuBtn.setAttribute('aria-expanded', String(!expanded));
-      });
-    }
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn && menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('hidden');
+    });
 
     // Smooth scroll for internal links (keeps original behavior)
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -446,7 +430,7 @@
         if(target){
           e.preventDefault();
           target.scrollIntoView({behavior:'smooth', block:'start'});
-          if(window.innerWidth <= 900 && mobileNav && !mobileNav.classList.contains('hidden')) mobileNav.classList.add('hidden');
+          if(window.innerWidth <= 900 && !mobileNav.classList.contains('hidden')) mobileNav.classList.add('hidden');
         }
       });
     });
@@ -464,11 +448,13 @@
       });
     }
     if (modalClose) modalClose.addEventListener('click', () => { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); });
-    modal && modal.addEventListener('click', e => { if(e.target === modal) { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); }});
+    modal.addEventListener('click', e => { if(e.target === modal) { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); }});
     if (mockDownload) mockDownload.addEventListener('click', (e) => { e.preventDefault(); alert('Demo mock download — replace with official PDF link.'); });
 
     // ESC closes modal
-    window.addEventListener('keydown', (e) => { if(e.key === 'Escape') { modal && modal.classList.add('hidden'); modal && modal.setAttribute('aria-hidden','true'); }});
+    window.addEventListener('keydown', (e) => { if(e.key === 'Escape') { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); }});
   </script>
 </body>
 </html>
+
+          
