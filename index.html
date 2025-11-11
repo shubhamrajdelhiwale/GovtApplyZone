@@ -7,8 +7,25 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; }
     body { background:#0d1117; color:white; min-height:100vh; }
-    header { background:linear-gradient(90deg,#6a11cb,#2575fc); display:flex; justify-content:space-between; align-items:center; padding:10px 32px; position:sticky; top:0; z-index:1000; }
-    .logo { font-size:1.8rem; font-weight:bold; }
+    header { background:linear-gradient(90deg,#6a11cb,#2575fc); display:flex; justify-content:space-between; align-items:center; padding:15px 40px; position:sticky; top:0; z-index:1000; }
+    
+    /* Logo: updated to plain-CSS colored spans */
+    .site-logo {
+      color: #ffffff;        /* base white text */
+      font-size: 1.7rem;     /* matches text-[1.7rem] */
+      font-weight: 800;      /* extrabold */
+      display: flex;         /* use flex to remove whitespace gaps */
+      gap: 0;                /* ensure no gap between spans */
+      align-items: baseline; /* keep vertical alignment natural */
+      line-height: 1;
+      letter-spacing: 0.2px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    }
+    .site-logo .logo-part { display:inline-block; }
+    .site-logo .logo-yellow { color: #fde047; } /* yellow-300 */
+    .site-logo .logo-rose   { color: #fda4af; } /* rose-300 */
+    .site-logo .logo-lime   { color: #bef264; } /* lime-500 */
+
     nav { display:flex; gap:25px; }
     nav a { text-decoration:none; color:#fff; font-weight:500; transition:0.3s; }
     nav a:hover { color:#d0d0d0; }
@@ -43,9 +60,15 @@
 </head>
 <body>
   <header>
-    <div class="logo">GovtApplyZone</div>
+    <!-- LEFT: Logo Text (updated to colored spans, plain CSS) -->
+    <div class="site-logo" role="img" aria-label="GovtApplyZone">
+      <span class="logo-part logo-yellow">Govt</span>
+      <span class="logo-part logo-rose">Apply</span>
+      <span class="logo-part logo-lime">Zone</span>
+    </div>
+
     <nav id="navbar">
-      <a href="index.html">Home</a><a href="#">Exams</a><a href="#">Results</a><a href="#">Admit Card</a><a href="#">Contact</a>
+      <a href="#">Home</a><a href="#">Exams</a><a href="#">Results</a><a href="#">Admit Card</a><a href="#">Contact</a>
     </nav>
     <div class="menu-toggle" id="menu-toggle"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
     <img src="https://i.ibb.co/qLBkHXDG/Untitled-design-1.png" alt="Admin" class="profile" />
@@ -246,12 +269,13 @@
     searchInput.addEventListener("input", filterExams);
     filterEligibility.addEventListener("change", filterExams);
     filterMonth.addEventListener("change", filterExams);
+
+    // Menu toggle for mobile
+    const menuToggle = document.getElementById("menu-toggle");
+    const navbar = document.getElementById("navbar");
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
-
