@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://govtapplyzone.site/sitemap.xml
