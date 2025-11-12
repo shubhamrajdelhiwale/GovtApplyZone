@@ -1,13 +1,16 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SSC MTS — Mock Exam & Guide (Tailwind)</title>
+  <title>Govt Apply Zone — SSC MTS 2025 Guide</title>
+  <link rel="icon" type="image/png" href="./images/admin.png">
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Tailwind (CDN quick demo) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,125 +22,224 @@
   </script>
 
   <style>
-    :root{ --shadow: 0 6px 20px rgba(15,46,74,0.08); }
-    .icon-orange{ background: linear-gradient(180deg,#f08b2d,#e26b2b); }
-    .icon-blue{ background: linear-gradient(180deg,#1da1f2,#0f8ed6); }
-    .icon-green{ background: linear-gradient(180deg,#2dbb77,#1f8f56); }
-    .icon-navy{ background: linear-gradient(180deg,#0f2e4a,#0f4ea8); }
-    .modal-backdrop{ background: rgba(13,36,60,0.45); }
-    .cutoff-table thead th:first-child{ border-top-left-radius:8px }
-    .cutoff-table thead th:last-child{ border-top-right-radius:8px }
+    /* Small custom bits that are easier to keep in CSS than inline utilities: gradients & shadows used repeatedly */
+    :root {
+      --shadow: 0 6px 20px rgba(15, 46, 74, 0.08);
+    }
+
+    /* icon gradients (kept as classes to keep markup tidy) */
+    .icon-orange {
+      background: linear-gradient(180deg, #f08b2d, #e26b2b);
+    }
+
+    .icon-blue {
+      background: linear-gradient(180deg, #1da1f2, #0f8ed6);
+    }
+
+    .icon-green {
+      background: linear-gradient(180deg, #2dbb77, #1f8f56);
+    }
+
+    .icon-navy {
+      background: linear-gradient(180deg, #0f2e4a, #0f4ea8);
+    }
+
+    /* modal backdrop using attribute (keeps aria approach) */
+    .modal-backdrop {
+      background: rgba(13, 36, 60, 0.45);
+    }
+
+    /* table head rounding hack for wide tables inside overflow container */
+    .cutoff-table thead th:first-child {
+      border-top-left-radius: 8px
+    }
+
+    .cutoff-table thead th:last-child {
+      border-top-right-radius: 8px
+    }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased leading-relaxed font-sans">
+
+<body class="bg-gray-300 text-slate-900 antialiased leading-relaxed font-sans">
 
   <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-gradient-to-r from-[#6a11cb] to-[#2575fc] px-[37px]">
+  <header class="sticky top-0 z-50 bg-gradient-to-r from-[#10386a] to-[#1a5a8e] px-[37px]">
     <div class="flex items-center justify-between w-full h-[67px]">
-      <div class="text-white text-[1.7rem] font-extrabold">
-        <span class="text-yellow-300">Govt<span class="text-rose-300">Apply<span class="text-lime-500">Zone</span></span></span>
-      </div>
 
+      <!-- LEFT: Logo -->
+      <a href="home.html" class="text-white text-[1.7rem] pl-5 font-extrabold hover:opacity-90 transition">
+        <span class="text-yellow-300">Govt</span>
+        <span class="text-rose-300">Apply</span>
+        <span class="text-lime-500">Zone</span>
+      </a>
+
+      <!-- CENTER: Nav (Visible on Desktop) -->
       <nav id="navbar" class="hidden md:flex gap-6">
-        <a href="#home" class="text-white font-medium hover:text-[#d0d0d0] transition">Home</a>
-        <a href="#exams" class="text-white font-medium hover:text-[#d0d0d0] transition">Exams</a>
-        <a href="#updates" class="text-white font-medium hover:text-[#d0d0d0] transition">Updates</a>
-        <a href="#prep" class="text-white font-medium hover:text-[#d0d0d0] transition">Preparation</a>
-        <a href="#contact" class="text-white font-medium hover:text-[#d0d0d0] transition">Contact</a>
+        <a href="All-Exams.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Exams</a>
+        <a href="Results.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Results</a>
+        <a href="Admit-cards.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Admit Card</a>
+        <a href="All-Books.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Books</a>
+        <a href="Mock-tests.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Mock Test</a>
       </nav>
 
+      <!-- RIGHT: Hamburger (Mobile) + Profile (Desktop) -->
       <div class="flex items-center gap-3">
-        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" class="md:hidden flex flex-col justify-center items-center">
-          <span class="block w-[22px] h-[2px] bg-white rounded my-[2px]"></span>
-          <span class="block w-[22px] h-[2px] bg-white rounded my-[2px]"></span>
-          <span class="block w-[22px] h-[2px] bg-white rounded my-[2px]"></span>
+        <!-- Hamburger: only visible on mobile -->
+        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false"
+          class="md:hidden flex flex-col justify-center items-center">
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
         </button>
 
-        <img src="https://i.ibb.co/qLBkHXDG/Untitled-design-1.png" alt="Admin" class="block w-[42px] h-[42px] rounded-full border-2 border-white object-cover">
+        <!-- Profile: only visible on desktop -->
+        <a href="profile.html" class="hidden pr-5 md:block">
+          <img src="./images/admin.png" alt="Admin"
+            class="w-[42px] h-[42px] rounded-full border-2 border-white object-cover hover:scale-105 transition duration-200">
+        </a>
+
       </div>
     </div>
 
-    <!-- MOBILE NAV -->
-    <nav id="mobile-nav" class="hidden md:hidden flex-col bg-[#161b22] absolute top-[70px] right-[10px] w-[200px] p-4 rounded-lg space-y-3">
-      <a href="#home" class="text-white font-medium hover:text-[#d0d0d0]">Home</a>
-      <a href="#exams" class="text-white font-medium hover:text-[#d0d0d0]">Exams</a>
-      <a href="#updates" class="text-white font-medium hover:text-[#d0d0d0]">Updates</a>
-      <a href="#prep" class="text-white font-medium hover:text-[#d0d0d0]">Preparation</a>
-      <a href="#contact" class="text-white font-medium hover:text-[#d0d0d0]">Contact</a>
+    <!-- MOBILE NAV DROPDOWN -->
+    <nav id="mobile-nav"
+      class="hidden md:hidden flex-col absolute top-[70px] right-[12px] w-[200px] bg-[#0f172a] rounded-xl shadow-2xl border border-white/10 p-3 transition-all duration-200 space-y-1">
+
+      <a href="All-Exams.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Exams</a>
+      <a href="Results.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Results</a>
+      <a href="Admit-cards.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Admit Card</a>
+      <a href="All-Books.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Books</a>
+      <a href="Mock-tests.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Mock Test</a>
+      <a href="Admin-contact.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Contact Us</a>
+
+      <!-- Profile Avatar (bottom of menu) -->
+      <div class="flex justify-center pt-3 border-t border-white/10 mt-2">
+        <a href="profile.html">
+          <img src="./images/admin.png" alt="Profile"
+            class="w-[45px] h-[45px] rounded-full border-2 border-white object-cover hover:scale-105 transition duration-200">
+        </a>
+      </div>
     </nav>
   </header>
 
-  <!-- HERO -->
   <main>
-    <section id="home" class="py-20 text-white bg-gradient-to-b from-[#10386a] to-[#1a5a8e]">
-      <div class="max-w-4xl mx-auto text-center px-6">
-        <h1 class="text-3xl md:text-5xl font-extrabold mb-3">SSC MTS Exam — Complete Guide & Mock</h1>
-        <p class="text-base md:text-lg text-white/95 mb-6">Everything aspirants need for SSC Multi Tasking (Non-Technical) Staff — notifications, pattern, syllabus, and mock tests.</p>
+    <!-- HERO -->
+    <section
+      class="hidden md:flex w-full items-center justify-center bg-gradient-to-br from-[#0a1f44] via-[#0a1f44] to-[#0a1f44] px-4 py-5 md:py-5">
+      <div
+        class="w-full max-w-6xl mx-auto bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.25)] p-8 md:p-12 text-white text-center">
 
-        <div class="flex items-center justify-center gap-3 flex-wrap">
-          <button id="downloadNotification" class="bg-white text-slate-900 font-bold px-5 py-3 rounded-lg shadow">Download Notification</button>
-          <a href="#prep" class="border border-white/60 text-white px-4 py-3 rounded-lg font-semibold">Check Syllabus</a>
-          <a href="#mock" class="bg-emerald-500 text-white px-4 py-3 rounded-lg font-semibold">Try Mock (Demo)</a>
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-3 tracking-tight">
+          SSC MTS Exam <span class="text-amber-300">2025</span>
+        </h1>
+
+        <p class="max-w-4xl mx-auto text-base md:text-lg text-white/90 leading-relaxed mb-6">
+          The <strong>SSC MTS (Multi Tasking Staff)</strong> is a national level exam by the Staff Selection Commission for recruitment of Group C non-technical posts (and Havaldar posts in CBIC & CBN) across central government departments. Held as a Computer Based Test, it assesses basic numerical, reasoning, English and general awareness skills — offering a gateway to stable government careers with salary and perks.  
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-3">
+          <a href="files/sscmts.pdf" download
+            class="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold px-5 py-3 rounded-xl shadow-lg hover:scale-[1.03] hover:bg-gray-100 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M3 3.5A1.5 1.5 0 014.5 2h11A1.5 1.5 0 0117 3.5v7a1.5 1.5 0 01-1.5 1.5H13v-1.25a2.25 2.25 0 00-4.5 0V12H4.5A1.5 1.5 0 013 10.5v-7zM8 13.5V15h4v-1.5h1.5a.5.5 0 01.5.5V16A1 1 0 0113 17H7a1 1 0 01-1-1v-1a.5.5 0 01.5-.5H8z"
+                clip-rule="evenodd" />
+            </svg>
+            Download Notification
+          </a>
+
+          <a href="#about"
+            class="border border-white/40 text-white px-5 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all">
+            Check Syllabus
+          </a>
         </div>
+
+        <p class="text-xs text-white/60">Updated: Nov 13, 2025</p>
       </div>
     </section>
 
-    <!-- Latest Updates (kept design from your CGL page) -->
+    <section
+      class="block md:hidden w-full bg-gradient-to-b from-[#0a1f44] via-[#173b6c] to-[#0a1f44] text-white px-5 py-8 text-center">
+      <h2 class="text-2xl font-extrabold">
+        SSC MTS 2025
+      </h2>
+      <p class="text-sm text-white/90 leading-relaxed mb-4">
+        The SSC MTS is a national exam for 10th-pass candidates to join central government Group C non-technical roles. Check eligibility, syllabus & latest updates here.  
+      </p>
+    </section>
+
+    <!-- Latest Updates -->
     <section id="updates" class="py-16">
-      <div class="max-w-6xl mx-auto px-4">
+      <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-2xl font-bold">Latest Updates</h2>
-        <p class="text-slate-500 mt-2">Important SSC MTS notifications and resources</p>
+        <p class="text-slate-500 mt-2">Stay informed with the latest SSC MTS news and notifications</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+
+          <!-- Example Update -->
           <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u1">
             <div class="flex gap-4 items-start relative">
-              <div class="w-14 h-14 rounded-lg flex items-center justify-center text-white text-xl icon-orange">
+              <div class="text-orange-500 text-3xl">
                 <i class="fa fa-bell"></i>
               </div>
               <div>
-                <h3 id="u1" class="text-lg font-semibold">SSC MTS 2025 Notification</h3>
-                <time class="block text-sm text-slate-500 mt-1">Expected: Nov 2025</time>
-                <p class="mt-2 text-slate-700">Official notification and vacancy details will be published on the SSC website. Keep your documents ready.</p>
+                <h3 id="u1" class="text-lg font-semibold">SSC MTS 2025 Notification Released</h3>
+                <time class="block text-sm text-slate-500 mt-1">26 June 2025</time>
+                <p class="mt-2 text-slate-700">Staff Selection Commission has released the official notification for Multi Tasking Staff (Non-Technical) & Havaldar Examination 2025.</p>
               </div>
-              <span class="absolute right-4 top-4 bg-orange-500 text-white px-3 py-1 rounded-full font-bold text-xs">New</span>
+              <span
+                class="absolute right-4 top-4 bg-orange-500 text-white px-3 py-1 rounded-full font-bold text-xs">New</span>
             </div>
           </article>
 
           <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u2">
             <div class="flex gap-4 items-start">
-              <div class="w-14 h-14 rounded-lg flex items-center justify-center text-white text-xl icon-blue">
+              <div class="text-blue-500 text-3xl">
                 <i class="fa fa-id-card"></i>
               </div>
               <div>
-                <h3 id="u2" class="text-lg font-semibold">Admit Card & Exam Dates</h3>
-                <time class="block text-sm text-slate-500 mt-1">To be announced</time>
-                <p class="mt-2 text-slate-700">Download admit cards, exam center details and instructions once the link is active.</p>
+                <h3 id="u2" class="text-lg font-semibold">Application Window Opened</h3>
+                <time class="block text-sm text-slate-500 mt-1">26 June 2025</time>
+                <p class="mt-2 text-slate-700">Online registration for SSC MTS 2025 started via the official SSC portal.</p>
               </div>
             </div>
           </article>
 
           <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u3">
             <div class="flex gap-4 items-start">
-              <div class="w-14 h-14 rounded-lg flex items-center justify-center text-white text-xl icon-green">
+              <div class="text-green-500 text-3xl">
                 <i class="fa fa-check-square"></i>
               </div>
               <div>
-                <h3 id="u3" class="text-lg font-semibold">Answer Key & Objections</h3>
-                <time class="block text-sm text-slate-500 mt-1">Post exam</time>
-                <p class="mt-2 text-slate-700">Provisional answer keys will be uploaded; candidates can submit representations within the given timeline.</p>
+                <h3 id="u3" class="text-lg font-semibold">10th Pass Eligible — Many Posts</h3>
+                <time class="block text-sm text-slate-500 mt-1">30 Jun 2025</time>
+                <p class="mt-2 text-slate-700">Candidates who have completed matriculation (10th standard) can apply for SSC MTS 2025 according to the eligibility criteria.</p>
               </div>
             </div>
           </article>
 
           <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u4">
             <div class="flex gap-4 items-start">
-              <div class="w-14 h-14 rounded-lg flex items-center justify-center text-white text-xl icon-navy">
+              <div class="text-indigo-600 text-3xl">
                 <i class="fa fa-users"></i>
               </div>
               <div>
-                <h3 id="u4" class="text-lg font-semibold">Vacancy Trends</h3>
-                <time class="block text-sm text-slate-500 mt-1">Historical</time>
-                <p class="mt-2 text-slate-700">Vacancies vary year-to-year; monitor notifications and regional lists for exact counts.</p>
+                <h3 id="u4" class="text-lg font-semibold">Expected Vacancies ~8,000+</h3>
+                <time class="block text-sm text-slate-500 mt-1">01 Nov 2025</time>
+                <p class="mt-2 text-slate-700">As per sources, SSC is expected to release over 8,000+ vacancies for MTS & Havaldar posts for 2025. (Tentative, refer notification)</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u5">
+            <div class="flex gap-4 items-start">
+              <div class="text-red-500 text-3xl">
+                <i class="fa fa-calendar-alt"></i>
+              </div>
+              <div>
+                <h3 id="u5" class="text-lg font-semibold">Exam Date Announced</h3>
+                <time class="block text-sm text-slate-500 mt-1">Oct 2025</time>
+                <p class="mt-2 text-slate-700">SSC has announced that the Computer Based Test for MTS 2025 will be held in/around October 2025. Please check official date.</p>
               </div>
             </div>
           </article>
@@ -147,159 +249,369 @@
     </section>
 
     <!-- About / Features -->
-    <section id="exams" class="py-16 bg-transparent">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl font-bold text-center">About SSC MTS</h2>
-        <p class="text-center text-slate-500 mt-2 max-w-3xl mx-auto">SSC MTS (Multi Tasking Staff) is a nationwide recruitment for various non-technical posts across Central Government departments. This page mirrors the design you supplied but tailored for MTS.</p>
+    <section id="about" class="py-10 bg-transparent">
+      <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-blue-900 decoration-blue-700">
+          All About <span class="text-yellow-400">SSC MTS</span>
+        </h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div class="bg-white shadow-lg rounded-xl p-8 mt-8">
+          <p class="text-slate-700 leading-relaxed text-justify">
+            The Staff Selection Commission conducts the SSC MTS (Multi Tasking Staff) Examination for recruitment of eligible candidates into various Group C non-technical posts (and Havaldar posts in the Central Board of Indirect Taxes and Customs / Central Bureau of Narcotics) in central government departments, ministries and organizations. The exam offers a great opportunity for matriculation-qualified candidates to enter central government service, with stable pay, allowances, and potential career growth.
+          </p>
+          <p class="text-slate-700 leading-relaxed text-justify mt-4">
+            The preparation involves understanding the exam pattern, familiarising with the syllabus, practicing mock tests and previous year question papers, and keeping up with current affairs and general knowledge. Because the exam targets 10th-pass level candidates, the focus is on speed, accuracy, and conceptual clarity rather than extremely advanced subjects.
+          </p>
+          <p class="text-slate-700 leading-relaxed text-justify mt-4">
+            Aspirants are advised to regularly check official notifications, monitor eligibility criteria updates, practice sectional tests, attempt full-length mocks, and maintain consistency in their preparation. A clear plan, systematic revision and smart strategy will significantly enhance the chances of success in SSC MTS.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+
+          <!-- Exam Schedule -->
           <div class="bg-white rounded-xl p-5 shadow">
-            <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mb-3"><i class="fa fa-calendar-alt"></i></div>
-            <h4 class="font-semibold">Exam Schedule</h4>
-            <p class="text-slate-600">Important dates for application, exam, and result updates.</p>
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-calendar-alt"></i>
+                </div>
+                <h4 class="font-semibold">Exam Schedule</h4>
+              </div>
+              <a href="https://ssc.gov.in/" target="_blank" rel="noopener" class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Notification released: 26 June 2025. Application window: 26 June – 24 July 2025 (tentative) based on sources. CBT expected around Oct 2025. Candidates should keep checking official website for exact dates.
+            </p>
           </div>
 
+          <!-- Syllabus & Pattern -->
           <div class="bg-white rounded-xl p-5 shadow">
-            <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mb-3"><i class="fa fa-book"></i></div>
-            <h4 class="font-semibold">Syllabus & Pattern</h4>
-            <p class="text-slate-600">CBT (Paper I) objective questions — pattern and section-wise weightage.</p>
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-book"></i>
+                </div>
+                <h4 class="font-semibold">Syllabus & Pattern</h4>
+              </div>
+              <a href="https://www.careerpower.in/ssc-mts-syllabus.html" target="_blank" rel="noopener"
+                class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Paper I: Two Sessions – Session 1 (Reasoning &amp; Numerical) → 40 Qs, 120 marks; Session 2 (English &amp; General Awareness) → 50 Qs, 150 marks. Duration: 45 minutes each session. Negative marking applies only in Session 2. Subjects: General Intelligence & Reasoning, Numerical Ability, English Language & Comprehension, General Awareness. :contentReference[oaicite:4]{index=4}
+            </p>
           </div>
 
+          <!-- Previous Papers -->
           <div class="bg-white rounded-xl p-5 shadow">
-            <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mb-3"><i class="fa fa-file-alt"></i></div>
-            <h4 class="font-semibold">Previous Papers</h4>
-            <p class="text-slate-600">Practice previous year papers and mock tests.</p>
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-file-alt"></i>
+                </div>
+                <h4 class="font-semibold">Previous Papers</h4>
+              </div>
+              <a href="https://testbook.com/ssc-mts/syllabus-exam-pattern" target="_blank" rel="noopener"
+                class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Solving past year & shift-wise papers is essential to understanding question format and time management. Make sure to cover high-frequency topics (basic arithmetic, puzzles & reasoning, current affairs) and build speed. :contentReference[oaicite:5]{index=5}
+            </p>
+          </div>
+
+          <!-- Vacancy Details -->
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div those="" class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-user-friends"></i>
+                </div>
+                <h4 class="font-semibold">Vacancy Details</h4>
+              </div>
+              <a href="https://sarkariresult.com.im/ssc-mts-recruitment-2025/" target="_blank" rel="noopener" class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              The 2025 notification mentions around ~8,000+ posts for MTS & Havaldar (exact figure to be confirmed in official document). :contentReference[oaicite:6]{index=6}
+            </p>
+          </div>
+
+          <!-- Selection Process -->
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-award"></i>
+                </div>
+                <h4 class="font-semibold">Selection Process</h4>
+              </div>
+              <a href="https://ssc.gov.in/" target="_blank" rel="noopener" class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Flow: CBT (two sessions) → For Havaldar posts: Physical Standard Test (PST) & Physical Efficiency Test (PET) → Document Verification → Final merit & appointment. :contentReference[oaicite:7]{index=7}
+            </p>
+          </div>
+
+          <!-- Success Tips -->
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-chart-line"></i>
+                </div>
+                <h4 class="font-semibold">Success Tips</h4>
+              </div>
+              <a href="https://testbook.com/ssc-mts/syllabus-exam-pattern" target="_blank" rel="noopener"
+                class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Create a daily timetable with topic-wise milestones, solve weekly mock tests, review errors in a notebook, and focus on speed + accuracy. For General Awareness: keep a monthly current affairs summary; for Quant & Reasoning: practice shortcut techniques and timed drills. Build full-length mocks to replicate exam pressure.
+            </p>
           </div>
 
         </div>
+
       </div>
     </section>
 
-    <!-- Exam Structure (adapted for MTS) -->
+    <!-- Exam Structure -->
     <section class="py-12">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl p-6 flex items-center gap-6 flex-wrap shadow" role="region" aria-label="Exam structure">
+      <div class="max-w-7xl mx-auto px-4">
+        <div
+          class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl p-6 flex items-center gap-6 flex-wrap shadow"
+          role="region" aria-label="Exam structure">
           <div class="flex-1 text-center min-w-[120px]">
-            <div class="text-3xl font-extrabold">Paper I</div>
-            <div class="opacity-95">Computer Based Test</div>
+            <div class="text-3xl font-extrabold">2 Sessions</div>
+            <div class="opacity-95">CBT Sessions</div>
           </div>
           <div class="flex-1 text-center min-w-[120px]">
-            <div class="text-3xl font-extrabold">100</div>
-            <div class="opacity-95">Marks</div>
+            <div class="text-3xl font-extrabold">120</div>
+            <div class="opacity-95">Marks in Session 1</div>
+          </div>
+          <div class="flex-1 text-center min-w-[120px]">
+            <div class="text-3xl font-extrabold">90 mins</div>
+            <div class="opacity-95">Total Duration</div>
           </div>
           <div class="flex-1 text-center min-w-[120px]">
             <div class="text-3xl font-extrabold">90</div>
-            <div class="opacity-95">Minutes Duration</div>
-          </div>
-          <div class="flex-1 text-center min-w-[120px]">
-            <div class="text-3xl font-extrabold">4</div>
-            <div class="opacity-95">Sections (suggested)</div>
+            <div class="opacity-95">Total Questions</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Cutoff Analysis -->
-    <section id="cutoffs" class="py-16">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl font-bold text-center">Cutoff Analysis</h2>
-        <p class="text-center text-slate-500 mt-2">Previous year cutoffs for MTS (Region-wise differences apply)</p>
+<section id="cutoffs" class="py-16">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-2xl font-bold text-center text-blue-900 underline underline-offset-4">
+      SSC MTS Cutoff Analysis (Last 5 Years)
+    </h2>
+    <p class="text-center text-slate-500 mt-2">
+      Compare category-wise cutoffs across the last five years for MTS & Havaldar exams
+    </p>
 
-        <div class="bg-white rounded-xl p-6 shadow mt-6">
-          <h3 class="text-lg font-semibold">Previous Year Cutoff Marks (Sample)</h3>
-          <p class="text-slate-500">Use this as a ballpark — check official regional notices for exact figures.</p>
+    <!-- MTS Exam Cutoff Table -->
+    <div class="bg-white rounded-xl p-6 shadow mt-10">
+      <h3 class="text-lg font-semibold text-blue-800 mb-4">MTS Exam Cutoff (2020–2024)</h3>
 
-          <div class="overflow-auto mt-4">
-            <table class="min-w-[720px] cutoff-table w-full text-left">
-              <thead>
-                <tr>
-                  <th class="p-4 bg-blue-900 text-white">Year</th>
-                  <th class="p-4 bg-blue-900 text-white">Region</th>
-                  <th class="p-4 bg-blue-900 text-white">General Cutoff</th>
-                  <th class="p-4 bg-blue-900 text-white">OBC</th>
-                  <th class="p-4 bg-blue-900 text-white">SC/ST</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="hover:bg-slate-50"><td class="p-4">2023</td><td class="p-4">North</td><td class="p-4 text-emerald-600 font-bold">70.25</td><td class="p-4">65.10</td><td class="p-4">55.40</td></tr>
-                <tr class="hover:bg-slate-50"><td class="p-4">2022</td><td class="p-4">South</td><td class="p-4 text-emerald-600 font-bold">68.00</td><td class="p-4">62.50</td><td class="p-4">53.00</td></tr>
-                <tr class="hover:bg-slate-50"><td class="p-4">2021</td><td class="p-4">West</td><td class="p-4 text-emerald-600 font-bold">69.40</td><td class="p-4">63.20</td><td class="p-4">54.10</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div class="overflow-auto">
+        <table class="min-w-[800px] w-full text-left border border-slate-200 rounded-lg shadow-sm">
+          <thead class="bg-blue-900 text-white">
+            <tr>
+              <th class="p-3">Category</th>
+              <th class="p-3 text-center">2024</th>
+              <th class="p-3 text-center">2023</th>
+              <th class="p-3 text-center">2022</th>
+              <th class="p-3 text-center">2021</th>
+              <th class="p-3 text-center">2020</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-medium">General (UR)</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">146.95</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">143.50</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">150.60</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">113.25</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">111.50</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-medium">OBC</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">139.75</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">140.00</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">147.20</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">104.00</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">106.00</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-medium">EWS</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">138.50</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">138.00</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">146.50</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">102.75</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">—</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-medium">SC</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">126.40</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">129.25</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">135.00</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">95.75</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">97.75</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-medium">ST</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">115.50</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">119.00</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">125.50</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">85.50</td>
+              <td class="p-3 text-center text-emerald-600 font-bold">87.50</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </section>
+    </div>
 
-    <!-- Preparation Strategy + Syllabus (with sample distribution) -->
+    <!-- Havaldar Post Cutoff Table -->
+    <div class="bg-white rounded-xl p-6 shadow mt-10">
+      <h3 class="text-lg font-semibold text-blue-800 mb-4">Havaldar Post Cutoff (CBIC & CBN) (2020–2024)</h3>
+
+      <div class="overflow-auto">
+        <table class="min-w-[800px] w-full text-left border border-slate-200 rounded-lg shadow-sm">
+          <thead class="bg-blue-900 text-white">
+            <tr>
+              <th class="p-3">Category</th>
+              <th class="p-3 text-center">2024</th>
+              <th class="p-3 text-center">2023</th>
+              <th class="p-3 text-center">2022</th>
+              <th class="p-3 text-center">2021</th>
+              <th class="p-3 text-center">2020</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-medium">General (UR)</td>
+              <td class="p-3 text-center text-sky-600 font-bold">134.25</td>
+              <td class="p-3 text-center text-sky-600 font-bold">133.50</td>
+              <td class="p-3 text-center text-sky-600 font-bold">135.60</td>
+              <td class="p-3 text-center text-sky-600 font-bold">110.50</td>
+              <td class="p-3 text-center text-sky-600 font-bold">108.25</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-medium">OBC</td>
+              <td class="p-3 text-center text-sky-600 font-bold">128.00</td>
+              <td class="p-3 text-center text-sky-600 font-bold">129.75</td>
+              <td class="p-3 text-center text-sky-600 font-bold">132.20</td>
+              <td class="p-3 text-center text-sky-600 font-bold">101.75</td>
+              <td class="p-3 text-center text-sky-600 font-bold">100.25</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-medium">EWS</td>
+              <td class="p-3 text-center text-sky-600 font-bold">126.50</td>
+              <td class="p-3 text-center text-sky-600 font-bold">127.25</td>
+              <td class="p-3 text-center text-sky-600 font-bold">130.00</td>
+              <td class="p-3 text-center text-sky-600 font-bold">98.00</td>
+              <td class="p-3 text-center text-sky-600 font-bold">—</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-medium">SC</td>
+              <td class="p-3 text-center text-sky-600 font-bold">115.00</td>
+              <td class="p-3 text-center text-sky-600 font-bold">117.00</td>
+              <td class="p-3 text-center text-sky-600 font-bold">121.25</td>
+              <td class="p-3 text-center text-sky-600 font-bold">86.00</td>
+              <td class="p-3 text-center text-sky-600 font-bold">87.00</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-medium">ST</td>
+              <td class="p-3 text-center text-sky-600 font-bold">105.50</td>
+              <td class="p-3 text-center text-sky-600 font-bold">108.25</td>
+              <td class="p-3 text-center text-sky-600 font-bold">113.75</td>
+              <td class="p-3 text-center text-sky-600 font-bold">78.50</td>
+              <td class="p-3 text-center text-sky-600 font-bold">80.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Preparation Strategy -->
     <section id="prep" class="py-16">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl font-bold">Preparation Strategy & Syllabus</h2>
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-2xl font-bold">Preparation Strategy</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           <div class="bg-white rounded-lg p-6 shadow">
-            <h3 class="text-lg font-semibold">Paper I (CBT) — Suggested Sectional Split</h3>
-            <p class="text-slate-500">(Sample distribution; adapt if official notification differs)</p>
+            <h3 class="text-lg font-semibold">Session 1 Preparation</h3>
+            <p class="text-slate-500">Objective Test – Reasoning + Numerical Ability</p>
             <ul class="list-disc list-inside mt-3 text-slate-700">
-              <li>General Awareness — 25 questions</li>
-              <li>Reasoning &amp; Numerical Ability — 25 questions</li>
-              <li>English Language &amp; Comprehension — 25 questions</li>
-              <li>Basic Arithmetic / Quantitative Aptitude — 25 questions</li>
+              <li>Reasoning Ability & Problem Solving (20 Qs, 60 Marks) :contentReference[oaicite:8]{index=8}</li>
+              <li>Numerical & Mathematical Ability (20 Qs, 60 Marks) :contentReference[oaicite:9]{index=9}</li>
+              <li>Focus on speed, shortcuts, fundamentals of arithmetic, puzzles & reasoning.</li>
             </ul>
           </div>
 
           <div class="bg-white rounded-lg p-6 shadow">
-            <h3 class="text-lg font-semibold">12‑Week Study Plan (Compact)</h3>
-            <ol class="list-decimal list-inside mt-3 text-slate-700">
-              <li>Weeks 1–4: Concept building & speed (short daily mocks)</li>
-              <li>Weeks 5–8: Topic-wise practice & previous papers</li>
-              <li>Weeks 9–12: Full-length mocks, revision & accuracy drills</li>
-            </ol>
+            <h3 class="text-lg font-semibold">Session 2 Preparation</h3>
+            <p class="text-slate-500">Objective Test – General Awareness + English</p>
+            <ul class="list-disc list-inside mt-3 text-slate-700">
+              <li>General Awareness (25 Qs, 75 Marks) :contentReference[oaicite:10]{index=10}</li>
+              <li>English Language & Comprehension (25 Qs, 75 Marks) :contentReference[oaicite:11]{index=11}</li>
+              <li>Negative marking applies (-1 mark per wrong answer). :contentReference[oaicite:12]{index=12}</li>
+            </ul>
           </div>
+
+          <div class="bg-white rounded-lg p-6 shadow">
+            <h3 class="text-lg font-semibold">Havaldar Posts: Physical Test</h3>
+            <p class="text-slate-500">Only for Havaldar (CBIC & CBN) category</p>
+            <ul class="list-disc list-inside mt-3 text-slate-700">
+              <li>Physical Standard Test (Height/Chest/Weight conditions) :contentReference[oaicite:13]{index=13}</li>
+              <li>Physical Efficiency Test e.g., walking/running tasks. :contentReference[oaicite:14]{index=14}</li>
+            </ul>
+          </div>
+
         </div>
-        <!-- SSC MTS 2025 — Key Details (replacing demo mock) -->
-        <div id="mts-details" class="bg-white rounded-xl p-6 mt-6 shadow">
-          <h3 class="text-lg font-semibold">SSC MTS 2025 — Key Details</h3>
-          <p class="text-slate-500 mt-2">Below is a concise collection of official and widely reported information candidates commonly look for. Always verify final details on <strong>ssc.gov.in</strong> or your regional SSC website.</p>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-            <div class="p-4 border rounded">
-              <h4 class="font-semibold">Vacancies</h4>
-              <p class="text-slate-700 mt-1">The 2025 notification announced tentative vacancies (varies by region). Reported totals in public notices range from <strong>1,075</strong> to several thousand depending on aggregated sources and included posts — confirm region-wise vacancies on the official notice.</p>
-            </div>
-
-            <div class="p-4 border rounded">
-              <h4 class="font-semibold">Important Dates (reported)</h4>
-              <ul class="list-disc list-inside mt-2 text-slate-700">
-                <li>Notification release: <strong>26 June 2025</strong> (official release date reported with regional notices).</li>
-                <li>Application window (typical): <strong>26 June 2025 — 24 July 2025</strong> (check exact closing time on SSC portal).</li>
-                <li>Application correction window (if provided): end of July 2025 (regional pages list specific dates).</li>
-                <li>Exam window (reported/expected): from <strong>October–December 2025</strong> depending on region.</li>
+        <div class="bg-white rounded-xl p-4 mt-6 shadow">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <h4 class="font-semibold">Key Dates (expected)</h4>
+              <ul class="list-disc list-inside text-slate-700 mt-2">
+                <li>Notification release: 26 June 2025</li>
+                <li>Application window: 26 June – 24 July 2025 (tentative)</li>
+                <li>CBT exam: Oct 2025 (tentative)</li>
               </ul>
             </div>
-
-            <div class="p-4 border rounded">
-              <h4 class="font-semibold">Exam Pattern & Syllabus — Paper I</h4>
-              <p class="text-slate-700 mt-1">Paper I is a Computer Based Test covering four broad areas: <em>General Intelligence & Reasoning, Numerical Aptitude, English Language & Comprehension, and General Awareness</em>. Check the official syllabus PDF for topic-level details (topics include basic arithmetic, history/geography current affairs, grammar/vocabulary basics, and elementary reasoning).</p>
+            <div>
+              <h4 class="font-semibold">What’s new (2025)</h4>
+              <ul class="list-disc list-inside text-slate-700 mt-2">
+                <li>Session structure: Two sessions, with negative marking only in Session 2. :contentReference[oaicite:15]{index=15}</li>
+                <li>Increased weight of General Awareness & English sections. :contentReference[oaicite:16]{index=16}</li>
+              </ul>
             </div>
-
-            <div class="p-4 border rounded">
-              <h4 class="font-semibold">Admit Card / Answer Key</h4>
-              <p class="text-slate-700 mt-1">Admit cards are released region-wise on SSC regional portals a few days before the scheduled exam. Provisional answer keys are normally uploaded post-exam with a window for representations.</p>
-            </div>
-
-            <div class="p-4 border rounded md:col-span-2">
-              <h4 class="font-semibold">How to verify official info</h4>
-              <ol class="list-decimal list-inside mt-2 text-slate-700">
-                <li>Open <strong>ssc.gov.in</strong> and check the "Recruitment" / "Notices" section for the SSC MTS 2025 advertisement and PDF. (Region-wise links are also provided.)</li>
-                <li>Download the official notification PDF and read sections on eligibility, fees, vacancies, and exam pattern exactly as published.</li>
-                <li>Use the regional SSC portal if you need admit cards or region-specific vacancy lists.</li>
+            <div>
+              <h4 class="font-semibold">12-Week Study Plan</h4>
+              <ol class="list-decimal list-inside text-slate-700 mt-2">
+                <li>Weeks 1–4: Basics, arithmetic & reasoning foundations</li>
+                <li>Weeks 5–8: Subject-wise practice and previous papers</li>
+                <li>Weeks 9–12: Full-length mock tests & revision</li>
               </ol>
             </div>
-
           </div>
-
-          <div class="mt-4 text-sm text-slate-500">Sources: publicly reported official notice and aggregator portals — date and vacancy figures vary by region; always cross‑check with the official SSC notice. (See links in page footer or SSC portal.)</div>
         </div>
 
       </div>
@@ -309,100 +621,159 @@
 
   <!-- Footer -->
   <footer id="contact" class="bg-blue-900 text-white py-12">
-    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div>
+    <div class="hidden md:grid max-w-8xl mx-auto px-4 grid-cols-3 gap-12">
+
+      <div class="pl-9">
         <div class="flex items-center gap-3">
-          <div class="w-14 h-14 rounded-lg bg-orange-400 flex items-center justify-center font-bold">MTS</div>
+          <img src="./images/admin.png" class="h-10" alt="Govt Apply Zone Logo">
           <div>
-            <div class="font-semibold text-lg">SSC MTS Hub</div>
+            <div class="font-semibold text-lg">
+              <span class="text-yellow-300">Govt </span>
+              <span class="text-rose-300">Apply </span>
+              <span class="text-lime-500">Zone </span>
+            </div>
             <div class="text-white/80 text-sm">Your Complete Exam Guide</div>
           </div>
         </div>
-        <p class="text-white/90 mt-4">A dedicated page mirroring your provided design, adapted for SSC MTS aspirants.</p>
-        <p class="text-white/90 mt-3"><i class="fa fa-envelope"></i> info@sscm tshub.example</p>
+        <p class="text-white/90 mt-4">
+          Your one-stop destination for all Government exams information, updates, and resources.
+          Stay informed and prepare effectively for your success. Think high, Achieve Big.
+        </p>
+        <p class="text-white/90 mt-3">
+          <i class="fa fa-envelope text-yellow-300 mr-2"></i> govtapplyzone@gmail.com
+        </p>
       </div>
 
-      <div>
-        <h4 class="font-semibold">Quick Links</h4>
+      <div class="pl-12">
+        <h4 class="font-semibold text-lg">Quick Links</h4>
         <div class="mt-3 flex flex-col gap-2">
-          <a href="#home" class="text-white/90">Home</a>
-          <a href="#exams" class="text-white/90">About Exam</a>
-          <a href="#updates" class="text-white/90">Notifications</a>
-          <a href="#prep" class="text-white/90">Preparation</a>
-          <a href="#cutoffs" class="text-white/90">Cutoffs</a>
+          <a href="Results.html" class="text-white/90 hover:text-yellow-300 transition">Results</a>
+          <a href="All-Exams.html" class="text-white/90 hover:text-yellow-300 transition">Exams</a>
+          <a href="Mock-tests.html" class="text-white/90 hover:text-yellow-300 transition">Mock Tests</a>
+          <a href="Admit-cards.html" class="text-white/90 hover:text-yellow-300 transition">Admit Cards</a>
+          <a href="All-Books.html" class="text-white/90 hover:text-yellow-300 transition">Books</a>
         </div>
       </div>
 
       <div>
-        <h4 class="font-semibold">Connect With Us</h4>
-        <p class="text-white/90 mt-2">Follow for live updates and tips.</p>
+        <h4 class="font-semibold text-lg">Connect With Us</h4>
+        <p class="text-white/90 mt-2">
+          Follow us on social media for daily updates, tips, and notifications.
+        </p>
         <div class="flex gap-3 mt-3">
-          <a href="#" class="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/16herodZ3H/"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-facebook-f"></i></a>
+          <a href=" https://x.com/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/@govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/company/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
     </div>
 
-    <div class="max-w-6xl mx-auto px-4 mt-6 border-t border-white/6 pt-4 text-white/80">
-      <div class="flex items-center justify-between gap-4 flex-wrap">
-        <div>© <span id="year"></span> SSC MTS Hub. All rights reserved. | Made with the same design you provided.</div>
-        <div class="text-white/70">Converted from your SSC CGL layout</div>
+    <div class="hidden md:block border-t border-white/10 mt-10 pt-4">
+      <div class="max-w-8xl mx-auto px-6 text-center text-white/80 text-sm">
+        © 2025 Govt Apply Zone — Made with ❤️ for aspirants.
       </div>
+    </div>
+
+    <div class="md:hidden flex flex-col items-center text-center gap-6 px-6">
+      <img src="./images/admin.png" class="h-12 rounded-full shadow-md border border-yellow-400"
+        alt="Govt Apply Zone Logo">
+      <h2 class="text-2xl font-bold">
+        <span class="text-yellow-300">Govt </span>
+        <span class="text-rose-300">Apply </span>
+        <span class="text-lime-500">Zone</span>
+      </h2>
+      <p class="text-white/90 text-sm leading-relaxed">
+        Your one-stop destination for all Government exams updates. Stay motivated. Stay ahead!
+      </p>
+
+      <div class="flex justify-center gap-6 mt-4">
+        <a href="https://www.facebook.com/share/16herodZ3H/" class="text-2xl text-blue-400 hover:scale-125 transition"><i class="fab fa-facebook"></i></a>
+        <a href=" https://x.com/govtapplyzone" class="text-2xl text-sky-400 hover:scale-125 transition"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/govtapplyzone" class="text-2xl text-pink-500 hover:scale-125 transition"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@govtapplyzone" class="text-2xl text-red-500 hover:scale-125 transition"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/govtapplyzone" class="text-2xl text-blue-600 hover:scale-125 transition"><i class="fab fa-linkedin"></i></a>
+      </div>
+
+      <div class="flex justify-center gap-5 text-white/80 mt-5 text-sm">
+        <a href="#home" class="hover:text-yellow-300">Home</a>
+        <a href="#about" class="hover:text-yellow-300">Exam</a>
+        <a href="#updates" class="hover:text-yellow-300">Syllabus</a>
+        <a href="#cutoffs" class="hover:text-yellow-300">Results</a>
+      </div>
+
+      <p class="text-xs text-white/70 mt-6 border-t border-white/10 pt-3">
+        © 2025 Govt Apply Zone — Made with ❤️ for aspirants.
+      </p>
     </div>
   </footer>
 
-  <!-- Modal -->
+  <!-- Modal (hidden by default) -->
   <div id="notificationModal" class="hidden fixed inset-0 items-center justify-center z-50 modal-backdrop">
     <div class="bg-white rounded-xl p-6 w-11/12 max-w-lg shadow-2xl relative">
       <button class="absolute right-4 top-3 text-2xl modal-close" aria-label="close">&times;</button>
       <h3 class="text-lg font-semibold">Download Notification</h3>
-      <p class="text-slate-700 mt-2">Replace the mock link below with the official SSC PDF file when ready.</p>
-      <a id="mockDownload" href="#" class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg">Download (mock)</a>
+      <p class="text-slate-700 mt-2">Thank you for your interest. Replace the mock link below with the official SSC MTS PDF file when ready.</p>
+      <a id="mockDownload" href="#" class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg">Download
+        (mock)</a>
     </div>
   </div>
 
   <script>
     // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Mobile nav toggle
-    const menuToggle = document.getElementById('menu-toggle');
+    // Mobile nav toggle (fixed IDs to match HTML)
+    const menuBtn = document.getElementById('menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
-    menuToggle && menuToggle.addEventListener('click', () => {
-      mobileNav.classList.toggle('hidden');
-    });
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('hidden');
 
-    // Smooth scroll
+        // update aria-expanded for accessibility
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!expanded));
+      });
+    }
+
+    // Smooth scroll for internal links (keeps original behavior)
     document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', function(e){
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target){
+      a.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '') return;
+        const target = document.querySelector(href);
+        if (target) {
           e.preventDefault();
-          target.scrollIntoView({behavior:'smooth', block:'start'});
-          if(window.innerWidth <= 900 && !mobileNav.classList.contains('hidden')) mobileNav.classList.add('hidden');
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (window.innerWidth <= 900 && mobileNav && !mobileNav.classList.contains('hidden')) mobileNav.classList.add('hidden');
         }
       });
     });
 
-    // Modal logic
+    // Modal logic (uses hidden class)
     const modal = document.getElementById('notificationModal');
     const modalClose = document.querySelector('.modal-close');
-    const downloadButton = document.getElementById('downloadNotification');
     const mockDownload = document.getElementById('mockDownload');
 
-    if (downloadButton) {
-      downloadButton.addEventListener('click', () => {
-        modal.classList.remove('hidden');
-        modal.setAttribute('aria-hidden', 'false');
-      });
-    }
-    if (modalClose) modalClose.addEventListener('click', () => { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); });
-    modal.addEventListener('click', e => { if(e.target === modal) { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); }});
+    if (modalClose) modalClose.addEventListener('click', () => { if (modal) { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); } });
+    if (modal) modal.addEventListener('click', e => { if (e.target === modal) { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); } });
     if (mockDownload) mockDownload.addEventListener('click', (e) => { e.preventDefault(); alert('Demo mock download — replace with official PDF link.'); });
 
     // ESC closes modal
-    window.addEventListener('keydown', (e) => { if(e.key === 'Escape') { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); }});
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal) { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); } });
   </script>
 </body>
+
 </html>
