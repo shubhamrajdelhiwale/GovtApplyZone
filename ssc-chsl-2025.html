@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Govt Apply Zone — SSC CHSL 2025 Guide</title>
+  <link rel="icon" type="image/png" href="./images/admin.png">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind (CDN quick demo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // small Tailwind config override for default font
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto'] } } }
+    }
+  </script>
+
+  <style>
+    /* Small custom bits that are easier to keep in CSS than inline utilities */
+    :root {
+      --shadow: 0 6px 20px rgba(15, 46, 74, 0.08);
+    }
+
+    .icon-orange {
+      background: linear-gradient(180deg, #f08b2d, #e26b2b);
+    }
+
+    .icon-blue {
+      background: linear-gradient(180deg, #1da1f2, #0f8ed6);
+    }
+
+    .icon-green {
+      background: linear-gradient(180deg, #2dbb77, #1f8f56);
+    }
+
+    .icon-navy {
+      background: linear-gradient(180deg, #0f2e4a, #0f4ea8);
+    }
+
+    .modal-backdrop {
+      background: rgba(13, 36, 60, 0.45);
+    }
+
+    .cutoff-table thead th:first-child {
+      border-top-left-radius: 8px
+    }
+
+    .cutoff-table thead th:last-child {
+      border-top-right-radius: 8px
+    }
+  </style>
+</head>
+
+<body class="bg-gray-300 text-slate-900 antialiased leading-relaxed font-sans">
+
+
+  <header class="sticky top-0 z-50 bg-gradient-to-r from-[#10386a] to-[#1a5a8e] px-[37px]">
+    <div class="flex items-center justify-between w-full h-[67px]">
+
+      <a href="home.html" class="text-white text-[1.7rem] pl-5 font-extrabold hover:opacity-90 transition">
+        <span class="text-yellow-300">Govt</span>
+        <span class="text-rose-300">Apply</span>
+        <span class="text-lime-500">Zone</span>
+      </a>
+
+      <nav id="navbar" class="hidden md:flex gap-6">
+        <a href="All-Exams.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Exams</a>
+        <a href="Results.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Results</a>
+        <a href="Admit-cards.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Admit Card</a>
+        <a href="All-Books.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Books</a>
+        <a href="Mock-tests.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Mock Test</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false"
+          class="md:hidden flex flex-col justify-center items-center">
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+        </button>
+
+        <a href="profile.html" class="hidden pr-5 md:block">
+          <img src="./images/admin.png" alt="Admin"
+            class="w-[42px] h-[42px] rounded-full border-2 border-white object-cover hover:scale-105 transition duration-200">
+        </a>
+
+      </div>
+    </div>
+
+    <nav id="mobile-nav"
+      class="hidden md:hidden flex-col absolute top-[70px] right-[12px] w-[200px] bg-[#0f172a] rounded-xl shadow-2xl border border-white/10 p-3 transition-all duration-200 space-y-1">
+
+      <a href="All-Exams.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Exams</a>
+      <a href="Results.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Results</a>
+      <a href="Admit-cards.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Admit Card</a>
+      <a href="All-Books.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Books</a>
+      <a href="Mock-tests.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Mock Test</a>
+      <a href="Admin-contact.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Contact Us</a>
+
+      <div class="flex justify-center pt-3 border-t border-white/10 mt-2">
+        <a href="profile.html">
+          <img src="./images/admin.png" alt="Profile"
+            class="w-[45px] h-[45px] rounded-full border-2 border-white object-cover hover:scale-105 transition duration-200">
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section
+      class="hidden md:flex w-full items-center justify-center bg-gradient-to-br from-[#0a1f44] via-[#0a1f44] to-[#0a1f44] px-4 py-5 md:py-5">
+      <div
+        class="w-full max-w-6xl mx-auto bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.25)] p-8 md:p-12 text-white text-center">
+
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-3 tracking-tight">
+          SSC CHSL Exam <span class="text-amber-300">2025</span>
+        </h1>
+
+        <p class="max-w-4xl mx-auto text-base md:text-lg text-white/90 leading-relaxed mb-6">
+          The <strong>SSC CHSL (Combined Higher Secondary Level)</strong> is a national exam by the Staff Selection Commission to
+          recruit eligible 10+2 qualified candidates for Group C and other posts across central government departments. Held in multiple tiers, it assesses General Awareness, Reasoning, Quantitative Aptitude, English and includes typing/skill tests — offering roles like Lower Division Clerk, Junior Secretariat Assistant, Data Entry Operator with salaries starting from around <strong>₹19,000</strong> per month.
+
+        <div class="flex flex-wrap justify-center gap-3 mb-3">
+          <a href="files/sscchsl.pdf" download
+            class="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold px-5 py-3 rounded-xl shadow-lg hover:scale-[1.03] hover:bg-gray-100 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M3 3.5A1.5 1.5 0 014.5 2h11A1.5 1.5 0 0117 3.5v7a1.5 1.5 0 01-1.5 1.5H13v-1.25a2.25 2.25 0 00-4.5 0V12H4.5A1.5 1.5 0 013 10.5v-7zM8 13.5V15h4v-1.5h1.5a.5.5 0 01.5.5V16A1 1 0 0113 17H7a1 1 0 01-1-1v-1a.5.5 0 01.5-.5H8z"
+                clip-rule="evenodd" />
+            </svg>
+            Download Notification
+          </a>
+
+          <a href="#about"
+            class="border border-white/40 text-white px-5 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all">
+            Check Syllabus
+          </a>
+        </div>
+
+        <p class="text-xs text-white/60">Updated: Nov 13, 2025</p>
+      </div>
+    </section>
+
+    <section
+      class="block md:hidden w-full bg-gradient-to-b from-[#0a1f44] via-[#173b6c] to-[#0a1f44] text-white px-5 py-8 text-center">
+      <h2 class="text-2xl font-extrabold">
+        SSC CHSL 2025
+      </h2>
+      <p class="text-sm text-white/90 leading-relaxed mb-4">
+        SSC CHSL is a national exam for 10+2 qualified candidates to join central government jobs like LDC, DEO, JSA etc. Check syllabus, eligibility and latest updates here. :contentReference[oaicite:2]{index=2}
+      </p>
+    </section>
+
+    <section id="updates" class="py-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-2xl font-bold">Latest Updates</h2>
+        <p class="text-slate-500 mt-2">Stay informed with the latest SSC CHSL news and notifications</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u1">
+            <div class="flex gap-4 items-start relative">
+              <div class="text-orange-500 text-3xl">
+                <i class="fa fa-bell"></i>
+              </div>
+              <div>
+                <h3 id="u1" class="text-lg font-semibold">SSC CHSL 2025 Notification Released</h3>
+                <time class="block text-sm text-slate-500 mt-1">15 Nov 2025</time>
+                <p class="mt-2 text-slate-700">Staff Selection Commission has released the official notification for Combined Higher Secondary Level Examination 2025.</p>
+              </div>
+              <span
+                class="absolute right-4 top-4 bg-orange-500 text-white px-3 py-1 rounded-full font-bold text-xs">New</span>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u2">
+            <div class="flex gap-4 items-start">
+              <div class="text-blue-500 text-3xl">
+                <i class="fa fa-id-card"></i>
+              </div>
+              <div>
+                <h3 id="u2" class="text-lg font-semibold">Tier 1 Admit Card Available</h3>
+                <time class="block text-sm text-slate-500 mt-1">10 Nov 2025</time>
+                <p class="mt-2 text-slate-700">Candidates can now download their SSC CHSL Tier-1 admit cards from the official website.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u4">
+            <div class="flex gap-4 items-start">
+              <div class="text-indigo-600 text-3xl">
+                <i class="fa fa-users"></i>
+              </div>
+              <div>
+                <h3 id="u4" class="text-lg font-semibold">Vacancies Expected ~5000+</h3>
+                <time class="block text-sm text-slate-500 mt-1">01 Nov 2025</time>
+                <p class="mt-2 text-slate-700">For SSC CHSL 2025, about 3,000+ posts are expected across LDC/JSA/DEO. Check official notice for detailed breakdown. :contentReference[oaicite:3]{index=3}</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u6">
+            <div class="flex gap-4 items-start">
+              <div class="text-yellow-500 text-3xl">
+                <i class="fa fa-file-alt"></i>
+              </div>
+              <div>
+                <h3 id="u6" class="text-lg font-semibold">Syllabus & Pattern Released</h3>
+                <time class="block text-sm text-slate-500 mt-1">20 Oct 2025</time>
+                <p class="mt-2 text-slate-700">Check the updated syllabus and exam pattern for SSC CHSL 2025 before you begin preparation. :contentReference[oaicite:4]{index=4}</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u8">
+            <div class="flex gap-4 items-start">
+              <div class="text-purple-500 text-3xl">
+                <i class="fa fa-trophy"></i>
+              </div>
+              <div>
+                <h3 id="u8" class="text-lg font-semibold">Top Performers’ List Released</h3>
+                <time class="block text-sm text-slate-500 mt-1">01 Oct 2025</time>
+                <p class="mt-2 text-slate-700">The list of top performers from last cycle of SSC CHSL has been published. Congratulations to all achievers!</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-10 bg-transparent">
+      <div class="max-w-7xl mx-auto px-4">
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-blue-900  decoration-blue-700 ">
+          All About <span class="text-yellow-400">SSC CHSL</span>
+        </h1>
+
+        <div class="bg-white shadow-lg rounded-xl p-8 mt-8">
+          <p class="text-slate-700 leading-relaxed text-justify">
+            The Staff Selection Commission (SSC) conducts the Combined Higher Secondary Level (CHSL) Examination to recruit eligible candidates who have completed 10+2 (Higher Secondary) qualification for various central government posts such as Lower Division Clerk (LDC), Junior Secretariat Assistant (JSA), Data Entry Operator (DEO), Postal Assistant (PA) / Sorting Assistant (SA) and other equivalent posts. :contentReference[oaicite:5]{index=5}
+          </p>
+          <p class="text-slate-700 leading-relaxed text-justify mt-4">
+            The SSC CHSL exam is one of the most sought-after competitive exams for 10+2 qualified aspirants across the country, offering younger candidates (typically 18-27 years) a chance at secure central government jobs. The exam process includes a computer-based test (CBT) Tier-1, followed by Tier-2 (descriptive/skill/typing) and further selection steps including document verification and job allocation. :contentReference[oaicite:6]{index=6}
+          </p>
+          <p class="text-slate-700 leading-relaxed text-justify mt-4">
+            The salary and benefits for SSC CHSL posts are governed by the 7th Pay Commission, with in-hand salaries depending on post, location and allowances. Beyond the starting salary, there are promotion opportunities and chances for departmental growth. :contentReference[oaicite:7]{index=7}
+          </p>
+          <p class="text-slate-700 leading-relaxed text-justify mt-4">
+            Aspirants are advised to regularly check official notifications, stay updated with syllabus changes, practise past papers and mock tests, and maintain consistency in preparation. With proper planning and smart effort, SSC CHSL offers a great stepping-stone into central government service for those at the 10+2 level.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-calendar-alt"></i>
+                </div>
+                <h4 class="font-semibold">Exam Schedule</h4>
+              </div>
+              <a href="https://ssc.gov.in/" target="_blank" rel="noopener" class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              For the 2025 cycle, the official notification has been released; key events include application window (e.g., Nov 2025), Tier-1 exam (tentative Nov 2025–Dec 2025) and Tier-2 follows afterwards. Candidates should check the notification for exact dates.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-book"></i>
+                </div>
+                <h4 class="font-semibol">Syllabus &amp; Pattern</h4>
+              </div>
+              <a href="https://testbook.com/ssc-chsl/syllabus" target="_blank" rel="noopener" class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Tier 1: Objective test – General Intelligence & Reasoning, Quantitative Aptitude, English Language, General Awareness. Tier 2: Descriptive/skill/typing tests depending on post. :contentReference[oaicite:8]{index=8}
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-file-alt"></i>
+                </div>
+                <h4 class="font-semibold">Previous Papers</h4>
+              </div>
+              <a href="https://testbook.com/ssc-chsl/cut-off" target="_blank" rel="noopener" class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Practising previous year Tier-1 & Tier-2 papers (and shift-wise) is key to understanding time management, scoring trends and high-frequency topics.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-user-friends"></i>
+                </div>
+                <h4 class="font-semibold">Vacancy Details</h4>
+              </div>
+              <a href="https://ssc.gov.in/" target="_blank" rel="noopener" class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              For SSC CHSL 2025, around 3,000+ posts are expected (across LDC/JSA/DEO). Check the official notification for exact post-wise and category-wise seats.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-award"></i>
+                </div>
+                <h4 class="font-semibold">Selection Process</h4>
+              </div>
+              <a href="https://ssc.gov.in/" target="_blank" rel="noopener" class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Typical flow: Tier 1 (CBT) → Tier 2 (Descriptive/Typing) → Document Verification → final merit & appointment for applicable posts.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-chart-line"></i>
+                </div>
+                <h4 class="font-semibold">Success Tips</h4>
+              </div>
+              <a href="https://testbook.com/ssc-chsl/exam/study-plan" target="_blank" rel="noopener" class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Create a daily timetable, do weekly mocks, analyse mistakes, focus on accuracy & speed. For General Awareness, practise current affairs monthly; for Quant & Reasoning, build fundamentals and shortcut techniques.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="py-12">
+      <div class="max-w-7xl mx-auto px-4">
+        <div
+          class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl p-6 flex items-center gap-6 flex-wrap shadow"
+          role="region" aria-label="Exam structure">
+          <div class="flex-1 text-center min-w-[120px]">
+            <div class="text-3xl font-extrabold">2</div>
+            <div class="opacity-95">Tier Levels</div>
+          </div>
+          <div class="flex-1 text-center min-w-[120px]">
+            <div class="text-3xl font-extrabold">200</div>
+            <div class="opacity-95">Marks (Tier 1)</div>
+          </div>
+          <div class="flex-1 text-center min-w-[120px]">
+            <div class="text-3xl font-extrabold">60</div>
+            <div class="opacity-95">Minutes Duration</div>
+          </div>
+          <div class="flex-1 text-center min-w-[120px]">
+            <div class="text-3xl font-extrabold">100</div>
+            <div class="opacity-95">Questions</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cutoffs" class="py-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-900 underline underline-offset-4">
+          SSC CHSL Cut-off Analysis (Last 5 Years)
+        </h2>
+        <p class="text-center text-slate-500 mt-2">
+          Compare category-wise Tier 1 cut-offs from recent years to gauge target scores. :contentReference[oaicite:9]{index=9}
+        </p>
+
+        <div class="bg-white rounded-xl p-6 shadow mt-10">
+          <h3 class="text-lg font-semibold text-blue-800 mb-4">Tier 1 Cut-off (2020-2024)</h3>
+
+          <div class="overflow-auto">
+            <table class="min-w-[800px] w-full text-left border border-slate-200 rounded-lg shadow-sm">
+              <thead class="bg-blue-900 text-white">
+                <tr>
+                  <th class="p-3">Category</th>
+                  <th class="p-3 text-center">2024</th>
+                  <th class="p-3 text-center">2023</th>
+                  <th class="p-3 text-center">2022</th>
+                  <th class="p-3 text-center">2021</th>
+                  <th class="p-3 text-center">2020</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">General (UR)</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 157.36</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 153.91</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 157.73</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 140.18</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 141.89</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">OBC</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 156.62</td>
+                  <td class="p-3 text-center text-emerald-600 font-Bold">~ 152.27</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 153.25</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 140.12</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 139.42</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">EWS</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 151.10</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 151.10</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 151.03</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 131.41</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">—</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">SC</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 139.68</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 136.41</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 135.47</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 112.86</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 114.16</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">ST</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 129.45</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 124.53</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 125.80</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 104.78</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">~ 108.89</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="prep" class="py-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-2xl font-bold">Preparation Strategy</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <div class="bg-white rounded-lg p-6 shadow">
+            <h3 class="text-lg font-semibold">Tier 1 Preparation</h3>
+            <p class="text-slate-500">CBT: Objective MCQs</p>
+            <ul class="list-disc list-inside mt-3 text-slate-700">
+              <li>General Intelligence &amp; Reasoning</li>
+              <li>General Awareness</li>
+              <li>Quantitative Aptitude</li>
+              <li>English Language</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-lg p-6 shadow">
+            <h3 class="text-lg font-semibold">Tier 2 Preparation</h3>
+            <p class="text-slate-500">Descriptive / Skill / Typing based on post</p>
+            <ul class="list-disc list-inside mt-3 text-slate-700">
+              <li>Descriptive Test: Letter / Essay writing (for select posts)</li>
+              <li>Typing Test / Data Entry Speed Test (for DEO, JSA etc)</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-lg p-6 shadow">
+            <h3 class="text-lg font-semibold">Final Steps</h3>
+            <p class="text-slate-500">Document Verification & Job Allotment</p>
+            <ul class="list-disc list-inside mt-3 text-slate-700">
+              <li>Ensure all documents & category proofs ready</li>
+              <li>Check physical/medical requirements if any</li>
+              <li>Final posting & joining formalities</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-lg p-6 shadow">
+            <h3 class="text-lg font-semibold">Weekly Plan & Revision</h3>
+            <p class="text-slate-500">Structured approach to preparation</p>
+            <ul class="list-disc list-inside mt-3 text-slate-700">
+              <li>Weeks 1-4: Basics & fundamentals of Quant, Reasoning, English</li>
+              <li>Weeks 5-8: Advanced practice, previous year papers</li>
+              <li>Weeks 9-12: Full-length mocks, revision of weak topics</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-4 mt-6 shadow">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <h4 class="font-semibold">Key Dates (expected)</h4>
+              <ul class="list-disc list-inside text-slate-700 mt-2">
+                <li>Notification release: Nov 2025</li>
+                <li>Application window: Nov–Dec 2025</li>
+                <li>Tier 1 (CBT): Nov–Dec 2025 (tentative)</li>
+                <li>Tier 2: Early 2026 (tentative)</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold">What's new (2025)</h4>
+              <ul class="list-disc list-inside text-slate-700 mt-2">
+                <li>Emphasis on greater accuracy in Reasoning & Quant</li>
+                <li>Descriptive/typing component more important for DEO/JSA</li>
+                <li>Cut-off trends remain high; aim above ~155+ in Tier 1 for UR category. :contentReference[oaicite:10]{index=10}</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold">12-Week Study Plan</h4>
+              <ol class="list-decimal list-inside text-slate-700 mt-2">
+                <li>Weeks 1–4: Basics – Quant, Reasoning, English grammar, General Awareness</li>
+                <li>Weeks 5–8: Intermediate practice – previous papers, area weakness improvement</li>
+                <li>Weeks 9–12: Mocks, timed practice, revision of weak topics, full-length simulation</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact" class="bg-blue-900 text-white py-12">
+    <div class="hidden md:grid max-w-8xl mx-auto px-4 grid-cols-3 gap-12">
+      <div class="pl-9">
+        <div class="flex items-center gap-3">
+          <img src="./images/admin.png" class="h-10" alt="Govt Apply Zone Logo">
+          <div>
+            <div class="font-semibold text-lg">
+              <span class="text-yellow-300">Govt </span>
+              <span class="text-rose-300">Apply </span>
+              <span class="text-lime-500">Zone </span>
+            </div>
+            <div class="text-white/80 text-sm">Your Complete Exam Guide</div>
+          </div>
+        </div>
+        <p class="text-white/90 mt-4">
+          One-stop destination for all Government exams information, updates, and resources.
+        </p>
+        <p class="text-white/90 mt-3">
+          <i class="fa fa-envelope text-yellow-300 mr-2"></i> govtapplyzone@gmail.com
+        </p>
+      </div>
+
+      <div class="pl-12">
+        <h4 class="font-semibold text-lg">Quick Links</h4>
+        <div class="mt-3 flex flex-col gap-2">
+          <a href="Results.html" class="text-white/90 hover:text-yellow-300 transition">Results</a>
+          <a href="All-Exams.html" class="text-white/90 hover:text-yellow-300 transition">Exams</a>
+          <a href="Mock-tests.html" class="text-white/90 hover:text-yellow-300 transition">Mock Tests</a>
+          <a href="Admit-cards.html" class="text-white/90 hover:text-yellow-300 transition">Admit Cards</a>
+          <a href="All-Books.html" class="text-white/90 hover:text-yellow-300 transition">Books</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-lg">Connect With Us</h4>
+        <p class="text-white/90 mt-2">
+          Follow us on social media for daily updates, tips, and notifications.
+        </p>
+        <div class="flex gap-3 mt-3">
+          <a href="https://www.facebook.com/share/16herodZ3H/"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/@govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/company/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden md:block border-t border-white/10 mt-10 pt-4">
+      <div class="max-w-8xl mx-auto px-6 text-center text-white/80 text-sm">
+        © 2025 Govt Apply Zone — Made with ❤️ for aspirants.
+      </div>
+    </div>
+
+    <div class="md:hidden flex flex-col items-center text-center gap-6 px-6">
+      <img src="./images/admin.png" class="h-12 rounded-full shadow-md border border-yellow-400"
+        alt="Govt Apply Zone Logo">
+      <h2 class="text-2xl font-bold">
+        <span class="text-yellow-300">Govt </span>
+        <span class="text-rose-300">Apply </span>
+        <span class="text-lime-500">Zone</span>
+      </h2>
+      <p class="text-white/90 text-sm leading-relaxed">
+        Your one-stop destination for all Government exams updates. Stay motivated. Stay ahead!
+      </p>
+
+      <div class="flex justify-center gap-6 mt-4">
+        <a href="https://www.facebook.com/share/16herodZ3H/" class="text-2xl text-blue-400 hover:scale-125 transition"><i
+            class="fab fa-facebook"></i></a>
+        <a href="https://x.com/govtapplyzone" class="text-2xl text-sky-400 hover:scale-125 transition"><i
+            class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/govtapplyzone" class="text-2xl text-pink-500 hover:scale-125 transition"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@govtapplyzone" class="text-2xl text-red-500 hover:scale-125 transition"><i
+            class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/govtapplyzone" class="text-2xl text-blue-600 hover:scale-125 transition"><i
+            class="fab fa-linkedin-in"></i></a>
+      </div>
+
+      <p class="text-xs text-white/70 mt-6 border-t border-white/10 pt-3">
+        © 2025 Govt Apply Zone — Made with ❤️ for aspirants.
+      </p>
+    </div>
+  </footer>
+
+  <div id="notificationModal" class="hidden fixed inset-0 items-center justify-center z-50 modal-backdrop">
+    <div class="bg-white rounded-xl p-6 w-11/12 max-w-lg shadow-2xl relative">
+      <button class="absolute right-4 top-3 text-2xl modal-close" aria-label="close">&times;</button>
+      <h3 class="text-lg font-semibold">Download Notification</h3>
+      <p class="text-slate-700 mt-2">Thank you for your interest. Replace the mock link below with the official SSC CHSL PDF file when ready.</p>
+      <a id="mockDownload" href="#" class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg">Download (mock)</a>
+    </div>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('hidden');
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!expanded));
+      });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (window.innerWidth <= 900 && mobileNav && !mobileNav.classList.contains('hidden')) mobileNav.classList.add('hidden');
+        }
+      });
+    });
+
+    const modal = document.getElementById('notificationModal');
+    const modalClose = document.querySelector('.modal-close');
+    const mockDownload = document.getElementById('mockDownload');
+
+    if (modalClose) modalClose.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modal.setAttribute('aria-hidden', 'true');
+    });
+    if (mockDownload) mockDownload.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Demo mock download — replace with official PDF link.');
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal) {
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
+</body>
+
+</html>
