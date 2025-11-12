@@ -1,13 +1,17 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sarkari Exams — SSC CGL 2025 Guide (Tailwind)</title>
+  <title>Govt Apply Zone — SSC CGL 2025 Guide</title>
+  <link rel="icon" type="image/png" href="./images/admin.png">
+
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Tailwind (CDN quick demo) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,143 +24,300 @@
 
   <style>
     /* Small custom bits that are easier to keep in CSS than inline utilities: gradients & shadows used repeatedly */
-    :root{ --shadow: 0 6px 20px rgba(15,46,74,0.08); }
+    :root {
+      --shadow: 0 6px 20px rgba(15, 46, 74, 0.08);
+    }
 
     /* icon gradients (kept as classes to keep markup tidy) */
-    .icon-orange{ background: linear-gradient(180deg,#f08b2d,#e26b2b); }
-    .icon-blue{ background: linear-gradient(180deg,#1da1f2,#0f8ed6); }
-    .icon-green{ background: linear-gradient(180deg,#2dbb77,#1f8f56); }
-    .icon-navy{ background: linear-gradient(180deg,#0f2e4a,#0f4ea8); }
+    .icon-orange {
+      background: linear-gradient(180deg, #f08b2d, #e26b2b);
+    }
+
+    .icon-blue {
+      background: linear-gradient(180deg, #1da1f2, #0f8ed6);
+    }
+
+    .icon-green {
+      background: linear-gradient(180deg, #2dbb77, #1f8f56);
+    }
+
+    .icon-navy {
+      background: linear-gradient(180deg, #0f2e4a, #0f4ea8);
+    }
 
     /* modal backdrop using attribute (keeps aria approach) */
-    .modal-backdrop{ background: rgba(13,36,60,0.45); }
+    .modal-backdrop {
+      background: rgba(13, 36, 60, 0.45);
+    }
 
     /* table head rounding hack for wide tables inside overflow container */
-    .cutoff-table thead th:first-child{ border-top-left-radius:8px }
-    .cutoff-table thead th:last-child{ border-top-right-radius:8px }
+    .cutoff-table thead th:first-child {
+      border-top-left-radius: 8px
+    }
+
+    .cutoff-table thead th:last-child {
+      border-top-right-radius: 8px
+    }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased leading-relaxed font-sans">
+
+<body class="bg-gray-300 text-slate-900 antialiased leading-relaxed font-sans">
 
 
   <!-- HEADER (equal and tight edge gaps) -->
-  <header class="sticky top-0 z-50 bg-gradient-to-r from-[#6a11cb] to-[#2575fc] px-[37px]">
+  <!-- HEADER (replace your header with this) -->
+  <header class="sticky top-0 z-50 bg-gradient-to-r from-[#10386a] to-[#1a5a8e] px-[37px]">
     <div class="flex items-center justify-between w-full h-[67px]">
-      
-      <!-- LEFT: Logo Text -->
-      <div class="text-white text-[1.7rem] font-extrabold">
-        <span class="text-yellow-300">Govt<span class="text-rose-300">Apply<span class="text-lime-500">Zone
-      </div>
 
-      <!-- CENTER: Nav -->
+      <!-- LEFT: Logo -->
+      <a href="home.html" class="text-white text-[1.7rem] pl-5 font-extrabold hover:opacity-90 transition">
+        <span class="text-yellow-300">Govt</span>
+        <span class="text-rose-300">Apply</span>
+        <span class="text-lime-500">Zone</span>
+      </a>
+
+
+      <!-- CENTER: Nav (Visible on Desktop) -->
       <nav id="navbar" class="hidden md:flex gap-6">
-        <a href="index.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Home</a>
-        <a href="#" class="text-white font-medium hover:text-[#d0d0d0] transition">Exams</a>
-        <a href="#" class="text-white font-medium hover:text-[#d0d0d0] transition">Results</a>
-        <a href="#" class="text-white font-medium hover:text-[#d0d0d0] transition">Admit Card</a>
-        <a href="#" class="text-white font-medium hover:text-[#d0d0d0] transition">Contact</a>
+        <a href="All-Exams.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Exams</a>
+        <a href="Results.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Results</a>
+        <a href="Admit-cards.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Admit Card</a>
+        <a href="All-Books.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Books</a>
+        <a href="Mock-tests.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Mock Test</a>
       </nav>
 
-      <!-- RIGHT: Menu + Profile -->
+      <!-- RIGHT: Hamburger (Mobile) + Profile (Desktop) -->
       <div class="flex items-center gap-3">
+        <!-- Hamburger: only visible on mobile -->
         <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false"
-                class="md:hidden flex flex-col justify-center items-center">
-          <span class="block w-[22px] h-[2px] bg-white rounded my-[2px]"></span>
-          <span class="block w-[22px] h-[2px] bg-white rounded my-[2px]"></span>
-          <span class="block w-[22px] h-[2px] bg-white rounded my-[2px]"></span>
+          class="md:hidden flex flex-col justify-center items-center">
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
         </button>
 
-        <img src="https://i.ibb.co/qLBkHXDG/Untitled-design-1.png"
-             alt="Admin"
-             class="block w-[42px] h-[42px] rounded-full border-2 border-white object-cover">
+        <!-- Profile: only visible on desktop -->
+        <a href="profile.html" class="hidden pr-5  md:block">
+          <img src="./images/admin.png" alt="Admin"
+            class="w-[42px] h-[42px] rounded-full border-2 border-white object-cover hover:scale-105 transition duration-200">
+        </a>
+
       </div>
     </div>
 
-    <!-- MOBILE NAV -->
-    <nav id="mobile-nav" class="hidden md:hidden flex-col bg-[#161b22] absolute top-[70px] right-[10px] w-[180px] p-4 rounded-lg space-y-3">
-      <a href="#" class="text-white font-medium hover:text-[#d0d0d0]">Home</a>
-      <a href="#" class="text-white font-medium hover:text-[#d0d0d0]">Exams</a>
-      <a href="#" class="text-white font-medium hover:text-[#d0d0d0]">Results</a>
-      <a href="#" class="text-white font-medium hover:text-[#d0d0d0]">Admit Card</a>
-      <a href="#" class="text-white font-medium hover:text-[#d0d0d0]">Contact</a>
+    <!-- ✅ MOBILE NAV DROPDOWN -->
+    <nav id="mobile-nav"
+      class="hidden md:hidden flex-col absolute top-[70px] right-[12px] w-[200px] bg-[#0f172a] rounded-xl shadow-2xl border border-white/10 p-3 transition-all duration-200 space-y-1">
+
+      <a href="All-Exams.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Exams</a>
+      <a href="Results.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Results</a>
+      <a href="Admit-cards.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Admit Card</a>
+      <a href="All-Books.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Books</a>
+      <a href="Mock-tests.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Mock Test</a>
+      <a href="Admin-contact.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Contact Us</a>
+
+      <!-- 👇 Profile Avatar (bottom of menu) -->
+      <div class="flex justify-center pt-3 border-t border-white/10 mt-2">
+        <a href="profile.html">
+          <img src="./images/admin.png" alt="Profile"
+            class="w-[45px] h-[45px] rounded-full border-2 border-white object-cover hover:scale-105 transition duration-200">
+        </a>
+      </div>
     </nav>
   </header>
-<!-- END: Exact-match header -->
 
-<!-- END: Header matching your screenshot -->
+
+
+
+  <!-- END: Exact-match header -->
+
+  <!-- END: Header matching your screenshot -->
 
 
   <!-- HERO -->
   <main>
-    <section id="home" class="py-20 text-white bg-gradient-to-b from-[#10386a] to-[#1a5a8e]">
-      <div class="max-w-4xl mx-auto text-center px-6">
-        <h1 class="text-3xl md:text-5xl font-extrabold mb-3">SSC CGL Exam 2025</h1>
-        <p class="text-base md:text-lg text-white/95 mb-6">Your Complete Guide to Staff Selection Commission Combined Graduate Level Examination — notifications, updates, cutoffs, syllabus, and preparation tips.</p>
+    <!-- ✅ Desktop version (hidden on small screens) -->
+    <section
+      class="hidden md:flex w-full items-center justify-center bg-gradient-to-br from-[#0a1f44] via-[#0a1f44] to-[#0a1f44] px-4 py-5 md:py-5">
+      <div
+        class="w-full max-w-6xl mx-auto bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.25)] p-8 md:p-12 text-white text-center">
 
-        <div class="flex items-center justify-center gap-3 flex-wrap">
-          <button id="downloadNotification" class="bg-white text-slate-900 font-bold px-5 py-3 rounded-lg shadow">Download Notification</button>
-          <a href="#about" class="border border-white/60 text-white px-4 py-3 rounded-lg font-semibold">Check Syllabus</a>
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-3 tracking-tight">
+          SSC CGL Exam <span class="text-amber-300">2025</span>
+        </h1>
+
+        <p class="max-w-4xl mx-auto text-base md:text-lg text-white/90 leading-relaxed mb-6">
+          The <strong>SSC CGL (Combined Graduate Level)</strong> is a national exam by the Staff Selection Commission to
+          recruit graduates for Group B &amp; C posts across central government departments. Held in two computer-based
+          tiers, it tests General Awareness, Reasoning, Quantitative Aptitude and English — offering roles like ASO,
+          Income Tax Inspector and Auditor with salaries from <strong>₹25,000 to ₹1,50,000</strong> per month.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-3">
+          <a href="files/ssccgl.pdf" download
+            class="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold px-5 py-3 rounded-xl shadow-lg hover:scale-[1.03] hover:bg-gray-100 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M3 3.5A1.5 1.5 0 014.5 2h11A1.5 1.5 0 0117 3.5v7a1.5 1.5 0 01-1.5 1.5H13v-1.25a2.25 2.25 0 00-4.5 0V12H4.5A1.5 1.5 0 013 10.5v-7zM8 13.5V15h4v-1.5h1.5a.5.5 0 01.5.5V16A1 1 0 0113 17H7a1 1 0 01-1-1v-1a.5.5 0 01.5-.5H8z"
+                clip-rule="evenodd" />
+            </svg>
+            Download Notification
+          </a>
+
+
+          <a href="#about"
+            class="border border-white/40 text-white px-5 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all">
+            Check Syllabus
+          </a>
         </div>
+
+        <p class="text-xs text-white/60">Updated: Nov 12, 2025</p>
       </div>
     </section>
 
+
+    <!-- ✅ Mobile version (visible only on small screens) -->
+    <section
+      class="block md:hidden w-full bg-gradient-to-b from-[#0a1f44] via-[#173b6c] to-[#0a1f44] text-white px-5 py-8 text-center">
+      <h2 class="text-2xl font-extrabold mb-2">
+        SSC CGL 2025
+      </h2>
+      <p class="text-sm text-white/90 leading-relaxed mb-4">
+        SSC CGL is a national exam for graduates to join central government jobs in Group B & C posts. Check syllabus,
+        eligibility, and latest updates here. Held in two computer-based
+          tiers, it tests General Awareness, Reasoning, Quantitative Aptitude and English — offering roles like ASO,
+          Income Tax Inspector and Auditor with salaries from <strong>₹25,000 to ₹1,50,000</strong> per month.
+      </p>
+      
+    </section>
+
+
     <!-- Latest Updates -->
     <section id="updates" class="py-16">
-      <div class="max-w-6xl mx-auto px-4">
+      <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-2xl font-bold">Latest Updates</h2>
         <p class="text-slate-500 mt-2">Stay informed with the latest SSC CGL news and notifications</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
 
+          <!-- 1 -->
           <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u1">
             <div class="flex gap-4 items-start relative">
-              <div class="w-14 h-14 rounded-lg flex items-center justify-center text-white text-xl icon-orange">
+              <div class="text-orange-500 text-3xl">
                 <i class="fa fa-bell"></i>
               </div>
               <div>
                 <h3 id="u1" class="text-lg font-semibold">SSC CGL 2025 Notification Released</h3>
                 <time class="block text-sm text-slate-500 mt-1">15 Nov 2025</time>
-                <p class="mt-2 text-slate-700">Staff Selection Commission has released the official notification for Combined Graduate Level Examination 2025.</p>
+                <p class="mt-2 text-slate-700">Staff Selection Commission has released the official notification for
+                  Combined Graduate Level Examination 2025.</p>
               </div>
-              <span class="absolute right-4 top-4 bg-orange-500 text-white px-3 py-1 rounded-full font-bold text-xs">New</span>
+              <span
+                class="absolute right-4 top-4 bg-orange-500 text-white px-3 py-1 rounded-full font-bold text-xs">New</span>
             </div>
           </article>
 
+          <!-- 2 -->
           <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u2">
             <div class="flex gap-4 items-start">
-              <div class="w-14 h-14 rounded-lg flex items-center justify-center text-white text-xl icon-blue">
+              <div class="text-blue-500 text-3xl">
                 <i class="fa fa-id-card"></i>
               </div>
               <div>
                 <h3 id="u2" class="text-lg font-semibold">Tier 1 Admit Card Available</h3>
                 <time class="block text-sm text-slate-500 mt-1">10 Nov 2025</time>
-                <p class="mt-2 text-slate-700">Candidates can now download their SSC CGL Tier 1 admit cards from the official website.</p>
+                <p class="mt-2 text-slate-700">Candidates can now download their SSC CGL Tier 1 admit cards from the
+                  official website.</p>
               </div>
             </div>
           </article>
 
+          <!-- 3 -->
           <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u3">
             <div class="flex gap-4 items-start">
-              <div class="w-14 h-14 rounded-lg flex items-center justify-center text-white text-xl icon-green">
+              <div class="text-green-500 text-3xl">
                 <i class="fa fa-check-square"></i>
               </div>
               <div>
                 <h3 id="u3" class="text-lg font-semibold">2024 Final Results Announced</h3>
                 <time class="block text-sm text-slate-500 mt-1">05 Nov 2024</time>
-                <p class="mt-2 text-slate-700">SSC has declared the final results for CGL 2024. Check your roll number in the selected candidates list.</p>
+                <p class="mt-2 text-slate-700">SSC has declared the final results for CGL 2024. Check your roll number
+                  in the selected candidates list.</p>
               </div>
             </div>
           </article>
 
+          <!-- 4 -->
           <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u4">
             <div class="flex gap-4 items-start">
-              <div class="w-14 h-14 rounded-lg flex items-center justify-center text-white text-xl icon-navy">
+              <div class="text-indigo-600 text-3xl">
                 <i class="fa fa-users"></i>
               </div>
               <div>
                 <h3 id="u4" class="text-lg font-semibold">10,000+ Vacancies Expected in 2025</h3>
                 <time class="block text-sm text-slate-500 mt-1">01 Nov 2025</time>
-                <p class="mt-2 text-slate-700">As per sources, SSC is expected to release over 10,000 vacancies for CGL 2025 across various departments.</p>
+                <p class="mt-2 text-slate-700">As per sources, SSC is expected to release over 10,000 vacancies for CGL
+                  2025 across various departments.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5 -->
+          <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u5">
+            <div class="flex gap-4 items-start">
+              <div class="text-red-500 text-3xl">
+                <i class="fa fa-calendar-alt"></i>
+              </div>
+              <div>
+                <h3 id="u5" class="text-lg font-semibold">Exam Date Announced</h3>
+                <time class="block text-sm text-slate-500 mt-1">25 Oct 2025</time>
+                <p class="mt-2 text-slate-700">SSC has officially announced the dates for the CGL Tier 1 examination
+                  2025. Check the exam schedule now.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6 -->
+          <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u6">
+            <div class="flex gap-4 items-start">
+              <div class="text-yellow-500 text-3xl">
+                <i class="fa fa-file-alt"></i>
+              </div>
+              <div>
+                <h3 id="u6" class="text-lg font-semibold">Syllabus Updated for Tier 2</h3>
+                <time class="block text-sm text-slate-500 mt-1">20 Oct 2025</time>
+                <p class="mt-2 text-slate-700">The SSC has made minor changes in the CGL Tier 2 syllabus. Candidates
+                  should review the updated syllabus.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7 -->
+          <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u7">
+            <div class="flex gap-4 items-start">
+              <div class="text-teal-500 text-3xl">
+                <i class="fa fa-download"></i>
+              </div>
+              <div>
+                <h3 id="u7" class="text-lg font-semibold">Answer Key Released</h3>
+                <time class="block text-sm text-slate-500 mt-1">10 Oct 2025</time>
+                <p class="mt-2 text-slate-700">The provisional answer key for SSC CGL Tier 1 is now available.
+                  Candidates can raise objections online.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8 -->
+          <article class="bg-white rounded-xl p-5 shadow" aria-labelledby="u8">
+            <div class="flex gap-4 items-start">
+              <div class="text-purple-500 text-3xl">
+                <i class="fa fa-trophy"></i>
+              </div>
+              <div>
+                <h3 id="u8" class="text-lg font-semibold">Top Performers’ List Released</h3>
+                <time class="block text-sm text-slate-500 mt-1">01 Oct 2025</time>
+                <p class="mt-2 text-slate-700">SSC has shared the list of top performers from the previous CGL cycle.
+                  Congratulations to all achievers!</p>
               </div>
             </div>
           </article>
@@ -165,58 +326,211 @@
       </div>
     </section>
 
+
     <!-- About / Features -->
-    <section id="about" class="py-16 bg-transparent">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl font-bold text-center">About SSC CGL Exam</h2>
-        <p class="text-center text-slate-500 mt-2 max-w-3xl mx-auto">The Staff Selection Commission (SSC) conducts the Combined Graduate Level (CGL) exam to recruit candidates for various Group B and Group C posts in different ministries, departments, and organizations of the Government of India.</p>
+    <section id="about" class="py-10 bg-transparent">
+      <div class="max-w-7xl mx-auto px-4">
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-blue-900  decoration-blue-700 ">
+          All About <span class="text-yellow-400">SSC CGL </span>
+        </h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-          <div class="bg-white rounded-xl p-5 shadow">
-            <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mb-3"><i class="fa fa-calendar-alt"></i></div>
-            <h4 class="font-semibold">Exam Schedule</h4>
-            <p class="text-slate-600">Stay updated with important dates for application, exam, and results.</p>
-          </div>
 
-          <div class="bg-white rounded-xl p-5 shadow">
-            <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mb-3"><i class="fa fa-book"></i></div>
-            <h4 class="font-semibold">Syllabus &amp; Pattern</h4>
-            <p class="text-slate-600">Comprehensive syllabus and exam pattern for all tiers.</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-5 shadow">
-            <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mb-3"><i class="fa fa-file-alt"></i></div>
-            <h4 class="font-semibold">Previous Papers</h4>
-            <p class="text-slate-600">Access previous year question papers and mock tests.</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-5 shadow">
-            <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mb-3"><i class="fa fa-user-friends"></i></div>
-            <h4 class="font-semibold">Vacancy Details</h4>
-            <p class="text-slate-600">Complete information about available posts and departments.</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-5 shadow">
-            <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mb-3"><i class="fa fa-award"></i></div>
-            <h4 class="font-semibold">Selection Process</h4>
-            <p class="text-slate-600">Understand the complete selection procedure and criteria.</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-5 shadow">
-            <div class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mb-3"><i class="fa fa-chart-line"></i></div>
-            <h4 class="font-semibold">Success Tips</h4>
-            <p class="text-slate-600">Expert guidance and preparation strategies for success.</p>
-          </div>
+        <!-- White Box for Long Paragraph -->
+        <div class="bg-white shadow-lg rounded-xl p-8 mt-8">
+          <p class="text-slate-700 leading-relaxed text-justify">
+            The Staff Selection Commission (SSC) conducts the Combined Graduate Level (CGL) Examination to recruit
+            eligible
+            candidates for various prestigious Group B and Group C posts in different ministries, departments, and
+            organizations
+            of the Government of India. The SSC CGL exam is one of the most sought-after competitive examinations for
+            graduates
+            across the country, offering opportunities for posts such as Assistant Section Officer, Income Tax
+            Inspector,
+            Assistant Audit Officer, Sub-Inspector, and more. Each of these positions holds immense respect,
+            responsibility,
+            and career growth potential.
+          </p>
+          <p class="text-slate-700 leading-relaxed text-justify mt-4">
+            Candidates preparing for SSC CGL must have a clear understanding of the roles and responsibilities
+            associated
+            with each post. The exam follows a multi-tier process including Tier I (Preliminary), Tier II (Mains), and
+            Tier III
+            (Descriptive) stages, followed by document verification and skill tests for certain posts. Each stage
+            evaluates
+            a candidate’s aptitude, reasoning ability, and understanding of general awareness and English language.
+          </p>
+          <p class="text-slate-700 leading-relaxed text-justify mt-4">
+            The salary and benefits for SSC CGL employees are determined as per the 7th Pay Commission, ensuring a
+            stable and
+            rewarding government career. Moreover, SSC CGL posts offer significant promotion opportunities and
+            departmental
+            advancements. Many candidates who start as Assistant Officers eventually reach senior administrative
+            positions
+            within central ministries and agencies. Hence, this exam not only secures a government job but also paves
+            the way
+            for a bright and progressive career in public service.
+          </p>
+          <p class="text-slate-700 leading-relaxed text-justify mt-4">
+            Aspirants are advised to regularly check official notifications, stay updated with syllabus changes, and
+            strategize their preparation with focus and consistency. With proper planning, consistent effort, and a
+            clear
+            understanding of exam dynamics, candidates can successfully crack SSC CGL and build a fulfilling career in
+            the
+            Indian government sector.
+          </p>
         </div>
+
+        <!-- Info Boxes (updated: expanded content + View Details buttons) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+
+          <!-- Exam Schedule -->
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-calendar-alt"></i>
+                </div>
+                <h4 class="font-semibold">Exam Schedule</h4>
+              </div>
+              <a href="https://ssc.gov.in/" target="_blank" rel="noopener" class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Official SSC CGL 2025 notification published in June 2025. Tier-1 was conducted in September 2025
+              (multiple shifts). Important dates: application window (9 Jun – 4 Jul 2025), admit card / city intimation
+              announced before exam, and Tier-2 scheduled as per official notification (tentative: December 2025).
+              Always check the SSC official site for any re-scheduling or corrigenda.
+            </p>
+          </div>
+
+          <!-- Syllabus & Pattern -->
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-book"></i>
+                </div>
+                <h4 class="font-semibold">Syllabus &amp; Pattern</h4>
+              </div>
+              <a href="https://www.careerpower.in/ssc-cgl-syllabus.html" target="_blank" rel="noopener"
+                class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Tier-1: 4 sections — General Intelligence & Reasoning, General Awareness, Quantitative Aptitude, English
+              Comprehension (100 Qs, 200 marks, 60 min, negative marking 0.5). Tier-2 consists of paper(s) that test
+              higher-level quantitative/English skills and discipline-specific modules for some posts — check the full
+              topic list and weightage to plan section-wise preparation.
+            </p>
+          </div>
+
+          <!-- Previous Papers -->
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-file-alt"></i>
+                </div>
+                <h4 class="font-semibold">Previous Papers</h4>
+              </div>
+              <a href="https://testbook.com/ssc-cgl-exam/previous-year-papers" target="_blank" rel="noopener"
+                class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Practicing previous-year and shift-wise papers is key to understanding question patterns and time
+              management. Download official / analysed PDFs for Tier-1 and Tier-2 (shift-wise) and solve under timed
+              conditions. Focus on high-frequency topics (number systems, algebra, ratio & proportion, arrangements &
+              puzzles, current affairs for GA).
+            </p>
+          </div>
+
+          <!-- Vacancy Details -->
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-user-friends"></i>
+                </div>
+                <h4 class="font-semibold">Vacancy Details</h4>
+              </div>
+              <a href="https://testbook.com/ssc-cgl-exam" target="_blank" rel="noopener" class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              The 2025 notification announced around 14,500+ vacancies across Group B and C posts (various
+              Ministries/Departments). Vacancy breakdown, post-wise eligibility and category-wise seats are published in
+              the official notification — candidates must consult the notification for post-specific age limits,
+              educational requirements and pay levels.
+            </p>
+          </div>
+
+          <!-- Selection Process -->
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-award"></i>
+                </div>
+                <h4 class="font-semibold">Selection Process</h4>
+              </div>
+              <a href="https://ssc.gov.in/" target="_blank" rel="noopener" class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Typical flow: Tier-1 (screening, CBT) → Tier-2 (scoring CBT; subject-specific papers for some posts) →
+              Document Verification → final merit & appointment. Some posts may require additional skill tests / typing
+              tests. Final allocation depends on category-wise merit and post preferences.
+            </p>
+          </div>
+
+          <!-- Success Tips -->
+          <div class="bg-white rounded-xl p-5 shadow">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 rounded-lg inline-flex items-center justify-center text-white text-lg bg-blue-700 mr-4">
+                  <i class="fa fa-chart-line"></i>
+                </div>
+                <h4 class="font-semibold">Success Tips</h4>
+              </div>
+              <a href="https://testbook.com/ssc-cgl-exam/study-plan" target="_blank" rel="noopener"
+                class="inline-block">
+                <button class="text-sm px-3 py-2 border rounded-md hover:shadow-sm">View Details</button>
+              </a>
+            </div>
+            <p class="text-slate-600">
+              Build a daily timetable with topic milestones, solve mock tests weekly, review mistakes in a notebook, and
+              focus on speed + accuracy. For General Awareness, use monthly current-affairs summaries; for Quant,
+              practice shortcuts and accuracy drills. Time-bound full mocks replicate exam pressure.
+            </p>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
+
     <!-- Exam Structure -->
     <section class="py-12">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl p-6 flex items-center gap-6 flex-wrap shadow" role="region" aria-label="Exam structure">
+      <div class="max-w-7xl mx-auto px-4">
+        <div
+          class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl p-6 flex items-center gap-6 flex-wrap shadow"
+          role="region" aria-label="Exam structure">
           <div class="flex-1 text-center min-w-[120px]">
-            <div class="text-3xl font-extrabold">4</div>
+            <div class="text-3xl font-extrabold">2</div>
             <div class="opacity-95">Tier Levels</div>
           </div>
           <div class="flex-1 text-center min-w-[120px]">
@@ -237,32 +551,133 @@
 
     <!-- Cutoff Analysis -->
     <section id="cutoffs" class="py-16">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl font-bold text-center">Cutoff Analysis</h2>
-        <p class="text-center text-slate-500 mt-2">Check previous year cutoff marks to set your preparation targets</p>
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-900 underline underline-offset-4">
+          SSC CGL Cutoff Analysis (Last 5 Years)
+        </h2>
+        <p class="text-center text-slate-500 mt-2">
+          Compare category-wise cutoffs across the last five years for Tier 1 and Tier 2 exams
+        </p>
 
-        <div class="bg-white rounded-xl p-6 shadow mt-6">
-          <h3 class="text-lg font-semibold">Previous Year Cutoff Marks</h3>
-          <p class="text-slate-500">Historical cutoff data for SSC CGL Tier 1, Tier 2, and Tier 3 examinations</p>
+        <!-- Tier 1 Cutoff Table -->
+        <div class="bg-white rounded-xl p-6 shadow mt-10">
+          <h3 class="text-lg font-semibold text-blue-800 mb-4">Tier 1 Cutoff (2019–2024)</h3>
 
-          <div class="overflow-auto mt-4">
-            <table class="min-w-[880px] cutoff-table w-full text-left">
-              <thead>
+          <div class="overflow-auto">
+            <table class="min-w-[800px] w-full text-left border border-slate-200 rounded-lg shadow-sm">
+              <thead class="bg-blue-900 text-white">
                 <tr>
-                  <th class="p-4 bg-blue-900 text-white">Year</th>
-                  <th class="p-4 bg-blue-900 text-white">Category</th>
-                  <th class="p-4 bg-blue-900 text-white">Tier 1 Cutoff</th>
-                  <th class="p-4 bg-blue-900 text-white">Tier 2 Cutoff</th>
-                  <th class="p-4 bg-blue-900 text-white">Tier 3 Cutoff</th>
+                  <th class="p-3">Category</th>
+                  <th class="p-3 text-center">2024</th>
+                  <th class="p-3 text-center">2023</th>
+                  <th class="p-3 text-center">2022</th>
+                  <th class="p-3 text-center">2021</th>
+                  <th class="p-3 text-center">2020</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="hover:bg-slate-50"><td class="p-4">2023</td><td class="p-4">General</td><td class="p-4 text-emerald-600 font-bold">150.23</td><td class="p-4 text-sky-600 font-bold">405.50</td><td class="p-4 text-orange-500 font-bold">171</td></tr>
-                <tr class="hover:bg-slate-50"><td class="p-4">2023</td><td class="p-4">EWS</td><td class="p-4 text-emerald-600 font-bold">146.75</td><td class="p-4 text-sky-600 font-bold">397.25</td><td class="p-4 text-orange-500 font-bold">165</td></tr>
-                <tr class="hover:bg-slate-50"><td class="p-4">2023</td><td class="p-4">OBC</td><td class="p-4 text-emerald-600 font-bold">143.50</td><td class="p-4 text-sky-600 font-bold">389.75</td><td class="p-4 text-orange-500 font-bold">159</td></tr>
-                <tr class="hover:bg-slate-50"><td class="p-4">2023</td><td class="p-4">SC</td><td class="p-4 text-emerald-600 font-bold">126.25</td><td class="p-4 text-sky-600 font-bold">350.50</td><td class="p-4 text-orange-500 font-bold">142</td></tr>
-                <tr class="hover:bg-slate-50"><td class="p-4">2023</td><td class="p-4">ST</td><td class="p-4 text-emerald-600 font-bold">117.75</td><td class="p-4 text-sky-600 font-bold">335.25</td><td class="p-4 text-orange-500 font-bold">135</td></tr>
-                <tr class="hover:bg-slate-50"><td class="p-4">2022</td><td class="p-4">General</td><td class="p-4 text-emerald-600 font-bold">148.50</td><td class="p-4 text-sky-600 font-bold">398.75</td><td class="p-4 text-orange-500 font-bold">168</td></tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">General (UR)</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">153.19</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">150.05</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">114.28</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">132.37</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">147.79</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">OBC</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">146.26</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">145.94</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">108.36</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">119.23</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">135.95</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">EWS</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">142.02</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">143.44</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">102.61</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">109.21</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">—</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">SC</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">126.46</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">126.68</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">89.09</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">93.76</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">115.35</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">ST</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">111.89</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">118.17</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">77.58</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">88.00</td>
+                  <td class="p-3 text-center text-emerald-600 font-bold">104.92</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tier 2 Cutoff Table -->
+        <div class="bg-white rounded-xl p-6 shadow mt-10">
+          <h3 class="text-lg font-semibold text-blue-800 mb-4">Tier 2 Cutoff (2019–2024)</h3>
+
+          <div class="overflow-auto">
+            <table class="min-w-[800px] w-full text-left border border-slate-200 rounded-lg shadow-sm">
+              <thead class="bg-blue-900 text-white">
+                <tr>
+                  <th class="p-3">Category</th>
+                  <th class="p-3 text-center">2024</th>
+                  <th class="p-3 text-center">2023</th>
+                  <th class="p-3 text-center">2022</th>
+                  <th class="p-3 text-center">2021</th>
+                  <th class="p-3 text-center">2020</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">General (UR)</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">322.77</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">287.00</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">270.36</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">—</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">434.25</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">OBC</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">306.28</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">271.00</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">251.12</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">—</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">—</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">EWS</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">300.04</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">265.00</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">245.77</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">—</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">—</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">SC</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">285.46</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">252.00</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">192.23</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">—</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">—</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">ST</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">266.50</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">241.00</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">176.10</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">—</td>
+                  <td class="p-3 text-center text-sky-600 font-bold">—</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -272,7 +687,7 @@
 
     <!-- Preparation Strategy -->
     <section id="prep" class="py-16">
-      <div class="max-w-6xl mx-auto px-4">
+      <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-2xl font-bold">Preparation Strategy</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -357,80 +772,156 @@
 
   <!-- Footer -->
   <footer id="contact" class="bg-blue-900 text-white py-12">
-    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div>
+    <!-- DESKTOP / TABLET FOOTER -->
+    <div class="hidden md:grid max-w-8xl mx-auto px-4 grid-cols-3 gap-12">
+
+      <!-- Logo & About -->
+      <div class="pl-9">
         <div class="flex items-center gap-3">
-          <div class="w-14 h-14 rounded-lg bg-orange-400 flex items-center justify-center font-bold">SSC</div>
+          <img src="./images/admin.png" class="h-10" alt="Govt Apply Zone Logo">
           <div>
-            <div class="font-semibold text-lg">SSC CGL Hub</div>
+            <div class="font-semibold text-lg">
+              <span class="text-yellow-300">Govt </span>
+              <span class="text-rose-300">Apply </span>
+              <span class="text-lime-500">Zone </span>
+            </div>
             <div class="text-white/80 text-sm">Your Complete Exam Guide</div>
           </div>
         </div>
-        <p class="text-white/90 mt-4">Your one-stop destination for all SSC CGL exam information, updates, and resources. Stay informed and prepare effectively for your success.</p>
-        <p class="text-white/90 mt-3"><i class="fa fa-envelope"></i> info@sscglhub.com</p>
+        <p class="text-white/90 mt-4">
+          Your one-stop destination for all Government exams information, updates, and resources.
+          Stay informed and prepare effectively for your success. Think high, Achieve Big.
+        </p>
+        <p class="text-white/90 mt-3">
+          <i class="fa fa-envelope text-yellow-300 mr-2"></i> govtapplyzone@gmail.com
+        </p>
       </div>
 
-      <div>
-        <h4 class="font-semibold">Quick Links</h4>
+      <!-- Quick Links -->
+      <div class="pl-12">
+        <h4 class="font-semibold text-lg">Quick Links</h4>
         <div class="mt-3 flex flex-col gap-2">
-          <a href="#home" class="text-white/90">Home</a>
-          <a href="#about" class="text-white/90">About Exam</a>
-          <a href="#updates" class="text-white/90">Syllabus</a>
-          <a href="#updates" class="text-white/90">Admit Card</a>
-          <a href="#cutoffs" class="text-white/90">Results</a>
+          <a href="Results.html" class="text-white/90 hover:text-yellow-300 transition">Results</a>
+          <a href="All-Exams.html" class="text-white/90 hover:text-yellow-300 transition">Exams</a>
+          <a href="Mock-tests.html" class="text-white/90 hover:text-yellow-300 transition">Mock Tests</a>
+          <a href="Admit-cards.html" class="text-white/90 hover:text-yellow-300 transition">Admit Cards</a>
+          <a href="All-Books.html" class="text-white/90 hover:text-yellow-300 transition">Books</a>
         </div>
       </div>
 
+      <!-- Social Links -->
       <div>
-        <h4 class="font-semibold">Connect With Us</h4>
-        <p class="text-white/90 mt-2">Follow us on social media for daily updates, tips, and important notifications.</p>
+        <h4 class="font-semibold text-lg">Connect With Us</h4>
+        <p class="text-white/90 mt-2">
+          Follow us on social media for daily updates, tips, and notifications.
+        </p>
         <div class="flex gap-3 mt-3">
-          <a href="#" class="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center"><i class="fab fa-youtube"></i></a>
-          <a href="#" class="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/share/16herodZ3H/"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-facebook-f"></i></a>
+          <a href=" https://x.com/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/@govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/company/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
     </div>
 
-    <div class="max-w-6xl mx-auto px-4 mt-6 border-t border-white/6 pt-4 text-white/80">
-      <div class="flex items-center justify-between gap-4 flex-wrap">
-        <div>© <span id="year"></span> SSC CGL Hub. All rights reserved. | Made with dedication for aspirants.</div>
-        <div class="text-white/70">Designed to match your screenshots</div>
+    <!-- DESKTOP COPYRIGHT LINE -->
+    <div class="hidden md:block border-t border-white/10 mt-10 pt-4">
+      <div class="max-w-8xl mx-auto px-6 text-center text-white/80 text-sm">
+        © 2025 Govt Apply Zone — Made with ❤️ for aspirants.
       </div>
+    </div>
+
+    <!-- MOBILE FOOTER -->
+    <div class="md:hidden flex flex-col items-center text-center gap-6 px-6">
+      <img src="./images/admin.png" class="h-12 rounded-full shadow-md border border-yellow-400"
+        alt="Govt Apply Zone Logo">
+      <h2 class="text-2xl font-bold">
+        <span class="text-yellow-300">Govt </span>
+        <span class="text-rose-300">Apply </span>
+        <span class="text-lime-500">Zone</span>
+      </h2>
+      <p class="text-white/90 text-sm leading-relaxed">
+        Your one-stop destination for all Government exams updates. Stay motivated. Stay ahead!
+      </p>
+
+      <!-- Socials -->
+      <div class="flex justify-center gap-6 mt-4">
+        <a href="https://www.facebook.com/share/16herodZ3H/" class="text-2xl text-blue-400 hover:scale-125 transition"><i class="fab fa-facebook"></i></a>
+        <a href=" https://x.com/govtapplyzone" class="text-2xl text-sky-400 hover:scale-125 transition"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/govtapplyzone" class="text-2xl text-pink-500 hover:scale-125 transition"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@govtapplyzone" class="text-2xl text-red-500 hover:scale-125 transition"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/govtapplyzone" class="text-2xl text-blue-600 hover:scale-125 transition"><i class="fab fa-linkedin"></i></a>
+      </div>
+
+      <!-- Links -->
+      <div class="flex justify-center gap-5 text-white/80 mt-5 text-sm">
+        <a href="#home" class="hover:text-yellow-300">Home</a>
+        <a href="#about" class="hover:text-yellow-300">Exam</a>
+        <a href="#updates" class="hover:text-yellow-300">Syllabus</a>
+        <a href="#cutoffs" class="hover:text-yellow-300">Results</a>
+      </div>
+
+      <!-- MOBILE COPYRIGHT LINE -->
+      <p class="text-xs text-white/70 mt-6 border-t border-white/10 pt-3">
+        © 2025 Govt Apply Zone — Made with ❤️ for aspirants.
+      </p>
     </div>
   </footer>
+
+
 
   <!-- Modal (hidden by default) -->
   <div id="notificationModal" class="hidden fixed inset-0 items-center justify-center z-50 modal-backdrop">
     <div class="bg-white rounded-xl p-6 w-11/12 max-w-lg shadow-2xl relative">
       <button class="absolute right-4 top-3 text-2xl modal-close" aria-label="close">&times;</button>
       <h3 class="text-lg font-semibold">Download Notification</h3>
-      <p class="text-slate-700 mt-2">Thank you for your interest. Replace the mock link below with the official SSC PDF file when ready.</p>
-      <a id="mockDownload" href="#" class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg">Download (mock)</a>
+      <p class="text-slate-700 mt-2">Thank you for your interest. Replace the mock link below with the official SSC PDF
+        file when ready.</p>
+      <a id="mockDownload" href="#" class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg">Download
+        (mock)</a>
     </div>
   </div>
 
   <script>
     // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Mobile nav toggle (controls #mobileNav visibility)
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    menuBtn && menuBtn.addEventListener('click', () => {
-      mobileNav.classList.toggle('hidden');
-    });
+    // Mobile nav toggle (fixed IDs to match HTML)
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('hidden');
+
+        // update aria-expanded for accessibility
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!expanded));
+      });
+    }
 
     // Smooth scroll for internal links (keeps original behavior)
     document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', function(e){
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target){
+      a.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        // allow links like "#" to behave normally
+        if (href === '#' || href === '') return;
+        const target = document.querySelector(href);
+        if (target) {
           e.preventDefault();
-          target.scrollIntoView({behavior:'smooth', block:'start'});
-          if(window.innerWidth <= 900 && !mobileNav.classList.contains('hidden')) mobileNav.classList.add('hidden');
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (window.innerWidth <= 900 && mobileNav && !mobileNav.classList.contains('hidden')) mobileNav.classList.add('hidden');
         }
       });
     });
@@ -443,16 +934,19 @@
 
     if (downloadButton) {
       downloadButton.addEventListener('click', () => {
-        modal.classList.remove('hidden');
-        modal.setAttribute('aria-hidden', 'false');
+        if (modal) {
+          modal.classList.remove('hidden');
+          modal.setAttribute('aria-hidden', 'false');
+        }
       });
     }
-    if (modalClose) modalClose.addEventListener('click', () => { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); });
-    modal.addEventListener('click', e => { if(e.target === modal) { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); }});
+    if (modalClose) modalClose.addEventListener('click', () => { if (modal) { modal.classList.add('hidden'); modal.setAttribute('aria-hidden', 'true'); } });
+    if (modal) modal.addEventListener('click', e => { if (e.target === modal) { modal.classList.add('hidden'); modal.setAttribute('aria-hidden', 'true'); } });
     if (mockDownload) mockDownload.addEventListener('click', (e) => { e.preventDefault(); alert('Demo mock download — replace with official PDF link.'); });
 
     // ESC closes modal
-    window.addEventListener('keydown', (e) => { if(e.key === 'Escape') { modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); }});
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal) { modal.classList.add('hidden'); modal.setAttribute('aria-hidden', 'true'); } });
   </script>
 </body>
+
 </html>
