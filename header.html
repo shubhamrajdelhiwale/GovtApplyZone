@@ -1,0 +1,61 @@
+  <!-- HEADER (equal and tight edge gaps) -->
+  <!-- HEADER (replace your header with this) -->
+  <header class="sticky top-0 z-50 bg-gradient-to-r from-[#10386a] to-[#1a5a8e] px-[37px]">
+    <div class="flex items-center justify-between w-full h-[67px]">
+
+      <!-- LEFT: Logo -->
+      <a href="home.html" class="text-white text-[1.7rem] pl-5 font-extrabold hover:opacity-90 transition">
+        <span class="text-yellow-300">Govt</span>
+        <span class="text-rose-300">Apply</span>
+        <span class="text-lime-500">Zone</span>
+      </a>
+
+
+      <!-- CENTER: Nav (Visible on Desktop) -->
+      <nav id="navbar" class="hidden md:flex gap-6">
+        <a href="All-Exams.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Exams</a>
+        <a href="Results.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Results</a>
+        <a href="Admit-cards.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Admit Card</a>
+        <a href="All-Books.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Books</a>
+        <a href="Mock-tests.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Mock Test</a>
+      </nav>
+
+      <!-- RIGHT: Hamburger (Mobile) + Profile (Desktop) -->
+      <div class="flex items-center gap-3">
+        <!-- Hamburger: only visible on mobile -->
+        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false"
+          class="md:hidden flex flex-col justify-center items-center">
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+        </button>
+
+        <!-- Profile: only visible on desktop -->
+        <a href="profile.html" class="hidden pr-5  md:block">
+          <img src="./images/admin.png" alt="Admin"
+            class="w-[42px] h-[42px] rounded-full border-2 border-white object-cover hover:scale-105 transition duration-200">
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ✅ MOBILE NAV DROPDOWN -->
+    <nav id="mobile-nav"
+      class="hidden md:hidden flex-col absolute top-[70px] right-[12px] w-[200px] bg-[#0f172a] rounded-xl shadow-2xl border border-white/10 p-3 transition-all duration-200 space-y-1">
+
+      <a href="All-Exams.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Exams</a>
+      <a href="Results.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Results</a>
+      <a href="Admit-cards.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Admit Card</a>
+      <a href="All-Books.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Books</a>
+      <a href="Mock-tests.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Mock Test</a>
+      <a href="Admin-contact.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Contact Us</a>
+
+      <!-- 👇 Profile Avatar (bottom of menu) -->
+      <div class="flex justify-center pt-3 border-t border-white/10 mt-2">
+        <a href="profile.html">
+          <img src="./images/admin.png" alt="Profile"
+            class="w-[45px] h-[45px] rounded-full border-2 border-white object-cover hover:scale-105 transition duration-200">
+        </a>
+      </div>
+    </nav>
+  </header>
