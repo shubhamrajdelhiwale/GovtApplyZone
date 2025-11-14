@@ -1,139 +1,289 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Govt Apply Zone – Sarkari Exams 2025, Government Jobs, SSC, and Results</title>
+  <meta name="description" content="GovtApplyZone brings you all Sarkari Exams 2025 including SSC CGL, SSC MTS, Railways, Banking and other government job notifications with apply links and eligibility details.">
   <link rel="icon" type="image/png" href="./images/admin.png">
 
-  <meta name="description" content="GovtApplyZone brings you all Sarkari Exams 2025 including SSC CGL, SSC MTS, Railways, Banking and other government job notifications with apply links and eligibility details.">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV6Q3YS4ZJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  gtag('config', 'G-JV6Q3YS4ZJ');
-</script>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; }
-    body { background:#0d1117; color:white; min-height:100vh; }
-    header { background:linear-gradient(90deg,#6a11cb,#2575fc); display:flex; justify-content:space-between; align-items:center; padding:15px 40px; position:sticky; top:0; z-index:1000; }
-    
-    /* Logo: updated to plain-CSS colored spans */
-    .site-logo {
-      color: #ffffff;        /* base white text */
-      font-size: 1.7rem;     /* matches text-[1.7rem] */
-      font-weight: 800;      /* extrabold */
-      display: flex;         /* use flex to remove whitespace gaps */
-      gap: 0;                /* ensure no gap between spans */
-      align-items: baseline; /* keep vertical alignment natural */
-      line-height: 1;
-      letter-spacing: 0.2px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+  <!-- Tailwind (CDN quick demo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // small Tailwind config override for default font
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto'] } } }
     }
-    .site-logo .logo-part { display:inline-block; }
-    .site-logo .logo-yellow { color: #fde047; } /* yellow-300 */
-    .site-logo .logo-rose   { color: #fda4af; } /* rose-300 */
-    .site-logo .logo-lime   { color: #bef264; } /* lime-500 */
+  </script>
 
-    nav { display:flex; gap:25px; }
-    nav a { text-decoration:none; color:#fff; font-weight:500; transition:0.3s; }
-    nav a:hover { color:#d0d0d0; }
-    .profile { width:45px; height:45px; border-radius:50%; border:2px solid white; object-fit:cover; }
-    .menu-toggle { display:none; flex-direction:column; cursor:pointer; }
-    .bar { height:3px; width:25px; background-color:white; margin:4px 0; border-radius:2px; }
-    .hero { text-align:center; padding:50px 20px 20px; }
-    .hero h1 { font-size:2rem; margin-bottom:20px; }
-    .filters { display:flex; justify-content:center; align-items:center; gap:15px; margin-bottom:30px; flex-wrap:wrap; }
-    .filters input, .filters select { padding:10px 15px; border-radius:8px; border:none; outline:none; width:250px; }
-    .exam-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px; width:90%; margin:0 auto 50px; }
-    .exam-card { background:#161b22; padding:25px; border-radius:15px; box-shadow:0 0 10px rgba(0,0,0,0.3); transition:transform .3s; }
-    .exam-card:hover { transform:translateY(-5px); }
-    .exam-card h3 { color:#00b4d8; font-size:1.2rem; margin-bottom:10px; }
-    .exam-card p { font-size:0.9rem; color:#ccc; margin-bottom:15px; line-height:1.5; }
-    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:15px; }
-    .tag { background:#2a2f3d; color:#ddd; padding:5px 10px; border-radius:8px; font-size:0.8rem; }
-    .btns { display:flex; gap:10px; }
-    .btn { flex:1; text-align:center; padding:10px; border-radius:8px; font-weight:600; text-decoration:none; color:white; }
-    .btn-details { background:linear-gradient(90deg,#00c6ff,#0072ff); }
-    .btn-link    { background:linear-gradient(90deg,#a770ef,#cf8bf3); }
-    footer { background:#0b0e13; padding:30px; text-align:center; color:#aaa; }
-    .socials { margin-top:15px; display:flex; justify-content:center; gap:20px; }
-    .socials a { color:#aaa; text-decoration:none; font-size:1.3rem; transition:0.3s; }
-    .socials a:hover { color:#00b4d8; }
-    @media (max-width:768px) {
-      nav { display:none; flex-direction:column; background:#161b22; position:absolute; top:70px; right:0; width:200px; padding:20px; border-radius:8px; }
-      nav.active { display:flex; }
-      .menu-toggle { display:flex; }
+    <style>
+    /* Small custom bits that are easier to keep in CSS than inline utilities: gradients & shadows used repeatedly */
+    :root {
+      --shadow: 0 6px 20px rgba(15, 46, 74, 0.08);
+    }
+
+    /* icon gradients (kept as classes to keep markup tidy) */
+    .icon-orange {
+      background: linear-gradient(180deg, #f08b2d, #e26b2b);
+    }
+
+    .icon-blue {
+      background: linear-gradient(180deg, #1da1f2, #0f8ed6);
+    }
+
+    .icon-green {
+      background: linear-gradient(180deg, #2dbb77, #1f8f56);
+    }
+
+    .icon-navy {
+      background: linear-gradient(180deg, #0f2e4a, #0f4ea8);
+    }
+
+    /* modal backdrop using attribute (keeps aria approach) */
+    .modal-backdrop {
+      background: rgba(13, 36, 60, 0.45);
+    }
+
+    /* table head rounding hack for wide tables inside overflow container */
+    .cutoff-table thead th:first-child {
+      border-top-left-radius: 8px
+    }
+
+    .cutoff-table thead th:last-child {
+      border-top-right-radius: 8px
     }
   </style>
 </head>
-<body>
-  <header>
-    <!-- LEFT: Logo Text (updated to colored spans, plain CSS) -->
-    <div class="site-logo" role="img" aria-label="GovtApplyZone">
-      <span class="logo-part logo-yellow">Govt</span>
-      <span class="logo-part logo-rose">Apply</span>
-      <span class="logo-part logo-lime">Zone</span>
+<body class="bg-gray-300 text-white min-h-screen">
+
+
+  <!-- HEADER (equal and tight edge gaps) -->
+  <!-- HEADER (replace your header with this) -->
+  <header class="sticky top-0 z-50 bg-gradient-to-r from-[#10386a] to-[#1a5a8e] px-[37px]">
+    <div class="flex items-center justify-between w-full h-[67px]">
+
+      <!-- LEFT: Logo -->
+      <a href="home.html" class="text-white text-[1.7rem] pl-5 font-extrabold hover:opacity-90 transition">
+        <span class="text-yellow-300">Govt</span>
+        <span class="text-rose-300">Apply</span>
+        <span class="text-lime-500">Zone</span>
+      </a>
+
+
+      <!-- CENTER: Nav (Visible on Desktop) -->
+      <nav id="navbar" class="hidden md:flex gap-6">
+        <a href="All-Exams.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Exams</a>
+        <a href="Results.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Results</a>
+        <a href="Admit-cards.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Admit Card</a>
+        <a href="All-Books.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Books</a>
+        <a href="Mock-tests.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Mock Test</a>
+      </nav>
+
+      <!-- RIGHT: Hamburger (Mobile) + Profile (Desktop) -->
+      <div class="flex items-center gap-3">
+        <!-- Hamburger: only visible on mobile -->
+        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false"
+          class="md:hidden flex flex-col justify-center items-center">
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+        </button>
+
+        <!-- Profile: only visible on desktop -->
+        <a href="profile.html" class="hidden pr-5  md:block">
+          <img src="./images/admin.png" alt="Admin"
+            class="w-[42px] h-[42px] rounded-full border-2 border-white object-cover hover:scale-105 transition duration-200">
+        </a>
+
+      </div>
     </div>
 
-    <nav id="navbar">
-      <a href="#">Home</a><a href="#">Exams</a><a href="#">Results</a><a href="#">Admit Card</a><a href="#">Contact</a>
+    <!-- ✅ MOBILE NAV DROPDOWN -->
+    <nav id="mobile-nav"
+      class="hidden md:hidden flex-col absolute top-[70px] right-[12px] w-[200px] bg-[#0f172a] rounded-xl shadow-2xl border border-white/10 p-3 transition-all duration-200 space-y-1">
+
+      <a href="All-Exams.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Exams</a>
+      <a href="Results.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Results</a>
+      <a href="Admit-cards.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Admit Card</a>
+      <a href="All-Books.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Books</a>
+      <a href="Mock-tests.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Mock Test</a>
+      <a href="Admin-contact.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Contact Us</a>
+
+      <!-- 👇 Profile Avatar (bottom of menu) -->
+      <div class="flex justify-center pt-3 border-t border-white/10 mt-2">
+        <a href="profile.html">
+          <img src="./images/admin.png" alt="Profile"
+            class="w-[45px] h-[45px] rounded-full border-2 border-white object-cover hover:scale-105 transition duration-200">
+        </a>
+      </div>
     </nav>
-    <div class="menu-toggle" id="menu-toggle"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
-    <img src="https://i.ibb.co/qLBkHXDG/Untitled-design-1.png" alt="Admin" class="profile" />
   </header>
+  <!-- HERO / FILTERS -->
+  <main class="pt-8">
+    <section class="text-center px-4">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-2xl md:text-5xl text-[#10386a] font-bold mb-5">All Government Exams 2025</h1>
 
-  <section class="hero">
-    <h1>All Government Exams 2025</h1>
-    <div class="filters">
-      <input type="text" placeholder="🔍 Search exams..." id="searchInput" />
-      <select id="filterEligibility">
-        <option value="">Filter by Eligibility</option>
-        <option value="Graduate">Graduate</option>
-        <option value="12th">12th Pass</option>
-        <option value="10th">10th Pass</option>
-        <option value="Diploma">Diploma</option>
-      </select>
-      <select id="filterMonth">
-        <option value="">Filter by Month</option>
-        <option value="January">January</option>
-        <option value="February">February</option>
-        <option value="March">March</option>
-        <option value="April">April</option>
-        <option value="May">May</option>
-        <option value="June">June</option>
-        <option value="August">August</option>
-        <option value="September">September</option>
-        <option value="October">October</option>
-        <option value="November">November</option>
-        <option value="December">December</option>
-      </select>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mt-2">
+          <input id="searchInput" type="text" placeholder="🔍 Search exams..." class="w-full md:w-80 px-4 py-3 rounded-lg bg-[#0f1317] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2b6cb0]" />
+
+          <select id="filterEligibility" class="w-full md:w-64 px-4 py-3 rounded-lg bg-[#0f1317] focus:outline-none">
+            <option value="">Filter by Eligibility</option>
+            <option value="Graduate">Graduate</option>
+            <option value="12th">12th Pass</option>
+            <option value="10th">10th Pass</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Post Graduate">Post Graduate</option>
+            <option value="Engineering Degree">Engineering Degree</option>
+          </select>
+
+          <select id="filterMonth" class="w-full md:w-56 px-4 py-3 rounded-lg bg-[#0f1317] focus:outline-none">
+            <option value="">Filter by Month</option>
+            <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAM CARDS CONTAINER -->
+    <section id="examContainer" class="max-w-7xl mx-auto px-4 mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-12">
+      <!-- JS will populate cards here -->
+    </section>
+
+    <!-- SEO Brand Block -->
+    <section class="text-center mt-8 px-4">
+      <p class="text-[10px] text-gray-400 opacity-60 leading-4 max-w-4xl mx-auto">
+        GovtApplyZone | Govt Apply Zone | GovtApplyZone Site | Govt Apply Zone Site |
+        GovtApplyZone.com | GovtApplyZone.in | GovtApplyZone.site | Govt Apply Zone Official |
+        GovtApplyZone Website | Govt Apply Zone Portal | GovtApplyZone App | GovtApplyZone Online |
+        Govt Apply Zone Updates | GovtApplyZone India | GovtApplyZone 2025 |
+        GovtApplyZone Sarkari Result | GovtApplyZone Jobs | GovtApplyZone Mock Tests
+      </p>
+    </section>
+  </main>
+
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-blue-900 text-white py-12">
+    <!-- DESKTOP / TABLET FOOTER -->
+    <div class="hidden md:grid max-w-8xl mx-auto px-4 grid-cols-3 gap-12">
+
+      <!-- Logo & About -->
+      <div class="pl-9">
+        <div class="flex items-center gap-3">
+          <img src="./images/admin.png" class="h-10" alt="Govt Apply Zone Logo">
+          <div>
+            <div class="font-semibold text-lg">
+              <span class="text-yellow-300">Govt </span>
+              <span class="text-rose-300">Apply </span>
+              <span class="text-lime-500">Zone </span>
+            </div>
+            <div class="text-white/80 text-sm">Your Complete Exam Guide</div>
+          </div>
+        </div>
+        <p class="text-white/90 mt-4">
+          Your one-stop destination for all Government exams information, updates, and resources.
+          Stay informed and prepare effectively for your success. Think high, Achieve Big.
+        </p>
+        <p class="text-white/90 mt-3">
+          <i class="fa fa-envelope text-yellow-300 mr-2"></i> govtapplyzone@gmail.com
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="pl-12">
+        <h4 class="font-semibold text-lg">Quick Links</h4>
+        <div class="mt-3 flex flex-col gap-2">
+          <a href="Results.html" class="text-white/90 hover:text-yellow-300 transition">Results</a>
+          <a href="All-Exams.html" class="text-white/90 hover:text-yellow-300 transition">Exams</a>
+          <a href="Mock-tests.html" class="text-white/90 hover:text-yellow-300 transition">Mock Tests</a>
+          <a href="Admit-cards.html" class="text-white/90 hover:text-yellow-300 transition">Admit Cards</a>
+          <a href="All-Books.html" class="text-white/90 hover:text-yellow-300 transition">Books</a>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div>
+        <h4 class="font-semibold text-lg">Connect With Us</h4>
+        <p class="text-white/90 mt-2">
+          Follow us on social media for daily updates, tips, and notifications.
+        </p>
+        <div class="flex gap-3 mt-3">
+          <a href="https://www.facebook.com/share/16herodZ3H/"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-facebook-f"></i></a>
+          <a href=" https://x.com/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/@govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/company/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <section class="exam-container" id="examContainer"></section>
-  <!-- GovtApplyZone SEO Brand Block (Above Footer) -->
-<section class="text-center mt-10 px-4">
-  <p class="text-[10px] text-gray-500 opacity-50 leading-4">
-    GovtApplyZone | Govt Apply Zone | GovtApplyZone Site | Govt Apply Zone Site |
-    GovtApplyZone.com | GovtApplyZone.in | GovtApplyZone.site | Govt Apply Zone Official |
-    GovtApplyZone Website | Govt Apply Zone Portal | GovtApplyZone App | GovtApplyZone Online |
-    Govt Apply Zone Updates | GovtApplyZone India | GovtApplyZone 2025 |
-    GovtApplyZone Sarkari Result | GovtApplyZone Jobs | GovtApplyZone Mock Tests
-  </p>
-</section>
-  <footer>
-    <p>© 2025 Sarkari Exams | Designed by Admin</p>
-    <div class="socials"><a href="#">🌐</a><a href="#">📘</a><a href="#">🐦</a><a href="#">📸</a><a href="#">▶️</a></div>
+    <!-- DESKTOP COPYRIGHT LINE -->
+    <div class="hidden md:block border-t border-white/10 mt-10 pt-4">
+      <div class="max-w-8xl mx-auto px-6 text-center text-white/80 text-sm">
+        © 2025 Govt Apply Zone — Made with ❤️ for aspirants.
+      </div>
+    </div>
+
+    <!-- MOBILE FOOTER -->
+    <div class="md:hidden flex flex-col items-center text-center gap-6 px-6">
+      <img src="./images/admin.png" class="h-12 rounded-full shadow-md border border-yellow-400"
+        alt="Govt Apply Zone Logo">
+      <h2 class="text-2xl font-bold">
+        <span class="text-yellow-300">Govt </span>
+        <span class="text-rose-300">Apply </span>
+        <span class="text-lime-500">Zone</span>
+      </h2>
+      <p class="text-white/90 text-sm leading-relaxed">
+        Your one-stop destination for all Government exams updates. Stay motivated. Stay ahead!
+      </p>
+
+      <!-- Socials -->
+      <div class="flex justify-center gap-6 mt-4">
+        <a href="https://www.facebook.com/share/16herodZ3H/" class="text-2xl text-blue-400 hover:scale-125 transition"><i class="fab fa-facebook"></i></a>
+        <a href=" https://x.com/govtapplyzone" class="text-2xl text-sky-400 hover:scale-125 transition"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/govtapplyzone" class="text-2xl text-pink-500 hover:scale-125 transition"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@govtapplyzone" class="text-2xl text-red-500 hover:scale-125 transition"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/govtapplyzone" class="text-2xl text-blue-600 hover:scale-125 transition"><i class="fab fa-linkedin"></i></a>
+      </div>
+
+      <!-- Links -->
+      <div class="flex justify-center gap-5 text-white/80 mt-5 text-sm">
+        <a href="#home" class="hover:text-yellow-300">Home</a>
+        <a href="#about" class="hover:text-yellow-300">Exam</a>
+        <a href="#updates" class="hover:text-yellow-300">Syllabus</a>
+        <a href="#cutoffs" class="hover:text-yellow-300">Results</a>
+      </div>
+
+      <!-- MOBILE COPYRIGHT LINE -->
+      <p class="text-xs text-white/70 mt-6 border-t border-white/10 pt-3">
+        © 2025 Govt Apply Zone — Made with ❤️ for aspirants.
+      </p>
+    </div>
   </footer>
-
+  <!-- SCRIPTS -->
   <script>
+    // Redirect normalization (keeps your original behavior)
     if (window.location.hostname === "govtapplyzone.site") {
-  window.location.href = "https://www.govtapplyzone.site";
-}
+      window.location.href = "https://www.govtapplyzone.site";
+    }
+
+    // FULL DATA: same as your original large exam list
     const exams = [
       { name: "SSC CGL 2025", eligibility: "Graduate", month: "September", fee: "₹100", desc: "Combined Graduate Level exam for recruitment to Group B & C posts in various ministries and departments.", vacancies: "14582+", date: "September 2025", detailsPage: "ssc-cgl-2025.html", officialLink: "https://ssc.gov.in" },
       { name: "SSC CHSL 2025", eligibility: "12th", month: "May", fee: "₹100", desc: "Combined Higher Secondary Level exam for DEO, LDC, and Postal Assistant / Sorting Assistant posts.", vacancies: "3131+", date: "May 2025", detailsPage: "ssc-chsl-2025.html", officialLink: "https://ssc.gov.in" },
@@ -145,13 +295,12 @@
       { name: "SSC Selection Post 2025", eligibility: "10th/12th/Graduate", month: "July", fee: "₹100", desc: "Recruitment for multiple posts across ministries through selection-based exam.", vacancies: "2000+", date: "July 2025", detailsPage: "ssc-selection-post-2025.html", officialLink: "https://ssc.gov.in" },
       { name: "SSC JHT 2025", eligibility: "Post Graduate", month: "November", fee: "₹100", desc: "Junior Hindi Translator, Senior Translator, and Hindi Pradhyapak examination.", vacancies: "500+", date: "November 2025", detailsPage: "ssc-jht-2025.html", officialLink: "https://ssc.gov.in" },
 
-
       { name: "HPSC HCS 2025", eligibility: "Graduate", month: "January", fee: "₹1000", desc: "Haryana Civil Services exam for state administrative roles.", vacancies: "150+", date: "January 2025", detailsPage: "hpsc-hcs-2025.html", officialLink: "https://hpsc.gov.in" },
       { name: "Punjab PCS 2025", eligibility: "Graduate", month: "August", fee: "₹500", desc: "Punjab Civil Services exam by PPSC for administrative posts.", vacancies: "180+", date: "August 2025", detailsPage: "punjab-pcs-2025.html", officialLink: "https://ppsc.gov.in" },
 
       { name: "JPSC Combined Civil Services 2025", eligibility: "Graduate", month: "June", fee: "₹100", desc: "Jharkhand PSC exam for administrative posts in state government.", vacancies: "250+", date: "June 2025", detailsPage: "jpsc-combined-civil-2025.html", officialLink: "https://jpsc.gov.in" },
       { name: "JSSC CGL 2025", eligibility: "Graduate", month: "April", fee: "₹100", desc: "Graduate-level recruitment for various departments under Jharkhand SSC.", vacancies: "2000+", date: "April 2025", detailsPage: "jssc-cgl-2025.html", officialLink: "https://jssc.nic.in" },
-    
+
       { name: "UPSC Civil Services Examination (CSE) 2025", eligibility: "Graduate", month: "May", fee: "₹100", desc: "Prestigious exam recruiting for IAS, IPS, IFS and other All-India & Central Services.", vacancies: "≈ 1000+", date: "May 2025", detailsPage: "upsc-cse-2025.html", officialLink: "https://upsc.gov.in" },
       { name: "UPSC Indian Forest Service (IFoS) 2025", eligibility: "Graduate", month: "May", fee: "₹200", desc: "Exam for Indian Forest Service posts through UPSC, preceded by CSE Prelims.", vacancies: "≈ 180+", date: "May 2025", detailsPage: "upsc-ifos-2025.html", officialLink: "https://upsc.gov.in" },
       { name: "UPSC Engineering Services Examination (ESE) 2025", eligibility: "Engineering Degree", month: "February", fee: "₹200", desc: "Recruitment of engineers for technical services (railways, defence, PWD etc.) via UPSC.", vacancies: "≈ 250+", date: "February 2025", detailsPage: "upsc-ese-2025.html", officialLink: "https://upsc.gov.in" },
@@ -160,10 +309,6 @@
       { name: "UPSC IES/ISS 2025", eligibility: "Post-Graduate (Economics/Statistics)", month: "June", fee: "₹200", desc: "Recruitment of economists/statisticians for Central Govt departments via UPSC.", vacancies: "≈ 55+", date: "June 2025", detailsPage: "upsc-ies-iss-2025.html", officialLink: "https://upsc.gov.in" },
       { name: "UPSC Combined Geo-Scientist & Geologist Examination 2025", eligibility: "Post-Graduate Geology/Geophysics", month: "February", fee: "₹200", desc: "Recruitment of scientists/geologists in Geological Survey of India & related bodies via UPSC.", vacancies: "≈ 200+", date: "February 2025", detailsPage: "upsc-geo-scientist-2025.html", officialLink: "https://upsc.gov.in" },
 
-
-
-
-      
       { name: "IBPS PO 2025", eligibility: "Graduate", month: "September", fee: "₹850", desc: "Recruitment for Probationary Officers in Public Sector Banks under IBPS.", vacancies: "4000+", date: "September 2025", detailsPage: "ibps-po-2025.html", officialLink: "https://ibps.in" },
       { name: "IBPS Clerk 2025", eligibility: "Graduate", month: "August", fee: "₹850", desc: "Recruitment for Clerical Cadre in Public Sector Banks through IBPS.", vacancies: "6000+", date: "August 2025", detailsPage: "ibps-clerk-2025.html", officialLink: "https://ibps.in" },
       { name: "IBPS RRB 2025", eligibility: "Graduate", month: "June", fee: "₹850", desc: "Recruitment for Regional Rural Banks including Officer Scale I, II, III and Office Assistant.", vacancies: "9000+", date: "June 2025", detailsPage: "ibps-rrb-2025.html", officialLink: "https://ibps.in" },
@@ -252,69 +397,81 @@
       { name: "OSSSC Group C 2025", eligibility: "12th/Graduate", month: "May", fee: "₹100", desc: "Recruitment for various Group C posts under OSSSC.", vacancies: "3000+", date: "May 2025", detailsPage: "osssc-group-c-2025.html", officialLink: "https://osssc.gov.in" },
 
       { name: "APPSC Group 1 2025", eligibility: "Graduate", month: "May", fee: "₹250", desc: "Andhra Pradesh PSC recruitment for state-level executive posts.", vacancies: "100+", date: "May 2025", detailsPage: "appsc-group1-2025.html", officialLink: "https://psc.ap.gov.in" },
-      { name: "TSPSC Group 1 2025", eligibility: "Graduate", month: "October", fee: "₹200", desc: "Telangana State PSC exam for administrative and executive cadre posts.", vacancies: "500+", date: "October 2025", detailsPage: "tspsc-group1-2025.html", officialLink: "https://tspsc.gov.in" },
+      { name: "TSPSC Group 1 2025", eligibility: "Graduate", month: "October", fee: "₹200", desc: "Telangana State PSC exam for administrative and executive cadre posts.", vacancies: "500+", date: "October 2025", detailsPage: "tspsc-group1-2025.html", officialLink: "https://tspsc.gov.in" }
+    ];
 
-      ];
-
+    // DOM refs
     const container = document.getElementById("examContainer");
     const searchInput = document.getElementById("searchInput");
     const filterEligibility = document.getElementById("filterEligibility");
     const filterMonth = document.getElementById("filterMonth");
 
-    function renderExams(list) {
-      container.innerHTML = list.map(exam => `
-        <div class="exam-card">
-          <h3>${exam.name}</h3>
-          <p>${exam.desc}</p>
-          <div class="tags">
-            <div class="tag">Fees: ${exam.fee}</div>
-            <div class="tag">Eligibility: ${exam.eligibility}</div>
-            <div class="tag">Vacancies: ${exam.vacancies}</div>
-            <div class="tag">Date: ${exam.date}</div>
-          </div>
-          <div class="btns">
-            <a href="${exam.detailsPage}" class="btn btn-details">View Details</a>
-            <a href="${exam.officialLink}" target="_blank" rel="noopener noreferrer" class="btn btn-link">Official Link</a>
-          </div>
-        </div>
-      `).join("");
+    // Basic escaping helpers to avoid injection if data changes
+    function escapeHtml(str) {
+      if (!str && str !== 0) return '';
+      return String(str).replace(/[&<>"']/g, function(m) {
+        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+      });
+    }
+    function escapeAttr(str) {
+      return escapeHtml(str).replace(/"/g, '&quot;');
     }
 
+    // Render function (Tailwind utility classes only)
+    function renderExams(list) {
+      if (!container) return;
+      container.innerHTML = list.map(exam => `
+        <article class="bg-[#161b22] p-6 rounded-[15px] shadow-[0_0_10px_rgba(0,0,0,0.3)] transform transition-transform duration-200 hover:-translate-y-1">
+          <h3 class="text-[#00b4d8] text-lg font-semibold mb-3">${escapeHtml(exam.name)}</h3>
+          <p class="text-gray-300 text-sm mb-4 leading-relaxed">${escapeHtml(exam.desc)}</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-[#2a2f3d] text-[#ddd] text-xs px-3 py-1 rounded-md">Fees: ${escapeHtml(exam.fee)}</span>
+            <span class="bg-[#2a2f3d] text-[#ddd] text-xs px-3 py-1 rounded-md">Eligibility: ${escapeHtml(exam.eligibility)}</span>
+            <span class="bg-[#2a2f3d] text-[#ddd] text-xs px-3 py-1 rounded-md">Vacancies: ${escapeHtml(exam.vacancies)}</span>
+            <span class="bg-[#2a2f3d] text-[#ddd] text-xs px-3 py-1 rounded-md">Date: ${escapeHtml(exam.date)}</span>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <a href="${escapeAttr(exam.detailsPage)}" class="inline-block text-center py-2 rounded-md font-semibold text-white bg-gradient-to-r from-[#00c6ff] to-[#0072ff]">View Details</a>
+            <a href="${escapeAttr(exam.officialLink)}" target="_blank" rel="noopener noreferrer" class="inline-block text-center py-2 rounded-md font-semibold text-white bg-gradient-to-r from-[#a770ef] to-[#cf8bf3]">Official Link</a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // Filter logic
     function filterExams() {
-      const search = searchInput.value.toLowerCase();
+      const search = (searchInput.value || '').trim().toLowerCase();
       const eligibility = filterEligibility.value;
       const month = filterMonth.value;
-      const filtered = exams.filter(e =>
-        e.name.toLowerCase().includes(search) &&
-        (eligibility === "" || e.eligibility === eligibility) &&
-        (month === "" || e.month.includes(month))
-      );
+
+      const filtered = exams.filter(e => {
+        const nameMatch = (e.name || '').toLowerCase().includes(search) || (e.desc || '').toLowerCase().includes(search);
+        const eligibilityMatch = (eligibility === "" || e.eligibility === eligibility);
+        const monthMatch = (month === "" || (e.month && e.month.includes(month)));
+        return nameMatch && eligibilityMatch && monthMatch;
+      });
       renderExams(filtered);
     }
 
     // Initial render
     renderExams(exams);
 
-    // Filters
+    // Attach filter events
     searchInput.addEventListener("input", filterExams);
     filterEligibility.addEventListener("change", filterExams);
     filterMonth.addEventListener("change", filterExams);
 
-    // Menu toggle for mobile
+    // Mobile menu toggle
     const menuToggle = document.getElementById("menu-toggle");
-    const navbar = document.getElementById("navbar");
-    menuToggle.addEventListener("click", () => {
-      navbar.classList.toggle("active");
+    const mobileNav = document.getElementById("mobileNav");
+    menuToggle && menuToggle.addEventListener("click", () => {
+      if (!mobileNav) return;
+      mobileNav.classList.toggle("hidden");
     });
+
+    // UX: prevent Enter causing page reload
+    searchInput.addEventListener("keydown", (e) => { if (e.key === "Enter") e.preventDefault(); });
+
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
