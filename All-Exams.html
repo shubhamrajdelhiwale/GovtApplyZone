@@ -1,1 +1,508 @@
-<h1>page coming soon wait </h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Govt Apply Zone – Sarkari Exams 2025, Government Jobs, SSC, and Results</title>
+  <meta name="description" content="GovtApplyZone brings you all Sarkari Exams 2025 including SSC CGL, SSC MTS, Railways, Banking and other government job notifications with apply links and eligibility details.">
+  <link rel="icon" type="image/png" href="./images/admin.png">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind (CDN quick demo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // small Tailwind config override for default font
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto'] } } }
+    }
+  </script>
+
+    <style>
+    /* Small custom bits that are easier to keep in CSS than inline utilities: gradients & shadows used repeatedly */
+    :root {
+      --shadow: 0 6px 20px rgba(15, 46, 74, 0.08);
+    }
+
+    /* icon gradients (kept as classes to keep markup tidy) */
+    .icon-orange {
+      background: linear-gradient(180deg, #f08b2d, #e26b2b);
+    }
+
+    .icon-blue {
+      background: linear-gradient(180deg, #1da1f2, #0f8ed6);
+    }
+
+    .icon-green {
+      background: linear-gradient(180deg, #2dbb77, #1f8f56);
+    }
+
+    .icon-navy {
+      background: linear-gradient(180deg, #0f2e4a, #0f4ea8);
+    }
+
+    /* modal backdrop using attribute (keeps aria approach) */
+    .modal-backdrop {
+      background: rgba(13, 36, 60, 0.45);
+    }
+
+    /* table head rounding hack for wide tables inside overflow container */
+    .cutoff-table thead th:first-child {
+      border-top-left-radius: 8px
+    }
+
+    .cutoff-table thead th:last-child {
+      border-top-right-radius: 8px
+    }
+  </style>
+</head>
+<body class="bg-[#0f2e4a] text-white min-h-screen">
+
+
+  <!-- HEADER (equal and tight edge gaps) -->
+  <!-- HEADER (replace your header with this) -->
+  <header class="sticky top-0 z-50 bg-gradient-to-r from-[#10386a] to-[#1a5a8e] px-[37px]">
+    <div class="flex items-center justify-between w-full h-[67px]">
+
+      <!-- LEFT: Logo -->
+      <a href="home.html" class="text-white text-[1.7rem] pl-5 font-extrabold hover:opacity-90 transition">
+        <span class="text-yellow-300">Govt</span>
+        <span class="text-rose-300">Apply</span>
+        <span class="text-lime-500">Zone</span>
+      </a>
+
+
+      <!-- CENTER: Nav (Visible on Desktop) -->
+      <nav id="navbar" class="hidden md:flex gap-6">
+        <a href="All-Exams.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Exams</a>
+        <a href="Results.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Results</a>
+        <a href="Admit-cards.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Admit Card</a>
+        <a href="All-Books.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Books</a>
+        <a href="Mock-tests.html" class="text-white font-medium hover:text-[#d0d0d0] transition">Mock Test</a>
+      </nav>
+
+      <!-- RIGHT: Hamburger (Mobile) + Profile (Desktop) -->
+      <div class="flex items-center gap-3">
+        <!-- Hamburger: only visible on mobile -->
+        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false"
+          class="md:hidden flex flex-col justify-center items-center">
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+          <span class="block w-[24px] h-[2px] bg-white rounded my-[2px]"></span>
+        </button>
+
+        <!-- Profile: only visible on desktop -->
+        <a href="profile.html" class="hidden pr-5  md:block">
+          <img src="./images/admin.png" alt="Admin"
+            class="w-[42px] h-[42px] rounded-full border-2 border-white object-cover hover:scale-105 transition duration-200">
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ✅ MOBILE NAV DROPDOWN -->
+    <nav id="mobile-nav"
+      class="hidden md:hidden flex-col absolute top-[70px] right-[12px] w-[200px] bg-[#0f172a] rounded-xl shadow-2xl border border-white/10 p-3 transition-all duration-200 space-y-1">
+
+      <a href="All-Exams.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Exams</a>
+      <a href="Results.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Results</a>
+      <a href="Admit-cards.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Admit Card</a>
+      <a href="All-Books.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Books</a>
+      <a href="Mock-tests.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Mock Test</a>
+      <a href="Admin-contact.html" class="block px-3 py-2 text-white/90 hover:bg-white/10 rounded-md transition">Contact Us</a>
+
+      <!-- 👇 Profile Avatar (bottom of menu) -->
+      <div class="flex justify-center pt-3 border-t border-white/10 mt-2">
+        <a href="profile.html">
+          <img src="./images/admin.png" alt="Profile"
+            class="w-[45px] h-[45px] rounded-full border-2 border-white object-cover hover:scale-105 transition duration-200">
+        </a>
+      </div>
+    </nav>
+  </header>
+ 
+
+
+<main class="max-w-6xl mx-auto px-4 py-10">
+    <header class="prose prose-invert mx-auto text-center mb-8">
+      <h1 class="text-3xl md:text-4xl font-extrabold">All Government Exams 2025 — Eligibility & Age Limits</h1>
+      <p class="text-sm max-w-3xl mx-auto mt-2 text-gray-300">
+        Consolidated table of government exams (SSC, UPSC, Banking, Railways, Teaching, Agriculture, State PSC, Police and more).
+        Use the table to navigate to the exam detail pages or official websites. Age limits shown are indicative — always confirm on the official notification.
+      </p>
+    </header>
+
+    <section id="toc" class="mb-6">
+      <nav class="flex flex-wrap gap-3 justify-center">
+        <a href="#ssc" class="text-sm px-3 py-2 rounded bg-[#162033] hover:bg-[#23364a] transition">SSC</a>
+        <a href="#upsc" class="text-sm px-3 py-2 rounded bg-[#162033] hover:bg-[#23364a] transition">UPSC</a>
+        <a href="#banking" class="text-sm px-3 py-2 rounded bg-[#162033] hover:bg-[#23364a] transition">Banking</a>
+        <a href="#railways" class="text-sm px-3 py-2 rounded bg-[#162033] hover:bg-[#23364a] transition">Railways</a>
+        <a href="#teaching" class="text-sm px-3 py-2 rounded bg-[#162033] hover:bg-[#23364a] transition">Teaching</a>
+        <a href="#agriculture" class="text-sm px-3 py-2 rounded bg-[#162033] hover:bg-[#23364a] transition">Agriculture</a>
+        <a href="#state-psc" class="text-sm px-3 py-2 rounded bg-[#162033] hover:bg-[#23364a] transition">State PSC</a>
+        <a href="#police" class="text-sm px-3 py-2 rounded bg-[#162033] hover:bg-[#23364a] transition">Police</a>
+        <a href="#other" class="text-sm px-3 py-2 rounded bg-[#162033] hover:bg-[#23364a] transition">Other</a>
+      </nav>
+    </section>
+
+    <!-- Container where JS will render sections -->
+    <div id="content" class="space-y-10"></div>
+
+    <footer class="mt-10 text-xs text-gray-400 text-center">
+      <p>Note: Age limits are approximate and assigned per exam category automatically for convenience. Always verify the official notification linked in the "Official" column for exact eligibility and age relaxation rules.</p>
+    </footer>
+  </main>
+
+
+
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-blue-900 text-white py-12">
+    <!-- DESKTOP / TABLET FOOTER -->
+    <div class="hidden md:grid max-w-8xl mx-auto px-4 grid-cols-3 gap-12">
+
+      <!-- Logo & About -->
+      <div class="pl-9">
+        <div class="flex items-center gap-3">
+          <img src="./images/admin.png" class="h-10" alt="Govt Apply Zone Logo">
+          <div>
+            <div class="font-semibold text-lg">
+              <span class="text-yellow-300">Govt </span>
+              <span class="text-rose-300">Apply </span>
+              <span class="text-lime-500">Zone </span>
+            </div>
+            <div class="text-white/80 text-sm">Your Complete Exam Guide</div>
+          </div>
+        </div>
+        <p class="text-white/90 mt-4">
+          Your one-stop destination for all Government exams information, updates, and resources.
+          Stay informed and prepare effectively for your success. Think high, Achieve Big.
+        </p>
+        <p class="text-white/90 mt-3">
+          <i class="fa fa-envelope text-yellow-300 mr-2"></i> govtapplyzone@gmail.com
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="pl-12">
+        <h4 class="font-semibold text-lg">Quick Links</h4>
+        <div class="mt-3 flex flex-col gap-2">
+          <a href="Results.html" class="text-white/90 hover:text-yellow-300 transition">Results</a>
+          <a href="All-Exams.html" class="text-white/90 hover:text-yellow-300 transition">Exams</a>
+          <a href="Mock-tests.html" class="text-white/90 hover:text-yellow-300 transition">Mock Tests</a>
+          <a href="Admit-cards.html" class="text-white/90 hover:text-yellow-300 transition">Admit Cards</a>
+          <a href="All-Books.html" class="text-white/90 hover:text-yellow-300 transition">Books</a>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div>
+        <h4 class="font-semibold text-lg">Connect With Us</h4>
+        <p class="text-white/90 mt-2">
+          Follow us on social media for daily updates, tips, and notifications.
+        </p>
+        <div class="flex gap-3 mt-3">
+          <a href="https://www.facebook.com/share/16herodZ3H/"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-facebook-f"></i></a>
+          <a href=" https://x.com/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/@govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/company/govtapplyzone"
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition"><i
+              class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESKTOP COPYRIGHT LINE -->
+    <div class="hidden md:block border-t border-white/10 mt-10 pt-4">
+      <div class="max-w-8xl mx-auto px-6 text-center text-white/80 text-sm">
+        © 2025 Govt Apply Zone — Made with ❤️ for aspirants.
+      </div>
+    </div>
+
+    <!-- MOBILE FOOTER -->
+    <div class="md:hidden flex flex-col items-center text-center gap-6 px-6">
+      <img src="./images/admin.png" class="h-12 rounded-full shadow-md border border-yellow-400"
+        alt="Govt Apply Zone Logo">
+      <h2 class="text-2xl font-bold">
+        <span class="text-yellow-300">Govt </span>
+        <span class="text-rose-300">Apply </span>
+        <span class="text-lime-500">Zone</span>
+      </h2>
+      <p class="text-white/90 text-sm leading-relaxed">
+        Your one-stop destination for all Government exams updates. Stay motivated. Stay ahead!
+      </p>
+
+      <!-- Socials -->
+      <div class="flex justify-center gap-6 mt-4">
+        <a href="https://www.facebook.com/share/16herodZ3H/" class="text-2xl text-blue-400 hover:scale-125 transition"><i class="fab fa-facebook"></i></a>
+        <a href=" https://x.com/govtapplyzone" class="text-2xl text-sky-400 hover:scale-125 transition"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/govtapplyzone" class="text-2xl text-pink-500 hover:scale-125 transition"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@govtapplyzone" class="text-2xl text-red-500 hover:scale-125 transition"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/govtapplyzone" class="text-2xl text-blue-600 hover:scale-125 transition"><i class="fab fa-linkedin"></i></a>
+      </div>
+
+      <!-- Links -->
+      <div class="flex justify-center gap-5 text-white/80 mt-5 text-sm">
+        <a href="#home" class="hover:text-yellow-300">Home</a>
+        <a href="#about" class="hover:text-yellow-300">Exam</a>
+        <a href="#updates" class="hover:text-yellow-300">Syllabus</a>
+        <a href="#cutoffs" class="hover:text-yellow-300">Results</a>
+      </div>
+
+      <!-- MOBILE COPYRIGHT LINE -->
+      <p class="text-xs text-white/70 mt-6 border-t border-white/10 pt-3">
+        © 2025 Govt Apply Zone — Made with ❤️ for aspirants.
+      </p>
+    </div>
+  </footer>
+  <!-- SCRIPTS -->
+ <script>
+    /* ---------- exams array (copied from your script) ---------- */
+    const exams = [
+      { name: "SSC CGL 2025", eligibility: "Graduate", month: "September", fee: "₹100", desc: "Combined Graduate Level exam for recruitment to Group B & C posts in various ministries and departments.", vacancies: "14582+", date: "September 2025", detailsPage: "ssc-cgl-2025.html", officialLink: "https://ssc.gov.in" },
+      { name: "SSC CHSL 2025", eligibility: "12th", month: "May", fee: "₹100", desc: "Combined Higher Secondary Level exam for DEO, LDC, and Postal Assistant / Sorting Assistant posts.", vacancies: "3131+", date: "May 2025", detailsPage: "ssc-chsl-2025.html", officialLink: "https://ssc.gov.in" },
+      { name: "SSC MTS 2025", eligibility: "10th", month: "February", fee: "₹100", desc: "Multi-Tasking Staff exam for various non-gazetted posts.", vacancies: "10000+", date: "February 2025", detailsPage: "ssc-mts-2025.html", officialLink: "https://ssc.gov.in" },
+      { name: "SSC GD Constable 2025", eligibility: "10th", month: "October", fee: "₹100", desc: "General Duty Constable recruitment in CAPFs, NIA, SSF, and Assam Rifles.", vacancies: "25000+", date: "October 2025", detailsPage: "ssc-gd-constable-2025.html", officialLink: "https://ssc.gov.in" },
+      { name: "SSC JE 2025", eligibility: "Diploma", month: "June", fee: "₹100", desc: "Junior Engineer exam for Civil, Mechanical, and Electrical branches.", vacancies: "1200+", date: "June 2025", detailsPage: "ssc-je-2025.html", officialLink: "https://ssc.gov.in" },
+      { name: "SSC CPO 2025", eligibility: "Graduate", month: "June", fee: "₹200", desc: "Sub-Inspector recruitment in Delhi Police and CAPFs.", vacancies: "5000+", date: "June 2025", detailsPage: "ssc-cpo-2025.html", officialLink: "https://ssc.gov.in" },
+      { name: "SSC Stenographer 2025", eligibility: "12th", month: "June", fee: "₹100", desc: "Stenographer Grade C & D recruitment in various ministries and departments.", vacancies: "1000+", date: "June 2025", detailsPage: "ssc-stenographer-2025.html", officialLink: "https://ssc.gov.in" },
+      { name: "SSC Selection Post 2025", eligibility: "10th/12th/Graduate", month: "July", fee: "₹100", desc: "Recruitment for multiple posts across ministries through selection-based exam.", vacancies: "2000+", date: "July 2025", detailsPage: "ssc-selection-post-2025.html", officialLink: "https://ssc.gov.in" },
+      { name: "SSC JHT 2025", eligibility: "Post Graduate", month: "November", fee: "₹100", desc: "Junior Hindi Translator, Senior Translator, and Hindi Pradhyapak examination.", vacancies: "500+", date: "November 2025", detailsPage: "ssc-jht-2025.html", officialLink: "https://ssc.gov.in" },
+
+      { name: "HPSC HCS 2025", eligibility: "Graduate", month: "January", fee: "₹1000", desc: "Haryana Civil Services exam for state administrative roles.", vacancies: "150+", date: "January 2025", detailsPage: "hpsc-hcs-2025.html", officialLink: "https://hpsc.gov.in" },
+      { name: "Punjab PCS 2025", eligibility: "Graduate", month: "August", fee: "₹500", desc: "Punjab Civil Services exam by PPSC for administrative posts.", vacancies: "180+", date: "August 2025", detailsPage: "punjab-pcs-2025.html", officialLink: "https://ppsc.gov.in" },
+
+      { name: "JPSC Combined Civil Services 2025", eligibility: "Graduate", month: "June", fee: "₹100", desc: "Jharkhand PSC exam for administrative posts in state government.", vacancies: "250+", date: "June 2025", detailsPage: "jpsc-combined-civil-2025.html", officialLink: "https://jpsc.gov.in" },
+      { name: "JSSC CGL 2025", eligibility: "Graduate", month: "April", fee: "₹100", desc: "Graduate-level recruitment for various departments under Jharkhand SSC.", vacancies: "2000+", date: "April 2025", detailsPage: "jssc-cgl-2025.html", officialLink: "https://jssc.nic.in" },
+
+      { name: "UPSC Civil Services Examination (CSE) 2025", eligibility: "Graduate", month: "May", fee: "₹100", desc: "Prestigious exam recruiting for IAS, IPS, IFS and other All-India & Central Services.", vacancies: "≈ 1000+", date: "May 2025", detailsPage: "upsc-cse-2025.html", officialLink: "https://upsc.gov.in" },
+      { name: "UPSC Indian Forest Service (IFoS) 2025", eligibility: "Graduate", month: "May", fee: "₹200", desc: "Exam for Indian Forest Service posts through UPSC, preceded by CSE Prelims.", vacancies: "≈ 180+", date: "May 2025", detailsPage: "upsc-ifos-2025.html", officialLink: "https://upsc.gov.in" },
+      { name: "UPSC Engineering Services Examination (ESE) 2025", eligibility: "Engineering Degree", month: "February", fee: "₹200", desc: "Recruitment of engineers for technical services (railways, defence, PWD etc.) via UPSC.", vacancies: "≈ 250+", date: "February 2025", detailsPage: "upsc-ese-2025.html", officialLink: "https://upsc.gov.in" },
+      { name: "UPSC Combined Defence Services (CDS) I 2025", eligibility: "Graduate", month: "April", fee: "₹200", desc: "Recruitment for officer training academies in Army, Navy & Air Force via UPSC.", vacancies: "≈ 400+", date: "April 2025", detailsPage: "upsc-cds-i-2025.html", officialLink: "https://upsc.gov.in" },
+      { name: "UPSC NDA/NA I 2025", eligibility: "12th", month: "April", fee: "Exempt/₹0", desc: "Entry to Army, Navy and Air Force via NDA/NA exam conducted by UPSC.", vacancies: "≈ 350+", date: "April 2025", detailsPage: "upsc-nda-na-i-2025.html", officialLink: "https://upsc.gov.in" },
+      { name: "UPSC IES/ISS 2025", eligibility: "Post-Graduate (Economics/Statistics)", month: "June", fee: "₹200", desc: "Recruitment of economists/statisticians for Central Govt departments via UPSC.", vacancies: "≈ 55+", date: "June 2025", detailsPage: "upsc-ies-iss-2025.html", officialLink: "https://upsc.gov.in" },
+      { name: "UPSC Combined Geo-Scientist & Geologist Examination 2025", eligibility: "Post-Graduate Geology/Geophysics", month: "February", fee: "₹200", desc: "Recruitment of scientists/geologists in Geological Survey of India & related bodies via UPSC.", vacancies: "≈ 200+", date: "February 2025", detailsPage: "upsc-geo-scientist-2025.html", officialLink: "https://upsc.gov.in" },
+
+      { name: "IBPS PO 2025", eligibility: "Graduate", month: "September", fee: "₹850", desc: "Recruitment for Probationary Officers in Public Sector Banks under IBPS.", vacancies: "4000+", date: "September 2025", detailsPage: "ibps-po-2025.html", officialLink: "https://ibps.in" },
+      { name: "IBPS Clerk 2025", eligibility: "Graduate", month: "August", fee: "₹850", desc: "Recruitment for Clerical Cadre in Public Sector Banks through IBPS.", vacancies: "6000+", date: "August 2025", detailsPage: "ibps-clerk-2025.html", officialLink: "https://ibps.in" },
+      { name: "IBPS RRB 2025", eligibility: "Graduate", month: "June", fee: "₹850", desc: "Recruitment for Regional Rural Banks including Officer Scale I, II, III and Office Assistant.", vacancies: "9000+", date: "June 2025", detailsPage: "ibps-rrb-2025.html", officialLink: "https://ibps.in" },
+      { name: "SBI PO 2025", eligibility: "Graduate", month: "October", fee: "₹750", desc: "Recruitment for Probationary Officers in State Bank of India with three-tier selection.", vacancies: "2000+", date: "October 2025", detailsPage: "sbi-po-2025.html", officialLink: "https://sbi.co.in" },
+      { name: "SBI Clerk 2025", eligibility: "Graduate", month: "December", fee: "₹750", desc: "Recruitment for Junior Associates (Customer Support & Sales) in State Bank of India.", vacancies: "8000+", date: "December 2025", detailsPage: "sbi-clerk-2025.html", officialLink: "https://sbi.co.in" },
+      { name: "RBI Grade B 2025", eligibility: "Graduate", month: "June", fee: "₹850", desc: "RBI recruitment for Grade B Officers in various departments across India.", vacancies: "291+", date: "June 2025", detailsPage: "rbi-grade-b-2025.html", officialLink: "https://rbi.org.in" },
+      { name: "RBI Assistant 2025", eligibility: "Graduate", month: "February", fee: "₹450", desc: "Recruitment for Assistants in the Reserve Bank of India across regional offices.", vacancies: "900+", date: "February 2025", detailsPage: "rbi-assistant-2025.html", officialLink: "https://rbi.org.in" },
+      { name: "NABARD Grade A 2025", eligibility: "Graduate", month: "March", fee: "₹800", desc: "Recruitment for Assistant Managers in National Bank for Agriculture and Rural Development.", vacancies: "150+", date: "March 2025", detailsPage: "nabard-grade-a-2025.html", officialLink: "https://nabard.org" },
+      { name: "IDBI Assistant Manager 2025", eligibility: "Graduate", month: "April", fee: "₹1000", desc: "Recruitment for Assistant Manager Grade A positions at IDBI Bank.", vacancies: "500+", date: "April 2025", detailsPage: "idbi-assistant-manager-2025.html", officialLink: "https://idbibank.in" },
+      { name: "LIC AAO 2025", eligibility: "Graduate", month: "January", fee: "₹700", desc: "Recruitment for Assistant Administrative Officer positions in Life Insurance Corporation of India.", vacancies: "300+", date: "January 2025", detailsPage: "lic-aao-2025.html", officialLink: "https://licindia.in" },
+
+      { name: "RRB NTPC 2025", eligibility: "12th/Graduate", month: "March", fee: "₹500", desc: "Recruitment for Non-Technical Popular Categories including Clerk, Typist, and Station Master.", vacancies: "35000+", date: "March 2025", detailsPage: "rrb-ntpc-2025.html", officialLink: "https://indianrailways.gov.in" },
+      { name: "RRB Group D 2025", eligibility: "10th", month: "May", fee: "₹500", desc: "Recruitment for Level 1 posts under Railway Recruitment Boards across zones.", vacancies: "103769+", date: "May 2025", detailsPage: "rrb-group-d-2025.html", officialLink: "https://indianrailways.gov.in" },
+      { name: "RRB JE 2025", eligibility: "Diploma/Engineering", month: "July", fee: "₹500", desc: "Recruitment for Junior Engineer posts in various Railway departments.", vacancies: "13000+", date: "July 2025", detailsPage: "rrb-je-2025.html", officialLink: "https://indianrailways.gov.in" },
+      { name: "RRB ALP 2025", eligibility: "10th/ITI/Diploma", month: "August", fee: "₹500", desc: "Recruitment for Assistant Loco Pilot and Technicians in Indian Railways.", vacancies: "5696+", date: "August 2025", detailsPage: "rrb-alp-2025.html", officialLink: "https://indianrailways.gov.in" },
+      { name: "RPF Constable 2025", eligibility: "10th", month: "October", fee: "₹500", desc: "Recruitment for Constable posts in Railway Protection Force and RPSF.", vacancies: "4208+", date: "October 2025", detailsPage: "rpf-constable-2025.html", officialLink: "https://indianrailways.gov.in" },
+      { name: "RPF SI 2025", eligibility: "Graduate", month: "October", fee: "₹500", desc: "Recruitment for Sub-Inspector posts in Railway Protection Force.", vacancies: "452+", date: "October 2025", detailsPage: "rpf-si-2025.html", officialLink: "https://indianrailways.gov.in" },
+      { name: "DFCCIL Executive 2025", eligibility: "Graduate/Diploma", month: "September", fee: "₹1000", desc: "Dedicated Freight Corridor Corporation recruitment for Executive and Junior Executive posts.", vacancies: "535+", date: "September 2025", detailsPage: "dfccil-executive-2025.html", officialLink: "https://dfccil.com" },
+      { name: "IRCON Engineer 2025", eligibility: "Engineering Degree", month: "July", fee: "₹1000", desc: "Recruitment for civil and electrical engineers in IRCON International Limited.", vacancies: "100+", date: "July 2025", detailsPage: "ircon-engineer-2025.html", officialLink: "https://ircon.org" },
+
+      { name: "ICAR AIEEA 2025", eligibility: "12th/Graduate", month: "April", fee: "₹800", desc: "Indian Council of Agricultural Research exam for UG, PG, and PhD admissions in agriculture universities.", vacancies: "N/A", date: "April 2025", detailsPage: "icar-aieea-2025.html", officialLink: "https://icar.org.in" },
+      { name: "NABARD Grade A (Agriculture Specialist) 2025", eligibility: "Graduate in Agriculture", month: "March", fee: "₹800", desc: "Recruitment for Agriculture Specialist Officers in NABARD across India.", vacancies: "50+", date: "March 2025", detailsPage: "nabard-grade-a-agri-2025.html", officialLink: "https://nabard.org" },
+      { name: "FCI AGM (Technical) 2025", eligibility: "B.Sc Agriculture/Engineering", month: "August", fee: "₹1000", desc: "Recruitment for Assistant General Manager (Technical) in Food Corporation of India.", vacancies: "400+", date: "August 2025", detailsPage: "fci-agm-technical-2025.html", officialLink: "https://fci.gov.in" },
+      { name: "AAO (Agriculture) 2025", eligibility: "B.Sc Agriculture", month: "May", fee: "₹500", desc: "Assistant Agriculture Officer recruitment under various State PSCs for agriculture services.", vacancies: "1000+", date: "May 2025", detailsPage: "aao-agriculture-2025.html", officialLink: "https://example.com" },
+      { name: "ICAR Technician (T-1) 2025", eligibility: "10th Pass", month: "February", fee: "₹1000", desc: "Recruitment for Technician posts in Indian Council of Agricultural Research Institutes.", vacancies: "600+", date: "February 2025", detailsPage: "icar-technician-t1-2025.html", officialLink: "https://icar.org.in" },
+      { name: "UPSSSC Agriculture Technical Assistant 2025", eligibility: "B.Sc Agriculture", month: "September", fee: "₹25", desc: "Recruitment by UPSSSC for Agriculture Technical Assistant Group C posts.", vacancies: "2000+", date: "September 2025", detailsPage: "upsssc-agri-tech-asst-2025.html", officialLink: "https://upsssc.gov.in" },
+      { name: "State Agriculture Officer 2025", eligibility: "B.Sc Agriculture", month: "November", fee: "₹500", desc: "Various state PSCs recruit Agriculture Officers for State Agriculture Departments.", vacancies: "500+", date: "November 2025", detailsPage: "state-agriculture-officer-2025.html", officialLink: "https://example.com" },
+
+      { name: "CTET 2025", eligibility: "Graduate with B.Ed", month: "January", fee: "₹1000", desc: "Central Teacher Eligibility Test for teaching in CBSE-affiliated schools.", vacancies: "N/A", date: "January 2025", detailsPage: "ctet-2025.html", officialLink: "https://ctet.nic.in" },
+      { name: "UPTET 2025", eligibility: "Graduate with B.Ed", month: "February", fee: "₹700", desc: "Uttar Pradesh Teacher Eligibility Test for Primary and Upper Primary level teachers.", vacancies: "N/A", date: "February 2025", detailsPage: "uptet-2025.html", officialLink: "https://updeled.gov.in" },
+      { name: "REET 2025", eligibility: "Graduate with B.Ed/D.El.Ed", month: "May", fee: "₹550", desc: "Rajasthan Eligibility Examination for Teachers conducted by BSER.", vacancies: "N/A", date: "May 2025", detailsPage: "reet-2025.html", officialLink: "https://rajeduboard.rajasthan.gov.in" },
+      { name: "HTET 2025", eligibility: "Graduate with B.Ed", month: "December", fee: "₹1000", desc: "Haryana Teacher Eligibility Test for various teaching levels (PRT, TGT, PGT).", vacancies: "N/A", date: "December 2025", detailsPage: "htet-2025.html", officialLink: "https://bseh.org.in" },
+      { name: "KVS Teacher Recruitment 2025", eligibility: "Graduate/B.Ed", month: "March", fee: "₹1500", desc: "Recruitment for PRT, TGT, and PGT teachers in Kendriya Vidyalayas across India.", vacancies: "6000+", date: "March 2025", detailsPage: "kvs-teacher-recruitment-2025.html", officialLink: "https://kvsangathan.nic.in" },
+      { name: "NVS Teacher Recruitment 2025", eligibility: "Graduate/B.Ed", month: "April", fee: "₹1000", desc: "Navodaya Vidyalaya Samiti recruitment for teaching and non-teaching positions.", vacancies: "3500+", date: "April 2025", detailsPage: "nvs-teacher-recruitment-2025.html", officialLink: "https://navodaya.gov.in" },
+      { name: "DSSSB Teacher 2025", eligibility: "Graduate with B.Ed/D.El.Ed", month: "July", fee: "₹100", desc: "Delhi Subordinate Services Selection Board recruitment for teachers in Delhi Govt. schools.", vacancies: "4000+", date: "July 2025", detailsPage: "dsssb-teacher-2025.html", officialLink: "https://dsssb.delhi.gov.in" },
+      { name: "Army Public School (AWES) 2025", eligibility: "Graduate with B.Ed", month: "November", fee: "₹385", desc: "AWES recruitment for PGT, TGT, and PRT positions in Army Public Schools.", vacancies: "8000+", date: "November 2025", detailsPage: "awes-teacher-recruitment-2025.html", officialLink: "https://awesindia.com" },
+      { name: "SUPER TET 2025", eligibility: "Graduate with B.Ed", month: "August", fee: "₹700", desc: "Uttar Pradesh Super Teacher Eligibility Test for government-aided schools.", vacancies: "5000+", date: "August 2025", detailsPage: "super-tet-2025.html", officialLink: "https://updeled.gov.in" },
+      { name: "CTET (July) 2025", eligibility: "Graduate with B.Ed", month: "July", fee: "₹1000", desc: "Second CTET exam cycle conducted by CBSE in July session.", vacancies: "N/A", date: "July 2025", detailsPage: "ctet-july-2025.html", officialLink: "https://ctet.nic.in" },
+
+      { name: "UGC NET 2025", eligibility: "Postgraduate", month: "June", fee: "₹1150", desc: "National Eligibility Test for Assistant Professor and JRF positions across universities.", vacancies: "N/A", date: "June 2025", detailsPage: "ugc-net-2025.html", officialLink: "https://ugcnet.nta.nic.in" },
+      { name: "CSIR UGC NET 2025", eligibility: "Postgraduate (Science Stream)", month: "June", fee: "₹1100", desc: "Joint CSIR-UGC Test for JRF and Lectureship in science subjects.", vacancies: "N/A", date: "June 2025", detailsPage: "csir-ugc-net-2025.html", officialLink: "https://csirhrdg.res.in" },
+      { name: "ICAR NET 2025", eligibility: "Postgraduate in Agriculture", month: "September", fee: "₹1000", desc: "ICAR National Eligibility Test for Assistant Professor/Scientist roles in agriculture universities.", vacancies: "N/A", date: "September 2025", detailsPage: "icar-net-2025.html", officialLink: "https://icar.org.in" },
+      { name: "GATE (Agriculture Engineering) 2025", eligibility: "Engineering/Science Graduate", month: "February", fee: "₹1800", desc: "Graduate Aptitude Test in Engineering for M.Tech/PSU recruitment including agriculture stream.", vacancies: "N/A", date: "February 2025", detailsPage: "gate-agri-2025.html", officialLink: "https://gate.iitb.ac.in" },
+      { name: "IGNOU Assistant Professor 2025", eligibility: "Postgraduate + NET", month: "May", fee: "₹1000", desc: "Recruitment for teaching positions in Indira Gandhi National Open University.", vacancies: "200+", date: "May 2025", detailsPage: "ignou-assistant-professor-2025.html", officialLink: "https://ignou.ac.in" },
+      { name: "DU Assistant Professor 2025", eligibility: "Postgraduate + NET", month: "April", fee: "₹1000", desc: "University of Delhi recruitment for Assistant Professor positions across departments.", vacancies: "400+", date: "April 2025", detailsPage: "du-assistant-professor-2025.html", officialLink: "https://du.ac.in" },
+      { name: "BPSC Integrated 71st Combined (Prelim) 2025", eligibility: "Graduate", month: "September", fee: "₹100", desc: "Recruitment via BPSC for various state civil services and posts.", vacancies: "≈1298+", date: "September 2025", detailsPage: "bpsc-integrated-71st-2025.html", officialLink: "https://bpsc.bih.nic.in" },
+      { name: "BSSC CGL 2025", eligibility: "Graduate", month: "to be announced", fee: "₹100", desc: "Combined Graduate Level exam by Bihar Staff Selection Commission for various graduate-level posts in state govt departments.", vacancies: "≈1481+", date: "2025", detailsPage: "bssc-cgl-2025.html", officialLink: "https://bssc.bihar.gov.in" },
+      { name: "Bihar Police Constable Recruitment 2025", eligibility: "10th Pass", month: "July", fee: "₹100", desc: "Recruitment test for Constable posts in Bihar Police via state selection board.", vacancies: "≈19838+", date: "July-August 2025", detailsPage: "bihar-police-constable-2025.html", officialLink: "https://biharpolice.bihar.gov.in" },
+      { name: "Bihar Teacher Recruitment Examination (TRE-4) 2025", eligibility: "Graduate with B.Ed / 12th + D.El.Ed", month: "September", fee: "₹100", desc: "State teacher recruitment drive for various subject teachers in Bihar state schools.", vacancies: "NA", date: "September 2025", detailsPage: "bihar-tre-4-2025.html", officialLink: "https://bsebstet.com" },
+
+      { name: "BPSC Combined Competitive Exam 2025", eligibility: "Graduate", month: "September", fee: "₹100", desc: "Bihar Public Service Commission exam for administrative services and state posts.", vacancies: "1200+", date: "September 2025", detailsPage: "bpsc-cc-2025.html", officialLink: "https://bpsc.bih.nic.in" },
+      { name: "BSSC CGL 2025 (state)", eligibility: "Graduate", month: "June", fee: "₹100", desc: "Combined Graduate Level Exam for graduate-level posts under Bihar Staff Selection Commission.", vacancies: "1300+", date: "June 2025", detailsPage: "bssc-cgl-2025-state.html", officialLink: "https://bssc.bihar.gov.in" },
+      { name: "BPSSC SI 2025", eligibility: "Graduate", month: "October", fee: "₹100", desc: "Recruitment for Sub-Inspector in Bihar Police under BPSSC.", vacancies: "2000+", date: "October 2025", detailsPage: "bpssc-si-2025.html", officialLink: "https://bpssc.bihar.gov.in" },
+      { name: "Bihar TRE 2025", eligibility: "Graduate with B.Ed", month: "August", fee: "₹100", desc: "Teacher Recruitment Examination for government schools in Bihar.", vacancies: "1,00,000+", date: "August 2025", detailsPage: "bihar-tre-2025.html", officialLink: "https://bsebstet.com" },
+
+      { name: "UPPSC PCS 2025", eligibility: "Graduate", month: "April", fee: "₹125", desc: "UP Public Service Commission exam for state civil services and executive posts.", vacancies: "900+", date: "April 2025", detailsPage: "uppsc-pcs-2025.html", officialLink: "https://uppsc.up.nic.in" },
+      { name: "UPSSSC PET 2025", eligibility: "10th Pass", month: "August", fee: "₹185", desc: "Preliminary Eligibility Test for Group B & C recruitments in UP government.", vacancies: "Various", date: "August 2025", detailsPage: "upsssc-pet-2025.html", officialLink: "https://upsssc.gov.in" },
+      { name: "UP Police SI 2025", eligibility: "Graduate", month: "October", fee: "₹400", desc: "Sub-Inspector recruitment under Uttar Pradesh Police Recruitment Board.", vacancies: "9534+", date: "October 2025", detailsPage: "up-police-si-2025.html", officialLink: "https://uppbpb.gov.in" },
+      { name: "UPTET 2025", eligibility: "Graduate with B.Ed", month: "February", fee: "₹700", desc: "Uttar Pradesh Teacher Eligibility Test for teaching eligibility.", vacancies: "N/A", date: "February 2025", detailsPage: "uptet-2025.html", officialLink: "https://updeled.gov.in" },
+
+      { name: "MPPSC State Services 2025", eligibility: "Graduate", month: "January", fee: "₹500", desc: "Madhya Pradesh PSC exam for various administrative & state-level posts.", vacancies: "400+", date: "January 2025", detailsPage: "mppsc-state-services-2025.html", officialLink: "https://mppsc.mp.gov.in" },
+      { name: "MP Police Constable 2025", eligibility: "10th Pass", month: "June", fee: "₹500", desc: "Recruitment for Police Constables under MPPEB.", vacancies: "7000+", date: "June 2025", detailsPage: "mp-police-constable-2025.html", officialLink: "https://esb.mp.gov.in" },
+      { name: "MP TET 2025", eligibility: "Graduate with B.Ed", month: "April", fee: "₹600", desc: "Teacher Eligibility Test for recruitment in MP state schools.", vacancies: "N/A", date: "April 2025", detailsPage: "mp-tet-2025.html", officialLink: "https://mptet.mp.gov.in" },
+
+      { name: "RPSC RAS 2025", eligibility: "Graduate", month: "July", fee: "₹250", desc: "Rajasthan Administrative Services exam by RPSC for state-level posts.", vacancies: "1000+", date: "July 2025", detailsPage: "rpsc-ras-2025.html", officialLink: "https://rpsc.rajasthan.gov.in" },
+      { name: "REET 2025", eligibility: "Graduate with B.Ed", month: "May", fee: "₹550", desc: "Rajasthan Eligibility Exam for Teachers for primary and upper primary levels.", vacancies: "N/A", date: "May 2025", detailsPage: "reet-2025.html", officialLink: "https://rajeduboard.rajasthan.gov.in" },
+      { name: "Rajasthan Police Constable 2025", eligibility: "12th Pass", month: "September", fee: "₹500", desc: "Recruitment for Constables in Rajasthan Police.", vacancies: "4000+", date: "September 2025", detailsPage: "rajasthan-police-constable-2025.html", officialLink: "https://police.rajasthan.gov.in" },
+
+      { name: "MPSC State Services 2025", eligibility: "Graduate", month: "March", fee: "₹544", desc: "Maharashtra PSC recruitment for state civil and executive posts.", vacancies: "700+", date: "March 2025", detailsPage: "mpsc-state-services-2025.html", officialLink: "https://mpsc.gov.in" },
+      { name: "Maharashtra Police SI 2025", eligibility: "Graduate", month: "June", fee: "₹450", desc: "Recruitment for Sub-Inspectors in Maharashtra Police Department.", vacancies: "2000+", date: "June 2025", detailsPage: "maharashtra-police-si-2025.html", officialLink: "https://mahapolice.gov.in" },
+      { name: "Maharashtra TET 2025", eligibility: "Graduate with B.Ed", month: "December", fee: "₹500", desc: "Teacher Eligibility Test for state school recruitment in Maharashtra.", vacancies: "N/A", date: "December 2025", detailsPage: "maharashtra-tet-2025.html", officialLink: "https://mahapariksha.gov.in" },
+
+      { name: "GPSC Civil Services Exam 2025", eligibility: "Graduate", month: "February", fee: "₹100", desc: "Gujarat Public Service Commission exam for Class I & II services.", vacancies: "400+", date: "February 2025", detailsPage: "gpsc-civil-services-2025.html", officialLink: "https://gpsc.gujarat.gov.in" },
+      { name: "Gujarat Police SI 2025", eligibility: "Graduate", month: "May", fee: "₹100", desc: "Recruitment for Sub-Inspector posts under Gujarat Police.", vacancies: "1000+", date: "May 2025", detailsPage: "gujarat-police-si-2025.html", officialLink: "https://gujaratpolice.gov.in" },
+
+      { name: "WBPSC Civil Services (WBCS) 2025", eligibility: "Graduate", month: "March", fee: "₹210", desc: "West Bengal Civil Service exam for Group A, B, C, D services.", vacancies: "700+", date: "March 2025", detailsPage: "wbpsc-wbcs-2025.html", officialLink: "https://wbpsc.gov.in" },
+      { name: "WB Primary TET 2025", eligibility: "12th with D.El.Ed", month: "June", fee: "₹150", desc: "Teacher Eligibility Test for primary school teachers in West Bengal.", vacancies: "N/A", date: "June 2025", detailsPage: "wb-primary-tet-2025.html", officialLink: "https://wbbpe.org" },
+
+      { name: "KPSC KAS 2025", eligibility: "Graduate", month: "August", fee: "₹600", desc: "Karnataka Administrative Service exam for Group A & B posts.", vacancies: "400+", date: "August 2025", detailsPage: "kpsc-kas-2025.html", officialLink: "https://kpsc.kar.nic.in" },
+      { name: "Karnataka TET 2025", eligibility: "Graduate with B.Ed", month: "November", fee: "₹700", desc: "Teacher Eligibility Test for government schools under KARTET.", vacancies: "N/A", date: "November 2025", detailsPage: "karnataka-tet-2025.html", officialLink: "https://schooleducation.kar.nic.in" },
+
+      { name: "TNPSC Group 1 Exam 2025", eligibility: "Graduate", month: "April", fee: "₹150", desc: "Tamil Nadu PSC exam for state-level administrative posts.", vacancies: "150+", date: "April 2025", detailsPage: "tnpsc-group1-2025.html", officialLink: "https://tnpsc.gov.in" },
+      { name: "TN TRB Teacher Exam 2025", eligibility: "Graduate with B.Ed", month: "September", fee: "₹500", desc: "Recruitment for teachers via Tamil Nadu Teachers Recruitment Board.", vacancies: "3000+", date: "September 2025", detailsPage: "tn-trb-teacher-2025.html", officialLink: "https://trb.tn.gov.in" },
+
+      { name: "OPSC OAS 2025", eligibility: "Graduate", month: "February", fee: "₹500", desc: "Odisha Administrative Services exam for Group A & B services.", vacancies: "500+", date: "February 2025", detailsPage: "opsc-oas-2025.html", officialLink: "https://opsc.gov.in" },
+      { name: "OSSSC Group C 2025", eligibility: "12th/Graduate", month: "May", fee: "₹100", desc: "Recruitment for various Group C posts under OSSSC.", vacancies: "3000+", date: "May 2025", detailsPage: "osssc-group-c-2025.html", officialLink: "https://osssc.gov.in" },
+
+      { name: "APPSC Group 1 2025", eligibility: "Graduate", month: "May", fee: "₹250", desc: "Andhra Pradesh PSC recruitment for state-level executive posts.", vacancies: "100+", date: "May 2025", detailsPage: "appsc-group1-2025.html", officialLink: "https://psc.ap.gov.in" },
+      { name: "TSPSC Group 1 2025", eligibility: "Graduate", month: "October", fee: "₹200", desc: "Telangana State PSC exam for administrative and executive cadre posts.", vacancies: "500+", date: "October 2025", detailsPage: "tspsc-group1-2025.html", officialLink: "https://tspsc.gov.in" }
+    ];
+
+    /* ---------- helpers: categorize exam & provide age limits ---------- */
+
+    function categorizeExam(name) {
+      const n = name.toLowerCase();
+      if (n.includes("ssc")) return "SSC";
+      if (n.includes("upsc") || n.includes("nda") || n.includes("cds") || n.includes("ese") || n.includes("geo") || n.includes("ifos") || n.includes("ies") || n.includes("cse")) return "UPSC";
+      if (n.includes("ibps") || n.includes("sbi") || n.includes("rbi") || n.includes("nabard") || n.includes("idbi") || n.includes("lic") || n.includes("bank")) return "Banking";
+      if (n.includes("rrb") || n.includes("rpf") || n.includes("rail") || n.includes("dfccil") || n.includes("ircon")) return "Railways";
+      if (n.includes("ctet") || n.includes("tet") || n.includes("teacher") || n.includes("kvs") || n.includes("nvs") || n.includes("timetable")) return "Teaching";
+      if (n.includes("icar") || n.includes("aicc") || n.includes("nabard") || n.includes("aao") || n.includes("agri") || n.includes("agriculture") || n.includes("icr")) return "Agriculture";
+      if (n.includes("police") || n.includes("constable") || n.includes("si") || n.includes("bpssc") || n.includes("rpf")) return "Police";
+      if (n.includes("psc") || n.includes("bssc") || n.includes("bpsc") || n.includes("uppsc") || n.includes("mppsc") || n.includes("rpsc") || n.includes("bpsc") || n.includes("gpsc") || n.includes("wbpsc") || n.includes("kpsc") || n.includes("tnpsc") || n.includes("opsc") || n.includes("appsc") || n.includes("tspsc")) return "State PSC";
+      return "Other";
+    }
+
+    function getAgeLimit(name, category) {
+      const n = name.toLowerCase();
+      // special cases
+      if (n.includes("nda")) return "16½–19½ years (approx.)";
+      if (n.includes("ctet") || n.includes("tet") || n.includes("net") || n.includes("ugc net")) return "N/A (eligibility-based)";
+      if (n.includes("ssc gd") || n.includes("constable")) return "18–23 / 18–25 (varies by post/state)";
+      if (category === "SSC") return "18–32 years (varies by post/category)";
+      if (category === "UPSC") return "21–32 years (varies by exam/post)";
+      if (category === "Banking") return "20–30 years (varies by bank/post)";
+      if (category === "Railways") return "18–33 years (varies by post)";
+      if (category === "Teaching") return "Usually no fixed upper age; varies by post/State";
+      if (category === "Agriculture") return "18–35 years (varies)";
+      if (category === "State PSC") return "21–40 years (varies by commission/category)";
+      if (category === "Police") return "18–28 years (varies by state/post)";
+      return "Varies – check official notification";
+    }
+
+    /* ---------- group exams into categories ---------- */
+    const grouped = exams.reduce((acc, ex) => {
+      const cat = categorizeExam(ex.name);
+      if (!acc[cat]) acc[cat] = [];
+      acc[cat].push(ex);
+      return acc;
+    }, {});
+
+    /* ---------- render HTML for each section ---------- */
+    const content = document.getElementById('content');
+
+    const categoryOrder = ["SSC","UPSC","Banking","Railways","Teaching","Agriculture","State PSC","Police","Other"];
+
+    function createSectionHTML(cat, list) {
+      const safeTitle = cat;
+      const count = list.length;
+      // build table rows
+      const rows = list.map(ex => {
+        const age = getAgeLimit(ex.name, cat);
+        const detailsHref = ex.detailsPage || "#";
+        const officialHref = ex.officialLink || "#";
+        // escape for safety
+        const esc = s => (s ? String(s).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;") : "");
+        return `
+          <tr class="odd:bg-white/2">
+            <td class="px-3 py-3 align-top text-sm">
+              <div class="font-semibold text-[#bfe8ff]">${esc(ex.name)}</div>
+              <div class="text-xs text-gray-300 mt-1">${esc(ex.desc || '')}</div>
+            </td>
+            <td class="px-3 py-3 align-top text-sm text-gray-200">${esc(ex.eligibility)}</td>
+            <td class="px-3 py-3 align-top text-sm text-gray-200">${esc(age)}</td>
+            <td class="px-3 py-3 align-top text-sm text-gray-200">${esc(ex.month || ex.date || '')}</td>
+            <td class="px-3 py-3 align-top text-sm">
+              <a href="${detailsHref}" class="inline-block px-3 py-2 rounded bg-gradient-to-r from-[#00c6ff] to-[#0072ff] text-white text-sm font-semibold shadow" aria-label="View details for ${esc(ex.name)}">View Details</a>
+            </td>
+            <td class="px-3 py-3 align-top text-sm">
+              <a href="${officialHref}" target="_blank" rel="noopener noreferrer" class="inline-block px-3 py-2 rounded bg-gradient-to-r from-[#a770ef] to-[#cf8bf3] text-white text-sm font-semibold shadow" aria-label="Official link for ${esc(ex.name)}">Official</a>
+            </td>
+          </tr>
+        `;
+      }).join("");
+
+      return `
+        <article id="${safeTitle.toLowerCase().replace(/\s+/g,'-')}" class="bg-[#071021] border border-white/5 rounded-lg p-4 md:p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h2 class="text-xl font-bold text-white">${safeTitle} Exams</h2>
+              <p class="text-sm text-gray-300 mt-1">Listing of ${count} ${safeTitle} exam${count>1?'s':''} — eligibility, approximate age limits and official links.</p>
+            </div>
+            <div class="text-sm text-gray-400 hidden sm:block">Total: <span class="font-semibold text-white">${count}</span></div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="min-w-full border-collapse w-full">
+              <thead class="text-left sticky top-0 bg-[#06111a]">
+                <tr>
+                  <th class="px-3 py-3 text-sm font-medium text-gray-300">Exam Name & Description</th>
+                  <th class="px-3 py-3 text-sm font-medium text-gray-300">Eligibility</th>
+                  <th class="px-3 py-3 text-sm font-medium text-gray-300">Age Limit</th>
+                  <th class="px-3 py-3 text-sm font-medium text-gray-300">Month / Date</th>
+                  <th class="px-3 py-3 text-sm font-medium text-gray-300">Details</th>
+                  <th class="px-3 py-3 text-sm font-medium text-gray-300">Official</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/6">
+                ${rows}
+              </tbody>
+            </table>
+          </div>
+        </article>
+      `;
+    }
+
+    // Render sections in chosen order
+    content.innerHTML = categoryOrder.map(cat => {
+      const list = grouped[cat] || [];
+      if (list.length === 0) return '';
+      return createSectionHTML(cat, list);
+    }).join('');
+
+    // Accessibility: focus first section heading if present
+    const firstHeading = content.querySelector('h2');
+    if (firstHeading) firstHeading.setAttribute('tabindex','-1');
+
+  </script>
+</body>
+</html>
