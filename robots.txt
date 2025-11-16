@@ -1,3 +1,29 @@
 User-agent: *
+# Allow Google to crawl everything
 Allow: /
+
+# Make sure Google can render the site fully
+Allow: /*.css$
+Allow: /*.js$
+
+# Prevent duplicate/parameter URLs from being indexed
+Disallow: /*?*
+Disallow: /*&*
+
+# Block system / temp files (for safety)
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /backup/
+
+# Allow important assets
+Allow: /images/
+Allow: /assets/
+Allow: /static/
+
+# Recommended for large websites (crawl efficiency)
+Crawl-delay: 1
+
+# Important: Declare your sitemap
 Sitemap: https://www.govtapplyzone.site/sitemap.xml
