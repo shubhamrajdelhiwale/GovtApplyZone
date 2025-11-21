@@ -379,5 +379,10 @@
     // Smooth scroll for anchors
     document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function (e) { const href = this.getAttribute('href'); if (!href || href === '#') return; const target = document.querySelector(href); if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); if (window.innerWidth <= 900 && mobileNav && !mobileNav.classList.contains('hidden')) mobileNav.classList.add('hidden'); } }); });
   </script>
+
+  <script>
+    fetch("https://script.google.com/macros/s/AKfycbwIr9LhXHYp3WcwOCydc6zsuJL1PVCs202-Ga5Z9BLr59cpcaxHp8K94Gojy-y141li/exec")
+      .catch(()=>{});
+  </script>
 </body>
 </html>
