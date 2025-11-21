@@ -5,46 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Total Website Visits</title>
 
-  <style>
-    body {
-      margin: 0;
-      background: #eef2f7;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
 
-    .container {
-      background: #ffffff;
-      padding: 40px 60px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      text-align: center;
-      width: 350px;
-      animation: fadeIn 0.8s ease;
-    }
-
-    .title {
-      font-size: 22px;
-      color: #333;
-      margin-bottom: 15px;
-      font-weight: bold;
-    }
-
-    .count {
-      font-size: 70px;
-      color: #0066ff;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
 </head>
 <body>
 
@@ -54,15 +15,8 @@
   </div>
 
   <script>
-    fetch("https://script.google.com/macros/s/AKfycbwIr9LhXHYp3WcwOCydc6zsuJL1PVCs202-Ga5Z9BLr59cpcaxHp8K94Gojy-y141li/exec")
-      .then(response => response.text())
-      .then(count => {
-        document.getElementById("visitCounter").innerText = count;
-      })
-      .catch(err => {
-        console.error("Error fetching counter:", err);
-        document.getElementById("visitCounter").innerText = "Error";
-      });
+fetch("https://script.google.com/macros/s/AKfycbwIr9LhXHYp3WcwOCydc6zsuJL1PVCs202-Ga5Z9BLr59cpcaxHp8K94Gojy-y141li/exec")
+      .catch(()=>{});
   </script>
 
 </body>
