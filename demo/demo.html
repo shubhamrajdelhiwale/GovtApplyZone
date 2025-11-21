@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Total Website Visits</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box {
+      background: #ffffff;
+      padding: 30px 50px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .title {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .number {
+      font-size: 60px;
+      font-weight: bold;
+      color: #0d6efd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <div class="title">Total Website Visits</div>
+    <div id="visitCount" class="number">0</div>
+  </div>
+
+  <script>
+    fetch("counter.php")
+      .then(response => response.text())
+      .then(count => {
+        document.getElementById("visitCount").textContent = count;
+      })
+      .catch(err => {
+        console.error("Error:", err);
+      });
+  </script>
+
+</body>
+</html>
