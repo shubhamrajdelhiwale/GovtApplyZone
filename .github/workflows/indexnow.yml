@@ -1,0 +1,41 @@
+name: IndexNow Submit
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.html"
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get install jq
+
+      - name: Submit URLs to IndexNow
+        run: |
+          URLS=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.html$' || true)
+
+          if [ -z "$URLS" ]; then
+            echo "No new HTML files to submit"
+            exit 0
+          fi
+
+          FULL_URLS=$(echo "$URLS" | sed 's|^|https://govtapplyzone.site/|')
+
+          JSON=$(jq -n \
+            --arg host "govtapplyzone.site" \
+            --arg key "${{ secrets.INDEXNOW_KEY }}" \
+            --arg keyLocation "https://govtapplyzone.site/${{ secrets.INDEXNOW_KEY }}.txt" \
+            --argjson urlList "$(echo "$FULL_URLS" | jq -R . | jq -s .)" \
+            '{host:$host,key:$key,keyLocation:$keyLocation,urlList:$urlList}')
+
+          curl -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            -d "$JSON"
