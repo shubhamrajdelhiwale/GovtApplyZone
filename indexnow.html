@@ -6,12 +6,24 @@
 </head>
 <body style="padding:20px;font-family:sans-serif">
 
-  <button onclick="submitToIndexNow([
-  'https://govtapplyzone.site/bears-vs-49ers.html'
-])">
-  Push to IndexNow
-</button>
+  <button onclick="runIndexNow()">
+    Push to IndexNow
+  </button>
 
+  <script>
+    function runIndexNow() {
+      const urls = [
+        "https://govtapplyzone.site/bears-vs-49ers.html"
+      ];
+
+      console.log("IndexNow started for URLs:", urls);
+
+      submitToIndexNow(urls);
+
+      console.log("IndexNow request sent successfully ✅");
+      alert("IndexNow submitted. Check console for logs.");
+    }
+  </script>
 
 </body>
 </html>
