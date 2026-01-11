@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- TITLE -->
+  <title>Free Mock Tests for SSC, Railway, Police | GovtApplyZone</title>
+
+  <!-- DESCRIPTION -->
+  <meta name="description" content="Practice free mock tests for SSC, Railway, Police and other government exams. Latest pattern mock tests with instant result, detailed analysis and real exam experience.">
+
+  <!-- SEO -->
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://blog.govtapplyzone.site/Mock-tests.html">
+
+  <!-- VIEWPORT -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Free Mock Tests for SSC, Railway, Police">
+  <meta property="og:description" content="Attempt free mock tests for government exams and boost your preparation with real exam level questions.">
+  <meta property="og:url" content="https://blog.govtapplyzone.site/Mock-tests.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GovtApplyZone">
+
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Free Mock Tests – GovtApplyZone">
+  <meta name="twitter:description" content="Free mock tests for SSC, Railway, Police & other govt exams.">
+
+  <!-- TAILWIND CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- REACT CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <div id="root"></div>
+
+  <script>
+    const { useState } = React;
+
+    function App() {
+      const tests = [
+        { name: "SSC CGL Mock Tests", total: 25, free: 10 },
+        { name: "SSC CHSL Mock Tests", total: 20, free: 8 },
+        { name: "SSC GD Mock Tests", total: 30, free: 12 },
+        { name: "Railway NTPC Mock Tests", total: 22, free: 9 },
+        { name: "Railway Group D Mock Tests", total: 28, free: 11 },
+        { name: "Delhi Police Mock Tests", total: 18, free: 7 },
+        { name: "UP Police Mock Tests", total: 20, free: 8 },
+        { name: "Bihar Police Mock Tests", total: 16, free: 6 }
+      ];
+
+      return (
+        <>
+          <!-- HERO -->
+          <section className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white">
+            <div className="max-w-7xl mx-auto px-4 py-16">
+              <h1 className="text-4xl font-bold mb-4">
+                Free Mock Tests for Government Exams
+              </h1>
+              <p className="text-lg max-w-3xl">
+                Attempt free and premium mock tests for SSC, Railway, Police and other government exams.
+                Designed as per latest exam pattern to help you crack exams with confidence.
+              </p>
+            </div>
+          </section>
+
+          <!-- CONTENT -->
+          <section className="max-w-7xl mx-auto px-4 py-12">
+            <h2 className="text-2xl font-semibold mb-6">
+              Available Mock Test Series
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {tests.map((t, i) => (
+                <div key={i} className="bg-white rounded-xl shadow p-6 flex flex-col">
+                  <h3 className="font-semibold text-lg mb-2">{t.name}</h3>
+                  <p className="text-sm text-gray-600">Total Tests: {t.total}</p>
+                  <p className="text-sm text-green-600 mb-4">Free Tests: {t.free}</p>
+
+                  <a
+                    href="/"
+                    className="mt-auto text-center bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
+                  >
+                    Start Mock Test
+                  </a>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <!-- SEO CONTENT -->
+          <section className="bg-gray-200 py-12">
+            <div className="max-w-7xl mx-auto px-4">
+              <h2 className="text-2xl font-semibold mb-4">
+                Why Mock Tests Are Important for Exam Preparation?
+              </h2>
+
+              <p className="text-gray-700 mb-4">
+                Mock tests play a crucial role in government exam preparation. They help candidates
+                understand the real exam pattern, difficulty level and time management strategy.
+                Regular practice of mock tests improves accuracy, speed and confidence.
+              </p>
+
+              <p className="text-gray-700 mb-4">
+                GovtApplyZone mock tests are prepared by experts and follow the latest syllabus
+                for SSC, Railway, Police and other competitive exams. Each mock test provides instant
+                result and performance analysis so that candidates can identify their weak areas.
+              </p>
+
+              <p className="text-gray-700">
+                Whether you are preparing for SSC CGL, CHSL, GD, Railway NTPC, Group D or Police exams,
+                practicing mock tests regularly can significantly increase your chances of selection.
+              </p>
+            </div>
+          </section>
+
+          <!-- INTERNAL LINKS -->
+          <section className="max-w-7xl mx-auto px-4 py-10">
+            <h2 className="text-xl font-semibold mb-4">Important Links</h2>
+            <ul className="list-disc list-inside text-indigo-700">
+              <li><a href="/" className="hover:underline">Home</a></li>
+              <li><a href="/jobs.html" className="hover:underline">Latest Government Jobs</a></li>
+              <li><a href="/exams.html" className="hover:underline">Government Exams</a></li>
+              <li><a href="/syllabus.html" className="hover:underline">Exam Syllabus</a></li>
+            </ul>
+          </section>
+
+          <!-- FOOTER -->
+          <footer className="bg-gray-900 text-gray-300 py-6 text-center text-sm">
+            © {new Date().getFullYear()} GovtApplyZone.site – Free Mock Tests for Government Exams
+          </footer>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+
+</body>
+</html>
